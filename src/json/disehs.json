@@ -1,0 +1,142 @@
+[
+    {
+        "dishId":"D-001",
+        "dishName":"Nasi Goreng",
+        "dishPrice":{"small":420.00,"medium":660.00,"large":850.00},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"addon",
+        "description":"test",
+        "img":"../images/dish2.jpg"
+    },
+    {
+        "dishId":"D-002",
+        "dishName":"Pineapple Fried Rice",
+        "dishPrice":{"small":700.00,"medium":900.00,"large":1250.00},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"Fried Rice",
+        "description":"test",
+        "img":"../images/dish3.jpeg"
+    },
+    {
+        "dishId":"D-003",
+        "dishName":"Egg Mixed Rice",
+        "dishPrice":{"small":500.00,"medium":700.00,"large":1150.00},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"Fried Rice",
+        "description":"test",
+        "img":"../images/dish.jpg"
+    },
+    {
+        "dishId":"D-004",
+        "dishName":"Vegitable Mixed Rice",
+        "dishPrice":{"small":400.00,"medium":600.00,"large":1000.00},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"Fried Rice",
+        "description":"test",
+        "img":"../images/dish.jpg"
+    },
+    {
+        "dishId":"D-005",
+        "dishName":"Pork Fried Rice",
+        "dishPrice":{"small":100.00,"medium":"None","large":"None"},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"Bakery",
+        "description":"test",
+        "img":"../images/dish.jpg"
+
+    },
+    {
+        "dishId":"D-006",
+        "dishName":" Fried Brown Rice",
+        "dishPrice":{"small":300.00,"medium":400.00,"large":500.00},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"Rice & Curry",
+        "description":"test",
+        "img":"../images/dish.jpg"
+
+    },
+    {
+        "dishId":"D-007",
+        "dishName":"Mexican Fried Rice",
+        "dishPrice":{"small":600.00,"medium":800.00,"large":1000.00},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"Kottu",
+        "description":"test",
+        "img":"../images/dish.jpg"
+
+    },
+    {
+        "dishId":"D-008",
+        "dishName":"Shrimp Fried Rice",
+        "dishPrice":{"small":150.00,"medium":"None","large":380.00},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"bevarage",
+        "description":"test",
+        "img":"../images/dish.jpg"
+
+    },
+    {
+        "dishId":"D-009",
+        "dishName":"Indian Masala Fried Rice",
+        "dishPrice":{"small":"None","medium":250.00,"large":400.00},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"curry",
+        "description":"test",
+        "img":"../images/dish.jpg"
+
+    },
+    {
+        "dishId":"D-010",
+        "dishName":"Beef Fried Rice",
+        "dishPrice":{"small":"None","medium":250.00,"large":400.00},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"curry",
+        "description":"test",
+        "img":"../images/dish.jpg"
+
+    },
+    {
+        "dishId":"D-011",
+        "dishName":"Spicy Chicken Fried Rice",
+        "dishPrice":{"small":"None","medium":250.00,"large":400.00},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"curry",
+        "description":"test",
+        "img":"../images/dish.jpg"
+
+    },
+    {
+        "dishId":"D-012",
+        "dishName":"Sea Food Fried Rice",
+        "dishPrice":{"small":"None","medium":250.00,"large":400.00},
+        "dishSize":{"sizeOne":"Small","sizeTwo":"Medium","sizeThree":"Large"},
+        "ingredients":"test",
+        "dishStatus":"Available",
+        "category":"curry",
+        "description":"test",
+        "img":"../images/dish.jpg"
+
+    }
+]

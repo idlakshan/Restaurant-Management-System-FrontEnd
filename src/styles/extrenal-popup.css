@@ -1,0 +1,193 @@
+/* ---------------selected dishes Popup---------------- */
+.selectedDishPopup{
+    width: 30%;
+    height: 55%;
+    background-color: white;
+    position: fixed;
+    top: 5%;
+    left: 35%;
+    transform: translate(-50%, 50%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 2px solid var(--order-panel-color);
+    display: none;
+
+}
+
+.dishesBox-head {
+    width: 100%;
+    height: 20%;
+    display: flex;
+
+    /* border: 1px solid gold; */
+
+}
+
+.dishesBox-title {
+    position: relative;
+    display: inline;
+    left: 8%;
+    top: 30%;
+    font-size: 1.7rem;
+}
+
+.dishesBox-title::after {
+    content: '';
+    width: 5px;
+    height: 40px;
+    display: block;
+    background-color: var(--primary-color);
+    position: absolute;
+    left: -12px;
+    top: -1px;
+}
+
+.dishesBox-close-icon {
+    position: absolute;
+    left: 89%;
+    top: 0%;
+}
+
+
+.dishesBox-body {
+    width: 100%;
+    height: 60%;
+    /* border: 1px solid rgb(0, 255, 42); */
+    display: flex;
+
+
+}
+
+
+.dishesBox-body-left {
+    width: 60%;
+    height: 100%;
+    /* border: 1px solid seagreen; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+    position: relative;
+
+
+}
+
+.qty-input-container {
+    border: 1px solid var(--bg-color);
+    width: 220px;
+    height: 40px;
+    display: flex;
+    position: relative;
+    top: 5px;
+    margin-bottom: 30px;
+    font-size: 18px;
+
+}
+
+.qty-input {
+    width: 70px;
+    border: none;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.qty-input-btn {
+    width: 100%;
+    font-weight: 800;
+    color: white;
+    background-color: var(--order-panel-color);
+    border: none;
+    outline: none;
+
+}
+
+.size-input-container {
+    width: 230px;
+    background-color: var(--bg-color);
+    height: 48px;
+    margin-bottom: 12px;
+    display: flex;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+}
+
+.size-btn {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid rgb(255, 255, 255); */
+    border: none;
+    font-size: 1.3rem;
+    align-items: center;
+    outline: none;
+}
+
+.size-input {
+    width: 30%;
+    height: 100%;
+    border: none;
+    background-color: var(--bg-color);
+    /* border: 1px solid firebrick; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.dishesBox-body-right {
+    width: 40%;
+    height: 100%;
+    /* border: 1px solid rgb(139, 46, 46); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.number-area {
+    /* border: 1px solid green; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.btn-number {
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #e0e0e0;
+
+}
+
+.dishesBox-footer {
+    width: 100%;
+    height: 20%;
+    /* border: 1px solid rgb(0, 8, 255); */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.btn-addItem-dinein,
+.btn-addItem-takeaway {
+    width: 40%;
+    height: 50%;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1.2rem;
+
+}

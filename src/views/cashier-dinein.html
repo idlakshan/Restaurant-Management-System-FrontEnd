@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashier-dinein</title>
+
+    <!-- Fontawesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../styles/common-styles.css">
+    <link rel="stylesheet" href="../styles/cashier-dinein.css">
+    <link rel="stylesheet" href="../styles/extrenal-popup.css">
+</head>
+
+<body>
+    <main>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <img src="../icons/rms_logo.png" class="logo" height="50px"
+                    alt="resturant management system logo" loading="eager">
+                <p id="currentDateAndTime">11 NOV 2023 | 9.02 AM</p>
+                <div class="navbar-left-notifications">
+                    <img src="../icons/notification-orange.png" class="inPreparing-bell" alt="notifications"
+                        loading="eager" width="35px" height="35px">
+                    <p class="notifications-count">6</p>
+
+                    <img src="../icons/notification-green.png" class="ready-bell" alt="notifications"
+                        loading="eager" width="53px" height="42px" style="margin-left: 15px; padding-bottom:2px ;">
+                    <p class="notifications-count">4</p>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round" style="font-size: 14px; padding: 10px;"><span
+                            style="color:#F2F2F5; font-size: 14px; margin-left: 8px;">DineIn</span>PayOff</span>
+                </label>
+
+                <div class="cashier-top-button">
+                    <button class="btn-admin" id="btnDAdmin" type="button">Admin</button>
+                </div>
+                <img class="cashier-logout" src="../icons/logout.png" style="cursor: pointer;" alt="log out"
+                    loading="eager" width="35px" height="35px" id="logOut">
+                   
+            </div>
+        </nav>
+
+        <section class="container">
+            <section class="container-top">
+                <div class="container-top-left">
+                    <div class="tableArea">
+                        <label class="switch switch-tableview">
+                            <input type="checkbox" >
+                            <span class="slider round" style="font-size: 14px; padding: 8px;"><span
+                                    style="color:#F2F2F5; font-size: 14px; margin-left: 3px;">Indoor</span>Outdoor</span>
+                        </label>
+                        <img src="../icons/table-down.png" alt="" class="btnPopUpTable btnPopUpTable-rotate">
+                        <div class="top-line"></div>
+                    </div>
+
+                    <div class="alphabetArea">
+                        <div class="backButtonArea">
+                            <img src="../images/back.png" width="110px" style="margin-right: 12%;" alt="">
+
+                        </div>
+                        <ul class="alphabetLettersArea">
+                                    <li>
+                                        <button class="letter-btn ">A</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">B</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">C</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">D</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">E</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">F</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">G</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">H</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">I</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">J</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">K</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">L</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">M</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">N</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">O</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">P</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">Q</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">R</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">S</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">T</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">U</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">V</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">W</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">X</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">Y</button>
+                                    </li>
+                                    <li>
+                                        <button class="letter-btn ">Z</button>
+                                    </li>
+                                
+                                </ul>
+                            
+
+                    </div>
+                   
+                </div>
+                <div class="container-top-right">
+                    <button class="btn-addcustomer" id="btnAddCustomer">Add Customer</button>
+                </div>
+            </section>
+
+            <section class="container-body">
+                <div class="container-body-left">
+                    <div class="container-body-left-inner">
+                        <div class="category-items-area">
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                            <div class="catergory-card">
+                                <h3 class="catergory-card-title">Fried Rice</h3>
+                            </div>
+                        </div>
+                    <!--------- dishes List------------------>
+                        <div class="dishes-area">
+                           
+
+                        </div>
+                    </div>
+                </div>
+                
+                    <!--------- dishbox popup ui------------------>
+                <div class="selectedDishPopup">
+                    
+               
+                </div>
+                    <!--------- side order panel------------------>
+                <div class="container-body-right">
+                    <div class="cashier-dinein-right-inner-content-body" id="chashier-dinein-panel1">
+                        <div class="cashier-dinein-right-inner-content-body-top">
+                            <input type="text" name="" class="cashier-orderId" placeholder="O-001">
+                            <input type="text" name="" class="cashier-groupId" placeholder="G-000">
+                            <label for="cashier-customerId" class="customer-mobile-lable">Mobile</label>
+                            <input type="text" list="customer-mobile" class="customer-mobile-input"
+                                id="inputCustomer-Mobile" autocomplete="on" />
+                            <datalist id="customer-mobile">
+                            </datalist>
+                            <label type="text" id="customer-name" class="customer-name"></label>
+
+                        </div>
+                        <div class="cashier-dinein-right-inner-content-body-middle">
+
+
+                        </div>
+                        <div class="cashier-dinein-right-inner-content-body-bottom">
+                            <label for="total" id="di-total-lable">DI-Total</label>
+                            <input type="text" id="di-total" class="di-total" placeholder="0.00">
+
+                            <label for="total" id="tk-total-lable">TK-Total</label>
+                            <input type="text" id="tk-total" class="tk-total" placeholder="0.00">
+
+                            <button class="btn-pay">Pay</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="numberic-keypad">
+                    <ul id="keyboard">
+                        <li class="letter">1</li>
+                        <li class="letter">2</li>
+                        <li class="letter">3</li>
+                        <li class="letter">4</li>
+                        <li class="letter">5</li>
+                        <li class="letter">6</li>
+                        <li class="letter">7</li>
+                        <li class="letter">8</li>
+                        <li class="letter">9</li>
+                        <li class="delete"><</li>
+                        <li class="letter">0</li>
+                        <li class="enter">Enter</li>
+                    </ul>
+                </div>
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <script src="../scripts/cashier-dinein.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+[
+    {   "cusId":"C00-01",
+        "mobile":"0712345678",
+        "name":"Dasun Perera"
+      },
+      {
+        "cusId":"C00-02",
+        "mobile":"0786787654",
+        "name":"Saman Silva"
+      },
+      {
+        "cusId":"C00-03",
+        "mobile":"0722222222",
+        "name":"Chamara Silva"
+      },
+      {
+        "cusId":"C00-04",
+        "mobile":"0765434565",
+        "name":"Nishantha Perera"
+      }
+
+    
+]

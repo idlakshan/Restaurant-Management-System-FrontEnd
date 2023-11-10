@@ -238,7 +238,7 @@
 }
 
 .confrim-orderPanel-body-inner {
-    width: 95%;
+    width: 98%;
     height: 95%;
     background-color: #d7dade;
     border-radius: 10px;
@@ -266,7 +266,7 @@
 
 .orderDiscount {
     width: 25%;
-    height: 65%;
+    height: 75%;
     border: none;
     font-size: 1.4rem;
     color: var(--primary-color);
@@ -287,7 +287,7 @@
 
 .confrim-orderPanel-body-inner-payment {
     width: 100%;
-    height: 18%;
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -309,7 +309,7 @@
 
 .confrim-orderPanel-body-inner-payment-input{
     width: 100%;
-    height: 50%;
+    height: 100%;
     /* border: 1px solid rgb(0, 60, 255); */
     display: flex;
     justify-content: space-around;
@@ -410,4 +410,84 @@
     left: 1px;
     border-color: #e5e5e5;
     cursor: pointer;
+}
+
+
+
+/* ---------------selected Order DishCard---------------- */
+.selectItemCard {
+    width: 90%;
+    /* border: 1px solid var(--primary-color); */
+    height: 30%;
+    margin-top: 3%;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    display: flex;
+    flex-direction: row;
+  
+}
+
+.selectItemCard-left{
+    width: 80%;
+    height: 100%;
+    /* border: 1px solid rgb(128, 0, 0); */
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.selectItemCard-head {
+    /* border: 1px solid green; */
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.selectItemCard-bottom {
+    /* border: 3px solid rgb(0, 128, 30); */
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.selectItemCard-right{
+    width: 20%;
+    height: 100%;
+    /* border: 1px solid rgb(34, 0, 128); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 3px solid var(--bg-color);
+}
+
+
+
+
+.selectItemQty {
+    font-size: 1.5rem;
+}
+
+.selectItemType {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+.selectItemName,
+.selectedItemPrice {
+    size: 0.8rem;
+}
+
+
+.selectItemSize {
+    size: 0.8rem;
+    color: var(--order-panel-color);
 }

@@ -12,6 +12,12 @@ main {
     flex-direction: column;
 }
 
+.container-disabled{
+    opacity: 0.5; 
+    pointer-events: none; 
+   
+}
+
 /* ---------------NavBar---------------- */
 .navbar {
     width: 100%;

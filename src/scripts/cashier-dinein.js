@@ -6,8 +6,6 @@ const tableArea = document.querySelector(".tableArea");
 const backTocategoryList = document.querySelector(".backButtonArea");
 const letterButtons = document.querySelectorAll(".letter-btn");
 
-
-
 const customerMobile = document.querySelector(".customer-mobile-input");
 const numbericKeypad = document.querySelector(".numberic-keypad");
 const numberkeys = document.querySelectorAll('.letter');
@@ -18,6 +16,18 @@ const customerName = document.getElementById('customer-name');
 
 const dishContentArea = document.querySelector(".dishes-area");
 const popupArea = document.querySelector(".selectedDishPopup");
+
+const btnPay = document.querySelector(".btn-pay");
+const orderConfrimPanel = document.querySelector(".confrim-orderPanel");
+const orderConfrimPanelClose = document.querySelector(".close_icon_orderConfrim");
+const container = document.querySelector(".container");
+
+
+
+
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -264,3 +274,14 @@ function searchCustomers() {
         });
 }
 
+
+btnPay.addEventListener("click",function(){
+    orderConfrimPanel.style.display="flex"
+   container.classList.add("container-disabled")
+    
+})
+
+orderConfrimPanelClose.addEventListener("click",function(){
+    orderConfrimPanel.style.display="none"
+    container.classList.remove("container-disabled")
+})

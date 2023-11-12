@@ -213,6 +213,271 @@ function selectedDishPopup(dishes, dishCards) {
             popupArea.style.display = "none";
         });
 
+        //************popup box dishes-Size-buttons click event************
+        const sizeBtnContainers = document.querySelectorAll(".size-input-container");
+        const sizeBtns = document.querySelectorAll(".size-btn");
+        const sizeInput = document.querySelector(".qty-input");
+        const btnDinein = document.querySelector(".btn-addItem-dinein");
+        const btnTakeaway = document.querySelector(".btn-addItem-takeaway");
+        const btnInputNumbers = document.querySelectorAll(".btn-number");
+        const btnPlus = document.querySelector("#qty-input-btn-plus");
+        const btnMinus = document.querySelector("#qty-input-btn-minus");
+        const dishBoxTitle = document.querySelector(".dishesBox-title");
+        const selectedItemType = document.querySelector(".selectItemType")
+        let clickedNumbers = '';
+
+
+
+        //============dishes-Size-buttons disabled-enabled============
+        sizeBtns.forEach((sizeBtn) => {
+            sizeBtn.addEventListener("click", function () {
+                sizeBtn.style.border = "none";
+                sizeBtn.style.outline = "none";
+                sizeBtn.disabled = false;
+
+                disableOtherButtons(sizeBtn);
+            });
+        });
+
+        function disableOtherButtons(clickedBtn) {
+            sizeBtns.forEach((sizeBtn) => {
+                if (sizeBtn !== clickedBtn) {
+                    sizeBtn.disabled = true;
+                    // sizeBtnsPrice.style.display="none";
+                    // sizeBtnContainers.disabled=true;
+                }
+            });
+        }
+
+        sizeBtnContainers.forEach((sizeBtnContainer) => {
+            const sizeBtnImg = sizeBtnContainer.querySelector(".size-btn-img");
+            let isClicked = false;
+
+            sizeBtnContainer.addEventListener("click", function () {
+                isClicked = !isClicked
+
+                if (isClicked) {
+
+                    btnPlus.disabled = false;
+                    btnMinus.disabled = false;
+
+                    //============change popupBox sizebtn colored and icon by clicked it============
+                    sizeBtnContainer.style.border = "2px solid var(--text-field-success)";
+                    sizeBtnImg.src = "../icons/correct.png";
+                    sizeBtnImg.style.width = "40px";
+                    sizeBtnImg.style.height = "40px";
+                    sizeInput.value = "1";
+                    btnDinein.disabled = false;
+                    btnTakeaway.disabled = false;
+
+
+                    btnInputNumbers.forEach((btnInputNumber) => {
+                        btnInputNumber.disabled = false;
+
+                        //============change qtyInput value by clicked Numbers============
+                        btnInputNumber.addEventListener("click", function () {
+                            const clickedNumber = btnInputNumber.innerHTML;
+                            clickedNumbers += clickedNumber;
+                            //console.log(clickedNumbers);
+                            sizeInput.value = clickedNumbers;
+
+                        });
+                    });
+
+                    //============change qtyInput value by clicked plus Minus Buttons============
+                    btnPlus.addEventListener('click', function () {
+                        const currentValue = parseInt(sizeInput.value);
+                        sizeInput.value = currentValue + 1;
+                    });
+
+                    btnMinus.addEventListener('click', function () {
+                        const currentValue = parseInt(sizeInput.value);
+                        if (currentValue === 1) {
+                            sizeInput.value = "1";
+                        } else {
+                            sizeInput.value = currentValue - 1;
+                        }
+                    });
+
+
+                    //============added cart to selected items============
+
+                    btnDinein.addEventListener("click", function () {
+                        addItemToOrderItems("Dine-In");
+
+                    });
+
+                    btnTakeaway.addEventListener("click", function () {
+                        addItemToOrderItems("Take-Away");
+
+                    });
+
+                    function addItemToOrderItems(itemType) {
+                        const orderItemsContainer = document.querySelector(".cashier-dinein-right-inner-content-body-middle");
+                        const orderItemtitleName = dishBoxTitle.innerText;
+                        const orderItemInputQty = sizeInput.value;
+                        const orderItemInputSizenName = sizeBtnContainer.innerText;
+                        const orderValues = orderItemInputSizenName.split('\n');
+                        const orderType = itemType
+
+                        var total = orderItemInputQty * parseFloat(orderValues[1]);
+
+                        const selectItemCards = document.querySelectorAll(".selectItemCard");
+                        let itemExists = false;
+
+                        for (let i = 0; i < selectItemCards.length; i++) {
+                            const selectItemCard = selectItemCards[i];
+                            const selectItemCardName = selectItemCard.querySelector(".selectItemName").innerText;
+                            const selectItemCardSize = selectItemCard.querySelector(".selectItemSize").innerText;
+                            const selectItemCardType = selectItemCard.querySelector(".selectItemType").innerText;
+                            const selectItemCardQty = selectItemCard.querySelector(".selectItemQty");
+
+
+                            if (selectItemCardName === orderItemtitleName && selectItemCardSize === orderValues[0] && selectItemCardType === orderType) {
+
+
+                                const priceElement = selectItemCard.querySelector(".selectItemPrice");
+
+                                const currentQty = parseInt(selectItemCardQty.innerText);
+                                var newQty = currentQty + parseInt(orderItemInputQty);
+                                selectItemCardQty.innerText = newQty;
+
+
+                                const currentPrice = parseFloat(priceElement.innerText);
+                                const newPrice = currentPrice + total;
+                                priceElement.innerText = newPrice;
+
+                                itemExists = true;
+                                popupArea.style.display = "none";
+
+                                break;
+                            }
+                        }
+
+                        if (!itemExists) {
+                            const selectOrderItemCards = document.createElement("div");
+                            selectOrderItemCards.classList.add("selectItemCard");
+                            selectOrderItemCards.innerHTML = ` 
+                                    <div class="selectItemCard-left">
+                                        <div class="selectItemCard-head">
+                                            <h5 class="selectItemName">${orderItemtitleName}</h5>
+                                            <h5 class="selectItemSize">${orderValues[0]}</h5>
+                                            <h5 class="selectItemPrice">${total}</h5>
+                                        </div>
+    
+                                        <div class="selectItemCard-bottom">
+                                            <h5 class="selectItemType">${itemType}</h5>
+                                            <h5 class="selectItemQty">${orderItemInputQty}</h5> 
+                                        </div>
+                                    </div>
+                                    <div class="selectItemCard-right">
+                                        <img class="imgDustbin" src="../icons/dustbin.png"  width="50%"
+                                        alt="">
+                                    </div>
+                                `;
+                            selectOrderItemCards.style.display = "flex";
+                            orderItemsContainer.appendChild(selectOrderItemCards);
+                            popupArea.style.display = "none";
+
+
+                        }
+
+                        //============delete selected items from the order cart============
+                        const selectedOrderItemsDelete = document.querySelectorAll(".imgDustbin");
+                        selectedOrderItemsDelete.forEach((selectedOrderItemDelete) => {
+                            selectedOrderItemDelete.addEventListener("click", function () {
+                                //console.log("delete");
+                                const selectItemCard = selectedOrderItemDelete.closest(".selectItemCard");
+                                if (selectItemCard) {
+                                    selectItemCard.remove();
+                                    CalculateFullTotal();
+                                }
+                            });
+                        });
+
+                        //============calcutale full total============
+                        function CalculateFullTotal() {
+                            let fullTakeawayTotal = parseFloat(0.00);
+                            let fullDineinTotal = parseFloat(0.00);
+
+                            const fullTakeawayTotalElement = document.querySelector(".tk-total");
+                            const fullDineinTotalElement = document.querySelector(".di-total");
+                            const selectedOrderItemsTotal = document.querySelectorAll(".selectItemPrice");
+                            const subTotal = document.querySelector(".subTotal");
+
+                            selectedOrderItemsTotal.forEach((selectedOrderItemTotal) => {
+                                const selectItemCard = selectedOrderItemTotal.closest(".selectItemCard");
+                                const selectItemCardType = selectItemCard.querySelector(".selectItemType").innerText;
+                                const value = parseFloat(selectedOrderItemTotal.innerText);
+
+                                if (selectItemCardType === "Take-Away") {
+                                    fullTakeawayTotal += value;
+
+                                } else if (selectItemCardType === "Dine-In") {
+                                    fullDineinTotal += value;
+
+                                }
+                            });
+
+                            //console.log(fullTakeawayTotal.toFixed(2));
+                            fullTakeawayTotalElement.value = fullTakeawayTotal.toFixed(2);
+                            fullDineinTotalElement.value = fullDineinTotal.toFixed(2);
+
+
+                            subTotal.innerText = (fullTakeawayTotal + fullDineinTotal).toFixed(2);
+                        }
+
+                        CalculateFullTotal();
+
+
+
+                        popupArea.style.display = "none";
+
+                        var orderPanelContent = document.querySelector(".cashier-dinein-right-inner-content-body-middle");
+
+                        if (orderPanelContent) {
+                            var selectItemCardElements = orderPanelContent.querySelectorAll(".selectItemCard");
+
+                            for (var i = 0; i < selectItemCardElements.length; i++) {
+                                var childElement = selectItemCardElements[i];
+                                var selectedQtyElement = childElement.querySelector(".selectItemQty");
+                                var selectedPriceElement = childElement.querySelector(".selectItemPrice");
+                                var selectedQty = selectedQtyElement.innerText;
+                                var selectedPrice = selectedPriceElement.innerText;
+                                console.log("Qty for card " + (i + 1) + ": " + selectedQty);
+                                console.log("Price for card " + (i + 1) + ": " + selectedPrice);
+                            }
+                        }
+
+
+
+
+                    }
+
+                } else {
+                    sizeBtnContainer.style.border = "none";
+                    sizeBtnImg.src = "../assets/icons/plusicon.png";
+                    sizeBtnImg.style.width = "50px";
+                    sizeBtnImg.style.height = "50px";
+                    sizeInput.value = "";
+                    btnAddItem.disabled = true;
+
+                    btnInputNumbers.forEach((btnInputNumber) => {
+                        btnInputNumber.disabled = true;
+                    });
+
+                    btnPlus.disabled = true;
+                    btnMinus.disabled = true;
+
+                    sizeBtns.forEach((btn) => {
+                        btn.disabled = false;
+                    });
+                }
+
+            });
+
+        });
+
     }
 }
 
@@ -269,19 +534,19 @@ function searchCustomers() {
                 const option = document.createElement('option');
                 option.value = number;
                 customerMobileDataList.appendChild(option);
-              });
+            });
 
         });
 }
 
 
-btnPay.addEventListener("click",function(){
-    orderConfrimPanel.style.display="flex"
-   container.classList.add("container-disabled")
-    
+btnPay.addEventListener("click", function () {
+    orderConfrimPanel.style.display = "flex"
+    container.classList.add("container-disabled")
+
 })
 
-orderConfrimPanelClose.addEventListener("click",function(){
-    orderConfrimPanel.style.display="none"
+orderConfrimPanelClose.addEventListener("click", function () {
+    orderConfrimPanel.style.display = "none"
     container.classList.remove("container-disabled")
 })

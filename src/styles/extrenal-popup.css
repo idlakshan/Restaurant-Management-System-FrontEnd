@@ -419,12 +419,13 @@
     min-width: 90%;
     /* border: 1px solid var(--primary-color); */
     min-height: 30%;
-    margin-top: 3%;
+    margin-top: 2%;
     background-color: #FFFFFF;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     /* display: flex; */
     flex-direction: row !important;
+    margin-bottom: 2%;
    
   
 }

@@ -13,6 +13,7 @@ const keyEnter = document.querySelector(".enter");
 const keyBackspace = document.querySelector(".delete");
 const customerMobileDataList = document.getElementById('customer-mobile');
 const customerName = document.getElementById('customer-name');
+const inputMobileElement = document.getElementById("inputCustomer-Mobile");
 
 const dishContentArea = document.querySelector(".dishes-area");
 const popupArea = document.querySelector(".selectedDishPopup");
@@ -21,6 +22,19 @@ const btnPay = document.querySelector(".btn-pay");
 const orderConfrimPanel = document.querySelector(".confrim-orderPanel");
 const orderConfrimPanelClose = document.querySelector(".close_icon_orderConfrim");
 const container = document.querySelector(".container");
+const fullTakeawayTotalElement = document.querySelector(".tk-total");
+const fullDineinTotalElement = document.querySelector(".di-total");
+
+const orderDiscount = document.querySelector(".orderDiscount");
+const orderNetTotal = document.querySelector(".orderNetTotal");
+const orderBalance = document.querySelector(".orderBalance");
+
+const inputPayCash = document.querySelector("#inputpaycash");
+const inputPayCard = document.querySelector("#inputpaycard");
+const inputPayCredit = document.querySelector("#inputpaycredit");
+
+const btnConfrim = document.querySelector(".btn-confrim");
+
 
 
 
@@ -35,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     selectCustomerMobileEvent();
     loadDishes();
     searchCustomers();
+    paymentType();
 
 });
 
@@ -115,7 +130,6 @@ function loadDishes() {
                 searchDishByLetter(dishCards)
             }
         })
-
 }
 
 function selectedDishPopup(dishes, dishCards) {
@@ -223,7 +237,7 @@ function selectedDishPopup(dishes, dishCards) {
         const btnPlus = document.querySelector("#qty-input-btn-plus");
         const btnMinus = document.querySelector("#qty-input-btn-minus");
         const dishBoxTitle = document.querySelector(".dishesBox-title");
-        const selectedItemType = document.querySelector(".selectItemType")
+        // const selectedItemType = document.querySelector(".selectItemType")
         let clickedNumbers = '';
 
 
@@ -378,8 +392,6 @@ function selectedDishPopup(dishes, dishCards) {
                             selectOrderItemCards.style.display = "flex";
                             orderItemsContainer.appendChild(selectOrderItemCards);
                             popupArea.style.display = "none";
-
-
                         }
 
                         //============delete selected items from the order cart============
@@ -400,10 +412,12 @@ function selectedDishPopup(dishes, dishCards) {
                             let fullTakeawayTotal = parseFloat(0.00);
                             let fullDineinTotal = parseFloat(0.00);
 
-                            const fullTakeawayTotalElement = document.querySelector(".tk-total");
-                            const fullDineinTotalElement = document.querySelector(".di-total");
+                            
                             const selectedOrderItemsTotal = document.querySelectorAll(".selectItemPrice");
                             const subTotal = document.querySelector(".subTotal");
+
+
+
 
                             selectedOrderItemsTotal.forEach((selectedOrderItemTotal) => {
                                 const selectItemCard = selectedOrderItemTotal.closest(".selectItemCard");
@@ -423,13 +437,11 @@ function selectedDishPopup(dishes, dishCards) {
                             fullTakeawayTotalElement.value = fullTakeawayTotal.toFixed(2);
                             fullDineinTotalElement.value = fullDineinTotal.toFixed(2);
 
-
                             subTotal.innerText = (fullTakeawayTotal + fullDineinTotal).toFixed(2);
+                            orderPayEvent(subTotal.innerText)
                         }
 
                         CalculateFullTotal();
-
-
 
                         popupArea.style.display = "none";
 
@@ -448,10 +460,6 @@ function selectedDishPopup(dishes, dishCards) {
                                 console.log("Price for card " + (i + 1) + ": " + selectedPrice);
                             }
                         }
-
-
-
-
                     }
 
                 } else {
@@ -460,7 +468,7 @@ function selectedDishPopup(dishes, dishCards) {
                     sizeBtnImg.style.width = "50px";
                     sizeBtnImg.style.height = "50px";
                     sizeInput.value = "";
-                    btnAddItem.disabled = true;
+                  
 
                     btnInputNumbers.forEach((btnInputNumber) => {
                         btnInputNumber.disabled = true;
@@ -480,6 +488,69 @@ function selectedDishPopup(dishes, dishCards) {
 
     }
 }
+
+function orderPayEvent(subTotal) {
+    btnPay.addEventListener('click', function () {
+        orderConfrimPanel.style.display = "flex"
+        container.classList.add("container-disabled");
+
+        const newSubTotal = subTotal;
+        orderNetTotal.innerText = newSubTotal;
+        orderDiscount.addEventListener("input", function () {
+            const discount = orderDiscount.value;
+            var calcNetTotal = (newSubTotal - ((newSubTotal * discount) / 100))
+            orderNetTotal.innerText = calcNetTotal.toFixed(2);
+            // orderBalance.innerText=calcNetTotal.toFixed(2);
+          
+
+           //paymentType();
+
+        });
+    })
+
+
+}
+
+function paymentType() {
+    inputPayCash.addEventListener("click", function () {
+        inputPayCash.value = ""
+    });
+
+    inputPayCash.addEventListener("keypress", function (event) {
+        if (event.key == "Enter") {
+            orderBalance.innerText = parseFloat(inputPayCash.value) + parseFloat(inputPayCard.value) + parseFloat(inputPayCredit.value) - parseFloat(orderNetTotal.innerText)
+            console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+        }
+    });
+
+    inputPayCard.addEventListener("click", function () {
+        inputPayCard.value = ""
+    });
+
+    inputPayCard.addEventListener("keypress", function (event) {
+        if (event.key == "Enter") {
+            orderBalance.innerText = parseFloat(inputPayCash.value) + parseFloat(inputPayCard.value) + parseFloat(inputPayCredit.value) - parseFloat(orderNetTotal.innerText)
+            console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+        }
+
+    });
+
+    inputPayCredit.addEventListener("click", function () {
+        inputPayCredit.value = ""
+      
+    });
+
+    inputPayCredit.addEventListener("keypress", function (event) {
+        if (event.key == "Enter") {
+            orderBalance.innerText = parseFloat(inputPayCash.value) + parseFloat(inputPayCard.value) + parseFloat(inputPayCredit.value) - parseFloat(orderNetTotal.innerText)
+            console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+        }
+
+    });
+
+}
+
+
 
 
 function searchDishByLetter(dishCards) {
@@ -536,17 +607,42 @@ function searchCustomers() {
                 customerMobileDataList.appendChild(option);
             });
 
+            inputMobileElement.addEventListener('change', function () {
+                const selectedMobileNumber = inputMobileElement.value;
+                const index = mobileNumbers.indexOf(selectedMobileNumber);
+
+                if (index !== -1) {
+                    customerName.innerText = customerNames[index];
+                    customerIds[index]
+                    // console.log(customerNames[index]);
+                    //console.log(customerIds[index]);
+                } else {
+                    inputMobileElement.value = ""
+                    customerName.innerText = '';
+                }
+            });
         });
 }
 
 
-btnPay.addEventListener("click", function () {
-    orderConfrimPanel.style.display = "flex"
-    container.classList.add("container-disabled")
+btnConfrim.addEventListener("click", function () {
+    orderConfrimPanel.style.display = "none"
+    container.classList.remove("container-disabled")
+    var orderPanelContent = document.querySelector(".cashier-dinein-right-inner-content-body-middle");
+    orderPanelContent.innerHTML=""
+    fullTakeawayTotalElement.value=""
+    fullDineinTotalElement.value=""
+
+    categoryCardListArea.style.display = "flex"
+    tableArea.style.display = "flex"
+    dishCardListArea.style.display = "none"
+    alphabetArea.style.display = "none"
 
 })
 
 orderConfrimPanelClose.addEventListener("click", function () {
     orderConfrimPanel.style.display = "none"
     container.classList.remove("container-disabled")
+ 
+    
 })

@@ -48,17 +48,32 @@
             </div>
         </nav>
 
-        <section class="container" >
+        <section class="container">
             <section class="container-top">
                 <div class="container-top-left">
                     <div class="tableArea">
                         <label class="switch switch-tableview">
-                            <input type="checkbox">
+                            <input type="checkbox"  class="checkd " id="checkbox-dinein-tables">
                             <span class="slider round" style="font-size: 14px; padding: 8px;"><span
                                     style="color:#F2F2F5; font-size: 14px; margin-left: 3px;">Indoor</span>Outdoor</span>
                         </label>
                         <img src="../icons/table-down.png" alt="" class="btnPopUpTable btnPopUpTable-rotate">
                         <div class="top-line"></div>
+                        <div class="cashier-dinein-table-area">
+                            <div class="cashier-dinein-table-inner-area" id="tableArea">
+
+                                <div class="dinein-table">
+                                    <div class="dinein-table-header">
+                                        <h5 id="tableId">id</h5>
+                                    </div>
+
+                                    <div class="dinein-table-footer">
+                                        <p id="tableSize">size</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
 
                     <div class="alphabetArea">
@@ -229,6 +244,85 @@
 
 
                 </div>
+
+                <!--------- add customer popup ui------------------>
+                <div class="addCustomer-box">
+                    <div class="addCustomer-box-header">
+                        <h4 class="addCustomer-box-title">Save Customer</h4>
+                        <img class="addCustomer-box-close-icon" src="../icons/close_icon.png" width="50px" alt="">
+
+                    </div>
+                    <div class="addCustomer-box-body">
+                        <div class="addCustomer-box-body-top">
+                            <div class="addCustomer-input-container">
+                                <img src="../icons/phone.png" width="30px" alt="">
+                                <input class="addCustomer-inputField" id="dnCustomerMobile" type="text"
+                                    placeholder="Customer Mobile No" name="cusMobileNo">
+                            </div>
+
+                            <div class="addCustomer-input-container">
+                                <img src="../icons/user.png" width="30px" alt="">
+                                <input class="addCustomer-inputField" id="dnCustomerName" name="cusName" type="text"
+                                    placeholder="Customer Name">
+                            </div>
+
+                        </div>
+
+                        <div class="addCustomer-box-body-bottom">
+                            <div class="keypad-addCustomer">
+                                <div class="keys-addCustomer">
+                                    <button class="btns-addCustomer">Q</button>
+                                    <button class="btns-addCustomer">W</button>
+                                    <button class="btns-addCustomer">E</button>
+                                    <button class="btns-addCustomer">R</button>
+                                    <button class="btns-addCustomer">T</button>
+                                    <button class="btns-addCustomer">Y</button>
+                                    <button class="btns-addCustomer">U</button>
+                                    <button class="btns-addCustomer">I</button>
+                                    <button class="btns-addCustomer">O</button>
+                                    <button class="btns-addCustomer">P</button>
+                                    <button class="btns-addCustomer">A</button>
+                                    <button class="btns-addCustomer">S</button>
+                                    <button class="btns-addCustomer">D</button>
+                                    <button class="btns-addCustomer">F</button>
+                                    <button class="btns-addCustomer">G</button>
+                                    <button class="btns-addCustomer">H</button>
+                                    <button class="btns-addCustomer">J</button>
+                                    <button class="btns-addCustomer">K</button>
+                                    <button class="btns-addCustomer">L</button>
+                                    <button class="btns-addCustomer">Z</button>
+                                    <button class="btns-addCustomer">X</button>
+                                    <button class="btns-addCustomer">C</button>
+                                    <button class="btns-addCustomer">V</button>
+                                    <button class="btns-addCustomer">B</button>
+                                    <button class="btns-addCustomer">N</button>
+                                    <button class="btns-addCustomer">M</button>
+                                    <button class="btns-addCustomer wide">Space</button>
+                                </div>
+                                <div class="addCustomer-numberArea">
+                                    <div class="keys-numbers">
+                                        <button class="btns-addCustomer-number">1</button>
+                                        <button class="btns-addCustomer-number">2</button>
+                                        <button class="btns-addCustomer-number">3</button>
+                                        <button class="btns-addCustomer-number">4</button>
+                                        <button class="btns-addCustomer-number">5</button>
+                                        <button class="btns-addCustomer-number">6</button>
+                                        <button class="btns-addCustomer-number">7</button>
+                                        <button class="btns-addCustomer-number">8</button>
+                                        <button class="btns-addCustomer-number">9</button>
+                                        <button class="btns-addCustomer-number">0</button>
+                                        <button class="btns-addCustomer-number btn-addCustomer-delete">←</i></button>
+                                        <button class="btns-addCustomer-number">Enter</i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="addCustomer-box-footer">
+                        <button disabled id="btnSaveCustomer" type="button">+ Save Customer</button>
+                    </div>
+                </div>
+
                 <!--------- side order panel------------------>
                 <div class="container-body-right">
                     <div class="cashier-dinein-right-inner-content-body" id="chashier-dinein-panel1">
@@ -244,7 +338,7 @@
                             <label type="text" id="customer-name" class="customer-name"></label>
 
                         </div>
-                        <div class="cashier-dinein-right-inner-content-body-middle" >
+                        <div class="cashier-dinein-right-inner-content-body-middle">
 
                             <!-- <div class="selectItemCard">
                                 <div class="selectItemCard-left">
@@ -280,20 +374,20 @@
                     </div>
                 </div>
 
-                <div class="numberic-keypad">
+                <div class=" numberic-keypad numberic-keypad-mobile">
                     <ul id="keyboard">
-                        <li class="letter">1</li>
-                        <li class="letter">2</li>
-                        <li class="letter">3</li>
-                        <li class="letter">4</li>
-                        <li class="letter">5</li>
-                        <li class="letter">6</li>
-                        <li class="letter">7</li>
-                        <li class="letter">8</li>
-                        <li class="letter">9</li>
-                        <li class="delete">←</li>
-                        <li class="letter">0</li>
-                        <li class="enter">Enter</li>
+                        <li class="letter letter-mobile">1</li>
+                        <li class="letter letter-mobile">2</li>
+                        <li class="letter letter-mobile">3</li>
+                        <li class="letter letter-mobile">4</li>
+                        <li class="letter letter-mobile">5</li>
+                        <li class="letter letter-mobile">6</li>
+                        <li class="letter letter-mobile">7</li>
+                        <li class="letter letter-mobile">8</li>
+                        <li class="letter letter-mobile">9</li>
+                        <li class="delete delete-mobile">←</li>
+                        <li class="letter letter-mobile">0</li>
+                        <li class="enter enter-mobile">Enter</li>
                     </ul>
                 </div>
             </section>
@@ -328,9 +422,9 @@
                             <label class="label-paymet" for="">Credit</label>
                         </div>
                         <div class="confrim-orderPanel-body-inner-payment-input">
-                            <input type="number" value="0.00" name="" id="inputpaycash" class="input-paymet" >
-                            <input type="number" value="0.00" name="" id="inputpaycard" class="input-paymet" >
-                            <input type="number" value="0.00" name="" id="inputpaycredit" class="input-paymet" >
+                            <input type="number" value="0.00" name="" id="inputpaycash" class="input-paymet">
+                            <input type="number" value="0.00" name="" id="inputpaycard" class="input-paymet">
+                            <input type="number" value="0.00" name="" id="inputpaycredit" class="input-paymet">
                         </div>
                     </div>
 
@@ -347,21 +441,21 @@
             <div class="confrim-orderPanel-footer">
                 <div class="numberic-keypad-order">
                     <ul id="keyboard-order">
-                        <li class="letter">1</li>
-                        <li class="letter">2</li>
-                        <li class="letter">3</li>
-                        <li class="letter">4</li>
-                        <li class="letter">5</li>
-                        <li class="letter">6</li>
-                        <li class="letter">7</li>
-                        <li class="letter">8</li>
-                        <li class="letter">9</li>
-                        <li class="delete">←</li>
-                        <li class="letter">0</li>
-                        <li class="enter">Enter</li>
+                        <li class="letter letter-order">1</li>
+                        <li class="letter letter-order">2</li>
+                        <li class="letter letter-order">3</li>
+                        <li class="letter letter-order">4</li>
+                        <li class="letter letter-order">5</li>
+                        <li class="letter letter-order">6</li>
+                        <li class="letter letter-order">7</li>
+                        <li class="letter letter-order">8</li>
+                        <li class="letter letter-order">9</li>
+                        <li class="delete delete-order">←</li>
+                        <li class="letter letter-order">0</li>
+                        <li class="enter enter-order">Enter</li>
                     </ul>
                 </div>
-                
+
 
             </div>
 

@@ -7,10 +7,10 @@ const backTocategoryList = document.querySelector(".backButtonArea");
 const letterButtons = document.querySelectorAll(".letter-btn");
 
 const customerMobile = document.querySelector(".customer-mobile-input");
-const numbericKeypad = document.querySelector(".numberic-keypad");
-const numberkeys = document.querySelectorAll('.letter');
-const keyEnter = document.querySelector(".enter");
-const keyBackspace = document.querySelector(".delete");
+const numbericKeypad = document.querySelector(".numberic-keypad-mobile");
+const numberkeys = document.querySelectorAll('.letter-mobile');
+const keyEnter = document.querySelector(".enter-mobile");
+const keyBackspace = document.querySelector(".delete-mobile");
 const customerMobileDataList = document.getElementById('customer-mobile');
 const customerName = document.getElementById('customer-name');
 const inputMobileElement = document.getElementById("inputCustomer-Mobile");
@@ -35,12 +35,29 @@ const inputPayCredit = document.querySelector("#inputpaycredit");
 
 const btnConfrim = document.querySelector(".btn-confrim");
 
+const numbericKeypadOrder = document.querySelector(".numberic-keypad-order");
+const numberkeysOrder = document.querySelectorAll('.letter-order');
+const keyEnterOrder = document.querySelector(".enter-order");
+const keyBackspaceOrder = document.querySelector(".delete-order");
+
+const addCustomerBox = document.querySelector(".addCustomer-box");
+const btnAddCustomer = document.querySelector(".btn-addcustomer")
+const addCustomerBoxClose = document.querySelector(".addCustomer-box-close-icon")
+
+const keypadButtons = document.querySelectorAll('.btns-addCustomer, .btns-addCustomer-number');
+const mobileInput = document.getElementById('dnCustomerMobile');
+const nameInput = document.getElementById('dnCustomerName');
+
+let selectedInput;
+
+const groupIdInput = document.querySelector('.cashier-groupId');
+const tableAreaView = document.querySelector(".cashier-dinein-table-area");
+const btnTableDropdown = document.querySelector(".btnPopUpTable");
+
+let clicked = true;
 
 
-
-
-
-
+// const customerContactPattern = /^(070|071|074|075|076|077|078)[-]?[0-9]{7}$/;
 
 
 
@@ -50,6 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
     loadDishes();
     searchCustomers();
     paymentType();
+    addCustomerEvent();
+    loadAllTables();
 
 });
 
@@ -63,6 +82,7 @@ function selectCategoryCardEvent() {
             tableArea.style.display = "none"
             dishCardListArea.style.display = "flex"
             alphabetArea.style.display = "flex"
+
         })
     })
 
@@ -412,7 +432,7 @@ function selectedDishPopup(dishes, dishCards) {
                             let fullTakeawayTotal = parseFloat(0.00);
                             let fullDineinTotal = parseFloat(0.00);
 
-                            
+
                             const selectedOrderItemsTotal = document.querySelectorAll(".selectItemPrice");
                             const subTotal = document.querySelector(".subTotal");
 
@@ -468,7 +488,7 @@ function selectedDishPopup(dishes, dishCards) {
                     sizeBtnImg.style.width = "50px";
                     sizeBtnImg.style.height = "50px";
                     sizeInput.value = "";
-                  
+
 
                     btnInputNumbers.forEach((btnInputNumber) => {
                         btnInputNumber.disabled = true;
@@ -497,13 +517,14 @@ function orderPayEvent(subTotal) {
         const newSubTotal = subTotal;
         orderNetTotal.innerText = newSubTotal;
         orderDiscount.addEventListener("input", function () {
+
             const discount = orderDiscount.value;
             var calcNetTotal = (newSubTotal - ((newSubTotal * discount) / 100))
             orderNetTotal.innerText = calcNetTotal.toFixed(2);
             // orderBalance.innerText=calcNetTotal.toFixed(2);
-          
 
-           //paymentType();
+
+            //paymentType();
 
         });
     })
@@ -537,7 +558,7 @@ function paymentType() {
 
     inputPayCredit.addEventListener("click", function () {
         inputPayCredit.value = ""
-      
+
     });
 
     inputPayCredit.addEventListener("keypress", function (event) {
@@ -549,6 +570,70 @@ function paymentType() {
     });
 
 }
+
+btnConfrim.addEventListener("click", function () {
+    orderConfrimPanel.style.display = "none"
+    container.classList.remove("container-disabled")
+    var orderPanelContent = document.querySelector(".cashier-dinein-right-inner-content-body-middle");
+    orderPanelContent.innerHTML = ""
+    fullTakeawayTotalElement.value = ""
+    fullDineinTotalElement.value = ""
+
+    categoryCardListArea.style.display = "flex"
+    tableArea.style.display = "flex"
+    dishCardListArea.style.display = "none"
+    alphabetArea.style.display = "none"
+
+})
+
+orderConfrimPanelClose.addEventListener("click", function () {
+    orderConfrimPanel.style.display = "none"
+    container.classList.remove("container-disabled")
+
+
+});
+
+
+function OrderConfrimEvent(inputField) {
+    numberkeysOrder.forEach((numberKey) => {
+        numberKey.addEventListener('click', function () {
+            inputField.value += numberKey.textContent;
+        })
+    });
+    keyBackspaceOrder.addEventListener('click', () => {
+        inputField.value = inputField.value.slice(0, -1);
+    });
+    keyEnterOrder.addEventListener("click", function () {
+
+    });
+}
+
+
+orderDiscount.addEventListener('click', function () {
+    OrderConfrimEvent(orderDiscount);
+    ok(inputPayCash, inputPayCard, inputPayCredit)
+});
+
+inputPayCash.addEventListener('click', function () {
+    OrderConfrimEvent(inputPayCash);
+});
+
+inputPayCard.addEventListener('click', function () {
+    OrderConfrimEvent(inputPayCard);
+});
+
+inputPayCredit.addEventListener('click', function () {
+    OrderConfrimEvent(inputPayCredit);
+});
+
+
+
+
+
+
+
+
+
 
 
 
@@ -625,24 +710,140 @@ function searchCustomers() {
 }
 
 
-btnConfrim.addEventListener("click", function () {
-    orderConfrimPanel.style.display = "none"
-    container.classList.remove("container-disabled")
-    var orderPanelContent = document.querySelector(".cashier-dinein-right-inner-content-body-middle");
-    orderPanelContent.innerHTML=""
-    fullTakeawayTotalElement.value=""
-    fullDineinTotalElement.value=""
 
-    categoryCardListArea.style.display = "flex"
-    tableArea.style.display = "flex"
-    dishCardListArea.style.display = "none"
-    alphabetArea.style.display = "none"
+//============cashier add-customerbox Popup and Close Events============
 
-})
+function addCustomerEvent() {
+    btnAddCustomer.addEventListener('click', function () {
+        addCustomerBox.style.display = "block"
+    })
 
-orderConfrimPanelClose.addEventListener("click", function () {
-    orderConfrimPanel.style.display = "none"
-    container.classList.remove("container-disabled")
- 
-    
-})
+    addCustomerBoxClose.addEventListener('click', function () {
+        addCustomerBox.style.display = "none"
+    })
+
+    keypadButtons.forEach(button => {
+        button.addEventListener('click', handleButtonClick);
+    });
+
+    mobileInput.addEventListener('focus', () => {
+        selectedInput = mobileInput;
+    });
+
+    nameInput.addEventListener('focus', () => {
+        selectedInput = nameInput;
+    });
+}
+
+
+function handleButtonClick(event) {
+    const buttonValue = event.target.textContent;
+
+    if (selectedInput == nameInput) {
+        if (buttonValue === '←') {
+            selectedInput.value = selectedInput.value.slice(0, -1);
+        } else if (buttonValue === 'Space') {
+            selectedInput.value += ' ';
+        } else if (/^[a-zA-Z ]+$/.test(buttonValue)) {
+            selectedInput.value += buttonValue.toLowerCase();
+        }
+    } else if (selectedInput == mobileInput) {
+        if (buttonValue === '←') {
+            selectedInput.value = selectedInput.value.slice(0, -1);
+        } else if (/^[0-9]$/.test(buttonValue)) {
+            selectedInput.value += buttonValue;
+        }
+    }
+}
+
+//============Load All tables============
+function loadAllTables() {
+
+    checkInputTableValue();
+
+    fetch("../json/tables.json")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (tables) {
+            console.log(tables);
+
+            const tableInnerArea = document.querySelector(".cashier-dinein-table-inner-area");
+            const check = document.querySelector("#checkbox-dinein-tables");
+            const groupId = document.querySelector(".cashier-groupId")
+            let tableList = "";
+
+            check.addEventListener("change", function () {
+                const selectedTableType = this.checked ? "indoor" : "outdoor";
+                filterTables(selectedTableType);
+            });
+
+            function filterTables(tableType) {
+                tableList = "";
+                for (let i = 0; i < tables.length; i++) {
+                    if (tables[i].tableType === tableType) {
+                        tableList += `
+                        <div class="dinein-table" data-name="${tables[i].tableType}">
+                        <div class="dinein-table-header">
+                            <h5 id="tableId">${tables[i].tableNumber}</h5>
+                        </div>
+                        <div class="dinein-table-body">
+                            <img src="${tables[i].image}" style="height: 55px; width: 110px;" alt="">
+                        </div>
+                        <div class="dinein-table-footer">
+                            <p id="tableSize">${tables[i].tableSize}</p>
+                       </div>
+                    </div>
+                    `;
+                    }
+                }
+                tableInnerArea.innerHTML = tableList;
+
+                const dineinTables = document.querySelectorAll(".dinein-table");
+                dineinTables.forEach((table) => {
+                    table.addEventListener("click", function () {
+                        // $(".cashier-orderId").css('display', 'block')
+                        // $(".cashier-groupId").css('display', 'block')
+                        console.log(table);
+                        const tableNumber = table.querySelector("#tableId").textContent;
+                        console.log("Clicked tableNumber:", tableNumber);
+                        groupId.value = tableNumber
+
+                    });
+                });
+            }
+
+            filterTables("outdoor");
+
+        });
+
+    function checkInputTableValue() {
+        if (!groupIdInput.value) {
+            tableAreaView.style.display = 'block';
+            btnTableDropdown.classList.add("btnPopUpTable-rotate");
+        }
+    }
+
+    btnTableDropdown.addEventListener("click", function () {
+        if (clicked) {
+            btnTableDropdown.classList.remove("btnPopUpTable-rotate");
+            tableAreaView.style.display = "none";
+
+        } else {
+            btnTableDropdown.classList.add("btnPopUpTable-rotate");
+            tableAreaView.style.display = "block";
+        }
+        clicked = !clicked;
+    })
+}
+
+
+
+
+
+
+
+
+
+
+

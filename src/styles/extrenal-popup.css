@@ -492,3 +492,226 @@
     size: 0.8rem;
     color: var(--order-panel-color);
 }
+
+
+
+/* ---------------Add Customer Popup---------------- */
+.addCustomer-box {
+    width: 50%;
+    height: 87%;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top: -32%;
+    right: -10%;
+    transform: translate(-50%, 50%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 2px solid var(--order-panel-color);
+    z-index: 1;
+    display: none;
+}
+
+.addCustomer-box-header {
+    /* border: 1px solid green; */
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addCustomer-box-title {
+    position: relative;
+    display: inline;
+    top: 45%;
+    font-size: 1.7rem;
+}
+
+.addCustomer-box-title::after {
+    content: '';
+    width: 5px;
+    height: 35px;
+    display: block;
+    background-color: var(--primary-color);
+    position: absolute;
+    left: -10px;
+    top: -1px;
+}
+
+.addCustomer-box-close-icon {
+    position: relative;
+    top: -40.2%;
+    left: 47%;
+}
+
+/* .addCustomer-box-user-icon{
+
+} */
+
+.addCustomer-box-body {
+    /* border: 1px solid blue; */
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.addCustomer-box-body-top{
+    width: 100%;
+    height: 40%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.addCustomer-input-container {
+    border: 1px solid var(--text-field-border);
+    width: 65%;
+    height: 30%;
+    margin: 1%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.addCustomer-inputField {
+    height: 100%;
+    width: 85%;
+    margin-left: 5%;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+
+
+
+.addCustomer-box-body-bottom{
+    width: 100%;
+    height: 80%;
+    /* border: 1px solid rgb(64, 255, 0); */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+
+.keypad-addCustomer {
+    text-align: center;
+    width: 96%;
+    height: 96%;
+    background-color: #cecece;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .keys-addCustomer {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
+  }
+
+  .btns-addCustomer {
+    padding: 8px 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    color: var(--secondary-color);
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+
+  .wide {
+    grid-column: span 4;
+  }
+
+  .addCustomer-numberArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 60%;
+    position:relative;
+    left: 15%;
+    top: 1%;
+    bottom: 2%;
+    /* border: 1px solid red;   */
+
+  }
+
+  .keys-numbers{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .btns-addCustomer-number{
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    color: var(--secondary-color);
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+
+  .btns-addCustomer-number:hover{
+    transform: scale(1.05);
+  }
+
+
+  .btns-addCustomer i {
+    font-size: 20px;
+  }
+
+  .btns-addCustomer:hover {
+    transform: scale(1.05);
+  }
+
+  .btns-addCustomer:focus {
+    outline: none;
+  }
+
+ 
+
+
+.addCustomer-box-footer {
+    /* border: 3px solid rgb(236, 236, 255); */
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#btnSaveCustomer {
+    width: 70%;
+    height: 65%;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1rem;
+
+}
+

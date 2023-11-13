@@ -1,0 +1,58 @@
+[
+    {
+        "tableId": 1,
+        "image": "../images/tables/family1.jpg",
+        "tableType": "outdoor",
+        "tableStatus": "free",
+        "tableNumber": "G00-001",
+        "tableSize": "Family"
+    },
+    {
+        "tableId": 2,
+        "image": "../images/tables/family2.jpg",
+        "tableType": "indoor",
+        "tableStatus": "occupied",
+        "tableNumber": "G00-002",
+        "tableSize": "Family"
+    },
+    {
+        "tableId": 3,
+        "image": "../images/tables/couple1.jpg",
+        "tableType": "outdoor",
+        "tableStatus": "maintain",
+        "tableNumber": "C00-001",
+        "tableSize": "Couple"
+    },
+    {
+        "tableId": 4,
+        "image": "../images/tables/vip.jpeg",
+        "tableType": "indoor",
+        "tableStatus": "free",
+        "tableNumber": "V00-001",
+        "tableSize": "VIP"
+    },
+    {
+        "tableId": 5,
+        "image": "../images/tables/couple2.jpeg",
+        "tableType": "outdoor",
+        "tableStatus": "free",
+        "tableNumber": "C00-002",
+        "tableSize": "Couple"
+    },
+    {
+        "tableId": 6,
+        "image": "../images/tables/group3.jpeg",
+        "tableType": "outdoor",
+        "tableStatus": "occupied",
+        "tableNumber": "G00-003",
+        "tableSize": "Family"
+    },
+    {
+        "tableId": 7,
+        "image": "../images/tables/group4.jpeg",
+        "tableType": "outdoor",
+        "tableStatus": "free",
+        "tableNumber": "G00-004",
+        "tableSize": "Family"
+    }
+]

@@ -65,17 +65,16 @@ const readyOrderContainer = document.querySelector("#ready-order-container");
 const btnOrderReady = document.querySelector(".ready-bell");
 const readyOrderClose = document.querySelector(".ready-container-close-icon");
 
-const alertMsg=document.querySelector(".text-2");
+const alertMsg = document.querySelector(".text-2");
 const alertWarning = document.querySelector(".alert-warning");
 const closeIconWarning = document.querySelector(".close-warning");
 const progressWarning = document.querySelector(".progress-warning");
 
-
-
 // const customerContactPattern = /^(070|071|074|075|076|077|078)[-]?[0-9]{7}$/;
 
 document.addEventListener("DOMContentLoaded", function () {
-    selectCategoryCardEvent();
+    loadAllCategory()
+
     selectCustomerMobileEvent();
     loadDishes();
     searchCustomers();
@@ -109,22 +108,45 @@ function updateTime() {
 
 
 // =============selectCategoryCardEvent=============
-function selectCategoryCardEvent() {
-    
-        categoryCardList.forEach((categoryCard) => {
-           
-            categoryCard.addEventListener("click", function () {
-                categoryCardListArea.style.display = "none"
-                tableArea.style.display = "none"
-                dishCardListArea.style.display = "flex"
-                alphabetArea.style.display = "flex"
-    
-            })
-       
-    })
 
-    
-   
+async function loadAllCategory() {
+    try {
+        const response = await fetch("../json/categoryList.json");
+        const category = await response.json();
+        console.log(category);
+
+        let categoryList = "";
+
+        for (let i = 0; i < category.length; i++) {
+            categoryList += `
+            <div class="catergory-card">
+            <h3 class="catergory-card-title">${category[i].name}</h3>
+            </div>
+            `;
+
+            categoryCardListArea.innerHTML = categoryList;
+        }
+        const categoryCardList = document.querySelectorAll(".catergory-card");
+        selectCategoryCardEvent(categoryCardList);
+
+    } catch (error) {
+        console.error("Error fetching category data:", error);
+    }
+}
+
+
+function selectCategoryCardEvent(categoryCardList) {
+    categoryCardList.forEach((categoryCard) => {
+        categoryCard.addEventListener("click", function () {
+            console.log(categoryCard);
+            categoryCardListArea.style.display = "none"
+            tableArea.style.display = "none"
+            dishCardListArea.style.display = "flex"
+            alphabetArea.style.display = "flex"
+
+        })
+
+    })
 
     backTocategoryList.addEventListener('click', function () {
         categoryCardListArea.style.display = "flex"
@@ -161,36 +183,40 @@ function selectCustomerMobileEvent() {
 
 
 // =============Load All dishes=============
-function loadDishes() {
-    fetch("../json/disehs.json")
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (dishes) {
-            console.log(dishes);
+async function loadDishes() {
+    try {
+        const response = await fetch("../json/disehs.json");
+        const dishes = await response.json();
+        console.log(dishes);
 
-            let dishCardsList = "";
+        let dishCardsList = "";
 
-            for (let i = 0; i < dishes.length; i++) {
-                dishCardsList += `
-            <div class="dishcard" data-index="${i}" data-name="${dishes[i].dishName.toLowerCase()}" data-category="${dishes[i].category.toLowerCase()}"  data-acategory="${dishes[i].category.toLowerCase()}"    >
-                <div class="dishcard-image">
-                    <img src="${dishes[i].img}" width="150px" style="margin-bottom: 3px; border-radius: 100px;" alt="">
-                </div>
-                <div class="dishcard-title">
-                    <h3 class="dish-title">${dishes[i].dishName}</h3>
-                </div>
-            </div> 
-            
-            `;
+        for (let i = 0; i < dishes.length; i++) {
+            dishCardsList += `
+                 <div class="dishcard" data-index="${i}" data-name="${dishes[i].dishName.toLowerCase()}" data-category="${dishes[i].category.toLowerCase()}"  data-acategory="${dishes[i].category.toLowerCase()}"    >
+                     <div class="dishcard-image">
+                         <img src="${dishes[i].img}" width="150px" style="margin-bottom: 3px; border-radius: 100px;" alt="">
+                     </div>
+                     <div class="dishcard-title">
+                         <h3 class="dish-title">${dishes[i].dishName}</h3>
+                     </div>
+                 </div> 
+                 
+                 `;
 
-                dishContentArea.innerHTML = dishCardsList;
-                const dishCards = document.querySelectorAll(".dishcard");
-                selectedDishPopup(dishes, dishCards);
-                searchDishByLetter(dishCards)
-            }
-        })
+            dishContentArea.innerHTML = dishCardsList;
+        }
+        const dishCards = document.querySelectorAll(".dishcard");
+        selectedDishPopup(dishes, dishCards);
+        searchDishByLetter(dishCards)
+
+    } catch (error) {
+        console.error("Error fetching category data:", error);
+    }
 }
+
+
+
 
 function selectedDishPopup(dishes, dishCards) {
 
@@ -476,9 +502,6 @@ function selectedDishPopup(dishes, dishCards) {
                             const selectedOrderItemsTotal = document.querySelectorAll(".selectItemPrice");
                             const subTotal = document.querySelector(".subTotal");
 
-
-
-
                             selectedOrderItemsTotal.forEach((selectedOrderItemTotal) => {
                                 const selectItemCard = selectedOrderItemTotal.closest(".selectItemCard");
                                 const selectItemCardType = selectItemCard.querySelector(".selectItemType").innerText;
@@ -698,45 +721,48 @@ function searchDishByLetter(dishCards) {
     });
 }
 //============Search Customers============
-function searchCustomers() {
-    fetch("../json/customers.json")
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (customers) {
-            const mobileNumbers = customers.map(function (customer) {
-                return customer.mobile;
-            });
+async function searchCustomers() {
+    try {
+        const response = await fetch("../json/customers.json");
+        const customers = await response.json();
 
-            const customerNames = customers.map(function (customer) {
-                return customer.name;
-            });
-
-            const customerIds = customers.map(function (customer) {
-                return customer.cusId;
-            });
-
-            mobileNumbers.forEach(function (number) {
-                const option = document.createElement('option');
-                option.value = number;
-                customerMobileDataList.appendChild(option);
-            });
-
-            inputMobileElement.addEventListener('change', function () {
-                const selectedMobileNumber = inputMobileElement.value;
-                const index = mobileNumbers.indexOf(selectedMobileNumber);
-
-                if (index !== -1) {
-                    customerName.innerText = customerNames[index];
-                    customerIds[index]
-                    // console.log(customerNames[index]);
-                    //console.log(customerIds[index]);
-                } else {
-                    inputMobileElement.value = ""
-                    customerName.innerText = '';
-                }
-            });
+        const mobileNumbers = customers.map(function (customer) {
+            return customer.mobile;
         });
+
+        const customerNames = customers.map(function (customer) {
+            return customer.name;
+        });
+
+        const customerIds = customers.map(function (customer) {
+            return customer.cusId;
+        });
+
+        mobileNumbers.forEach(function (number) {
+            const option = document.createElement('option');
+            option.value = number;
+            customerMobileDataList.appendChild(option);
+        });
+
+        inputMobileElement.addEventListener('change', function () {
+            const selectedMobileNumber = inputMobileElement.value;
+            const index = mobileNumbers.indexOf(selectedMobileNumber);
+
+            if (index !== -1) {
+                customerName.innerText = customerNames[index];
+                customerIds[index]
+                // console.log(customerNames[index]);
+                //console.log(customerIds[index]);
+            } else {
+                inputMobileElement.value = ""
+                customerName.innerText = '';
+            }
+        });
+
+    } catch (error) {
+        console.error("Error fetching category data:", error);
+    }
+
 }
 
 
@@ -944,8 +970,8 @@ function readyOrders() {
 
 //============Warning Alert==============
 function warningAlert(msg) {
-    alertMsg.innerText=msg;
-    alertWarning.style.display='block'
+    alertMsg.innerText = msg;
+    alertWarning.style.display = 'block'
     alertWarning.classList.add("active-warning");
     progressWarning.classList.add("active-warning");
 

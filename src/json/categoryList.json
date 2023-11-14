@@ -1,0 +1,62 @@
+[
+    {
+        "id":"CAT-001",
+        "name":"Fried Rice"
+    },
+    {
+        "id":"CAT-002",
+        "name":"Kottu"
+    },
+    {
+        "id":"CAT-003",
+        "name":"Rice and Curry"
+    },
+    {
+        "id":"CAT-004",
+        "name":"Noodles"
+    },
+    {
+        "id":"CAT-005",
+        "name":"Pasta"
+    },  
+    {
+        "id":"CAT-006",
+        "name":"Hoppers"
+    },
+    {
+        "id":"CAT-007",
+        "name":"String Hoppers"
+    },
+    {
+        "id":"CAT-008",
+        "name":"Beverage Bar"
+    },
+    {
+        "id":"CAT-009",
+        "name":"Bakery"
+    },
+    {
+        "id":"CAT-010",
+        "name":"Bites"
+    },
+    {
+        "id":"CAT-011",
+        "name":"Curries"
+    },  
+    {
+        "id":"CAT-012",
+        "name":"Soups and Stews"
+    },
+    {
+        "id":"CAT-013",
+        "name":"Salads and Greens"
+    },
+    {
+        "id":"CAT-014",
+        "name":"Sri Lankan Biryani"
+    },  
+    {
+        "id":"CAT-015",
+        "name":"Ceylon Dessert Haven"
+    }
+]

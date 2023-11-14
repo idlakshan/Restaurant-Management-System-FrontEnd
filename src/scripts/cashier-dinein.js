@@ -112,7 +112,7 @@ function updateTime() {
 function selectCategoryCardEvent() {
     
         categoryCardList.forEach((categoryCard) => {
-            console.log("True");
+           
             categoryCard.addEventListener("click", function () {
                 categoryCardListArea.style.display = "none"
                 tableArea.style.display = "none"

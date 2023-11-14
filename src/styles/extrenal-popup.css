@@ -498,10 +498,10 @@
 /* ---------------Add Customer Popup---------------- */
 .addCustomer-box {
     width: 50%;
-    height: 87%;
+    height: 88%;
     background-color: rgb(255, 255, 255);
     position: fixed;
-    top: -32%;
+    top: -34%;
     right: -10%;
     transform: translate(-50%, 50%);
     border-radius: 20px;
@@ -715,3 +715,333 @@
 
 }
 
+
+.in-preparing-container {
+    width: 55%;
+    height: 75%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    z-index: 1;
+    top: 12%;
+    left: 20%;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    /* display: flex; */
+
+    display: none;
+
+}
+
+.in-preparing-inner-container {
+    background-color: var(--bg-color);
+    width: 95%;
+    height: 95%;
+    border-radius: 15px;
+    position: absolute;
+    left: 2.5%;
+    top: 2.5%;
+}
+
+.in-preparing-inner-container-header {
+    width: 100%;
+    height: 30%;
+    position: relative;
+}
+
+.in-preparing-inner-container-header img:nth-child(1) {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+
+}
+
+.in-preparing-inner-container-header p:nth-child(2) {
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.in-preparing-inner-container-header p:nth-child(2) span {
+    color: var(--primary-color);
+}
+
+.in-preparing-inner-container-header img:nth-child(3) {
+    position: absolute;
+    top: -6%;
+    right: -2%;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.searchInput-container {
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+    border-radius: 20px;
+    border: 1px solid var(--text-field-border);
+    width: 25%;
+    height: 20%;
+    color: var(--text-field-border);
+    background-color: white;
+}
+
+.searchInput {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    left: 18%;
+    border: none;
+    border-radius: 15px;
+    padding-left: 15px;
+    outline: none;
+}
+
+.in-preparing-inner-container-body {
+    width: 100%;
+    height: 70%;
+    /* display: flex;
+    flex-wrap: wrap; */
+
+
+}
+
+table {
+    width: 98%;
+}
+
+.searchIcon {
+    position: absolute;
+    bottom: 22%;
+    left: 7%;
+}
+
+/* =============readyOrder-popup==================== */
+.ready-order-container {
+    width: 55%;
+    height: 75%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    z-index: 1;
+    top: 12%;
+    left: 20%;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    /* display: flex; */
+    display: none;
+}
+
+/* =============Alert-popup==================== */
+
+.alert-success {
+    position: absolute;
+    top: 0;
+    right: 38%;
+    width: 25%;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px 35px 20px 25px;
+    box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transform: translateY(-100%);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+  
+  }
+  
+  .alert-success.active-success {
+    transform: translateY(50%);
+  }
+  
+  .alert-success-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .alert-success-content .check-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    min-width: 35px;
+    background-color:#17c700;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+  }
+  
+ .message {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+  }
+  
+ .text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+  }
+  
+.text-1 {
+    font-weight: 600;
+    color: #333;
+  }
+  
+ .close-success {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+ .close-success:hover {
+    opacity: 1;
+  }
+  
+.progress-success {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+  
+  }
+  
+.progress-success:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color:#17c700;
+  }
+  
+  .progress-success.active-success:before {
+    animation: progress 3s linear forwards;
+  }
+  
+  @keyframes progress {
+    100% {
+      right: 100%;
+    }
+  }
+  
+  .btnSuccess {
+    padding: 12px 20px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    background-color: #17c700;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 5px;
+  }
+
+  .btnWarning {
+    padding: 12px 20px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    background-color: #fa970f;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btnSuccess:hover {
+    background-color: #17c700;
+  }
+  
+  .alert-success .active-success ~ .btnSuccess {
+    pointer-events: none;
+  }
+  
+
+
+
+.alert-warning{
+    position: absolute;
+    top: 0;
+    right: 38%;
+    width: 25%;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px 35px 20px 25px;
+    box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transform: translateY(-100%);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    display: none;
+}
+
+.alert-warning.active-warning {
+    transform: translateY(50%);
+  }
+
+.alert-warning-content{
+    display: flex;
+    align-items: center;
+}
+
+.alert-warning-content .warning{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    min-width: 35px;
+    background-color:#fa970f;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.progress-warning {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+  
+  }
+
+  .close-warning {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  .close-warning:hover {
+    opacity: 1;
+  }
+
+  .progress-warning:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color:#fa970f;
+  }
+
+  .progress-warning.active-warning:before {
+    animation: progress 3s linear forwards;
+  }
+  
+  .btnWarning:hover {
+    background-color: #fa970f;
+  }
+  
+  .alert-warning .active-warning ~ .btnWarning {
+    pointer-events: none;
+  }
+  

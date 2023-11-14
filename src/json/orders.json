@@ -1,0 +1,39 @@
+[
+    {
+      "orderId":"O-001",
+       "table":"Tab-001",
+       "mobile":"0897876766",
+       "time":"12.09pm",
+       "items":"chicken mixed rice ,chicken kottu",
+       "size":"small"
+
+
+    },
+    {
+        "orderId":"O-002",
+        "table":"Tab-002",
+        "mobile":"0897876766",
+        "time":"12.09pm",
+        "items":"Egg mixed rice",
+        "size":"small"
+ 
+    },
+    {
+        "orderId":"O-003",
+        "table":"Tab-003",
+        "mobile":"0897876766",
+        "time":"12.09pm",
+        "items":"Vegitable mixed rice",
+        "size":"small"
+ 
+    },
+    {
+        "orderId":"O-003",
+        "table":"Tab-003",
+        "mobile":"071232323",
+        "time":"12.09pm",
+        "items":"Vegitable mixed rice",
+        "size":"small"
+ 
+    }
+]

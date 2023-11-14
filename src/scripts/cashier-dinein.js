@@ -1,3 +1,5 @@
+const dateAndTimeElement = document.getElementById("currentDateAndTime");
+
 const categoryCardList = document.querySelectorAll(".catergory-card");
 const categoryCardListArea = document.querySelector(".category-items-area");
 const dishCardListArea = document.querySelector(".dishes-area");
@@ -56,10 +58,21 @@ const btnTableDropdown = document.querySelector(".btnPopUpTable");
 
 let clicked = true;
 
+const inPreparingContainer = document.querySelector(".in-preparing-container");
+const btnInPreparing = document.querySelector(".inPreparing-bell");
+const inPreparingContainerClose = document.querySelector(".inPreparing-container-close-icon");
+const readyOrderContainer = document.querySelector("#ready-order-container");
+const btnOrderReady = document.querySelector(".ready-bell");
+const readyOrderClose = document.querySelector(".ready-container-close-icon");
+
+const alertMsg=document.querySelector(".text-2");
+const alertWarning = document.querySelector(".alert-warning");
+const closeIconWarning = document.querySelector(".close-warning");
+const progressWarning = document.querySelector(".progress-warning");
+
+
 
 // const customerContactPattern = /^(070|071|074|075|076|077|078)[-]?[0-9]{7}$/;
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
     selectCategoryCardEvent();
@@ -69,22 +82,49 @@ document.addEventListener("DOMContentLoaded", function () {
     paymentType();
     addCustomerEvent();
     loadAllTables();
+    setInterval(updateTime, 1000);
+    readyOrders();
+    inPreparingOrders();
 
 });
 
 
+//============date and time============
+function updateTime() {
+    const months = [
+        "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+        "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+    ];
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = months[currentDate.getMonth()];
+    const year = currentDate.getFullYear();
+    const hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+    const amOrpm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+    const formattedDate = `${day} ${month} ${year} | ${formattedHours}.${minutes.toString().padStart(2, '0')} ${amOrpm}`;
+    dateAndTimeElement.innerHTML = formattedDate;
+}
+
 
 // =============selectCategoryCardEvent=============
 function selectCategoryCardEvent() {
-    categoryCardList.forEach((categoryCard) => {
-        categoryCard.addEventListener("click", function () {
-            categoryCardListArea.style.display = "none"
-            tableArea.style.display = "none"
-            dishCardListArea.style.display = "flex"
-            alphabetArea.style.display = "flex"
-
-        })
+    
+        categoryCardList.forEach((categoryCard) => {
+            console.log("True");
+            categoryCard.addEventListener("click", function () {
+                categoryCardListArea.style.display = "none"
+                tableArea.style.display = "none"
+                dishCardListArea.style.display = "flex"
+                alphabetArea.style.display = "flex"
+    
+            })
+       
     })
+
+    
+   
 
     backTocategoryList.addEventListener('click', function () {
         categoryCardListArea.style.display = "flex"
@@ -516,21 +556,18 @@ function orderPayEvent(subTotal) {
 
         const newSubTotal = subTotal;
         orderNetTotal.innerText = newSubTotal;
-        orderDiscount.addEventListener("input", function () {
+        orderDiscount.addEventListener("touchend", function (event) {
+            console.log('TOUCH end', event.target.value);
 
             const discount = orderDiscount.value;
             var calcNetTotal = (newSubTotal - ((newSubTotal * discount) / 100))
             orderNetTotal.innerText = calcNetTotal.toFixed(2);
-            // orderBalance.innerText=calcNetTotal.toFixed(2);
-
-
-            //paymentType();
 
         });
+
     })
-
-
 }
+
 
 function paymentType() {
     inputPayCash.addEventListener("click", function () {
@@ -583,6 +620,7 @@ btnConfrim.addEventListener("click", function () {
     tableArea.style.display = "flex"
     dishCardListArea.style.display = "none"
     alphabetArea.style.display = "none"
+    orderDiscount.value = ""
 
 })
 
@@ -597,6 +635,7 @@ orderConfrimPanelClose.addEventListener("click", function () {
 function OrderConfrimEvent(inputField) {
     numberkeysOrder.forEach((numberKey) => {
         numberKey.addEventListener('click', function () {
+
             inputField.value += numberKey.textContent;
         })
     });
@@ -611,7 +650,7 @@ function OrderConfrimEvent(inputField) {
 
 orderDiscount.addEventListener('click', function () {
     OrderConfrimEvent(orderDiscount);
-    ok(inputPayCash, inputPayCard, inputPayCredit)
+
 });
 
 inputPayCash.addEventListener('click', function () {
@@ -628,16 +667,7 @@ inputPayCredit.addEventListener('click', function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
+//============Search Dishes============
 function searchDishByLetter(dishCards) {
     letterButtons.forEach(letterButton => {
         letterButton.addEventListener('click', function () {
@@ -667,7 +697,7 @@ function searchDishByLetter(dishCards) {
         // })
     });
 }
-
+//============Search Customers============
 function searchCustomers() {
     fetch("../json/customers.json")
         .then(function (response) {
@@ -839,6 +869,103 @@ function loadAllTables() {
 
 
 
+//============load all dinein inPreparingOrders orders and search============ 
+function inPreparingOrders() {
+    btnInPreparing.addEventListener('click', function () {
+        inPreparingContainer.style.display = "block"
+    })
+
+    inPreparingContainerClose.addEventListener('click', function () {
+        inPreparingContainer.style.display = "none"
+    })
+
+    fetch("../json/orders.json")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (orders) {
+            const dineinOrders = document.querySelector(".dinein-orders-inpreparing");
+            let ordersList = "";
+
+            for (let i = 0; i < orders.length; i++) {
+                ordersList += `
+          <tr data-table="${orders[i].table}">
+            <td>${orders[i].orderId}</td>
+            <td>${orders[i].table}</td>
+            <td>${orders[i].mobile}</td>
+            <td>${orders[i].time}</td>
+            <td>${orders[i].items}</td>
+            <td>${orders[i].size}</td>
+          </tr>
+        `;
+            }
+
+            dineinOrders.innerHTML = ordersList;
+        });
+
+}
+
+
+//============load all dinein ready orders and search============ 
+function readyOrders() {
+    btnOrderReady.addEventListener('click', function () {
+        readyOrderContainer.style.display = "block"
+    })
+
+    readyOrderClose.addEventListener('click', function () {
+        readyOrderContainer.style.display = "none"
+    });
+
+    fetch("../json/orders.json")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (orders) {
+            const dineinOrders = document.querySelector(".dinein-orders-ready");
+            let ordersList = "";
+
+            for (let i = 0; i < orders.length; i++) {
+                ordersList += `
+          <tr data-table="${orders[i].table}">
+            <td>${orders[i].orderId}</td>
+            <td>${orders[i].table}</td>
+            <td>${orders[i].mobile}</td>
+            <td>${orders[i].time}</td>
+            <td>${orders[i].items}</td>
+            <td>${orders[i].size}</td>
+          </tr>
+        `;
+            }
+
+            dineinOrders.innerHTML = ordersList;
+        });
+
+}
+
+//============Warning Alert==============
+function warningAlert(msg) {
+    alertMsg.innerText=msg;
+    alertWarning.style.display='block'
+    alertWarning.classList.add("active-warning");
+    progressWarning.classList.add("active-warning");
+
+    const timer1 = setTimeout(() => {
+        alertWarning.classList.remove("active-warning");
+    }, 3000);
+
+    const timer2 = setTimeout(() => {
+        progressWarning.classList.remove("active-warning");
+    }, 3300);
+
+    closeIconWarning.addEventListener("click", () => {
+        alertWarning.classList.remove("active-warning");
+        setTimeout(() => {
+            progressWarning.classList.remove("active-warning");
+        }, 300);
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+    });
+}
 
 
 

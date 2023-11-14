@@ -49,3 +49,32 @@ body {
     width: 100%;
     background-color: #FFFFFF;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    padding: 5px;
+    overflow-x: scroll;
+    margin: 5px;
+   
+}
+
+th {
+    background-color:#d9d9d9;
+    text-align: center;
+    padding: 5px;
+}
+
+table th:first-child {
+    border-top-left-radius: 10px;
+}
+
+table th:last-child {
+    border-top-right-radius: 10px;
+}
+
+td {
+    text-align: center;
+    border-bottom: 1px solid var(--text-field-border);
+    padding: 5px;
+}

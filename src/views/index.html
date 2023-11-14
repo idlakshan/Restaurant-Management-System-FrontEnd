@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Touch Events Example</title>
+  <style>
+    #touchArea {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+
+<div id="touchArea">Touch me!</div>
+
+<script>
+  var touchArea = document.getElementById('touchArea');
+
+  touchArea.addEventListener('touchstart', function (e) {
+    console.log('Touch started!');
+  });
+
+  touchArea.addEventListener('touchmove', function (e) {
+    console.log('Touch moved!');
+  });
+
+  touchArea.addEventListener('touchend', function (e) {
+    console.log('Touch ended!');
+  });
+
+  touchArea.addEventListener('touchcancel', function (e) {
+    console.log('Touch canceled!');
+  });
+</script>
+
+</body>
+</html>

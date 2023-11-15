@@ -470,6 +470,19 @@ input:checked+.slider:before {
     padding: 10px;
 }
 
+.total-input {
+    position: absolute;
+    top: 12%;
+    left: 35%;
+    width: 200px;
+    height: 40px;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    padding: 10px;
+}
+
 #tk-total::placeholder {
     font-size: 1.5rem;
     font-weight: 500;

@@ -3,6 +3,8 @@ const takeawayPayOrderPanelOne = document.querySelector("#payOrder-panelOne");
 const takeawayPayOrderPaneTwo = document.querySelector("#payOrder-panelTwo");
 const takeawayPayOrderPanelThree = document.querySelector("#payOrder-panelThree");
 const orderConfrimPanelTabOne = document.querySelector("#confrim-orderPanel-tabOne");
+const orderConfrimPanelTabTwo = document.querySelector("#confrim-orderPanel-tabTwo");
+const orderConfrimPanelTabThree = document.querySelector("#confrim-orderPanel-tabThree");
 
 const tabOne = document.getElementById("tab1");
 const tabTwo = document.getElementById("tab2");
@@ -20,7 +22,9 @@ const dishContentArea = document.querySelector(".dishes-area");
 const popupArea = document.querySelector(".selectedDishPopup");
 const orderConfrimPanelClose = document.querySelector(".close_icon_orderConfrim");
 
-const btnPay = document.querySelector(".btn-pay");
+const btnPayTabOne = document.querySelector("#btnPayTab1");
+const btnPayTabTwo = document.querySelector("#btnPayTab2");
+const btnPayTabThree = document.querySelector("#btnPayTab3");
 
 const orderDiscountTabOne = document.querySelector(".orderDiscountTabOne");
 const orderNetTotalTabOne = document.querySelector(".orderNetTotalTabOne");
@@ -392,21 +396,21 @@ function selectedDishPopupTab1(dishes, dishCards) {
 
                         var total = orderItemInputQty * parseFloat(orderValues[1]);
 
-                        const selectItemCards = document.querySelectorAll(".selectItemCard");
+                        const selectItemCards = document.querySelectorAll(".selectItemCardTab1");
                         let itemExists = false;
 
                         for (let i = 0; i < selectItemCards.length; i++) {
                             const selectItemCard = selectItemCards[i];
-                            const selectItemCardName = selectItemCard.querySelector(".selectItemName").innerText;
-                            const selectItemCardSize = selectItemCard.querySelector(".selectItemSize").innerText;
-                            const selectItemCardType = selectItemCard.querySelector(".selectItemType").innerText;
-                            const selectItemCardQty = selectItemCard.querySelector(".selectItemQty");
+                            const selectItemCardName = selectItemCard.querySelector(".selectItemNameTab1").innerText;
+                            const selectItemCardSize = selectItemCard.querySelector(".selectItemSizeTab1").innerText;
+                            const selectItemCardType = selectItemCard.querySelector(".selectItemTypeTab1").innerText;
+                            const selectItemCardQty = selectItemCard.querySelector(".selectItemQtyTab1");
 
 
                             if (selectItemCardName === orderItemtitleName && selectItemCardSize === orderValues[0] && selectItemCardType === orderType) {
 
 
-                                const priceElement = selectItemCard.querySelector(".selectItemPrice");
+                                const priceElement = selectItemCard.querySelector(".selectItemPriceTab1");
 
                                 const currentQty = parseInt(selectItemCardQty.innerText);
                                 var newQty = currentQty + parseInt(orderItemInputQty);
@@ -427,17 +431,18 @@ function selectedDishPopupTab1(dishes, dishCards) {
                         if (!itemExists) {
                             const selectOrderItemCards = document.createElement("div");
                             selectOrderItemCards.classList.add("selectItemCard");
+                            selectOrderItemCards.classList.add("selectItemCardTab1");
                             selectOrderItemCards.innerHTML = ` 
                                         <div class="selectItemCard-left">
                                             <div class="selectItemCard-head">
-                                                <h5 class="selectItemName">${orderItemtitleName}</h5>
-                                                <h5 class="selectItemSize">${orderValues[0]}</h5>
-                                                <h5 class="selectItemPrice">${total}</h5>
+                                                <h5 class="selectItemNameTab1">${orderItemtitleName}</h5>
+                                                <h5 class="selectItemSizeTab1">${orderValues[0]}</h5>
+                                                <h5 class="selectItemPriceTab1">${total}</h5>
                                             </div>
         
                                             <div class="selectItemCard-bottom">
-                                                <h5 class="selectItemType">${itemType}</h5>
-                                                <h5 class="selectItemQty">${orderItemInputQty}</h5> 
+                                                <h5 class="selectItemType selectItemTypeTab1">${itemType}</h5>
+                                                <h5 class="selectItemQtyTab1">${orderItemInputQty}</h5> 
                                             </div>
                                         </div>
                                         <div class="selectItemCard-right">
@@ -468,8 +473,8 @@ function selectedDishPopupTab1(dishes, dishCards) {
                             let fullTotal = parseFloat(0.0);
                             const fullTotalElement = document.querySelector(".totalTab1");
                             const selectedOrderItemsTotal =
-                                document.querySelectorAll(".selectItemPrice");
-                            const subTotal = document.querySelector(".subTotal");
+                                document.querySelectorAll(".selectItemPriceTab1");
+                            const subTotal = document.querySelector("#subTotalTab1");
 
                             selectedOrderItemsTotal.forEach((selectedOrderItemTotal) => {
                                 const value = selectedOrderItemTotal.innerText;
@@ -486,21 +491,21 @@ function selectedDishPopupTab1(dishes, dishCards) {
 
                         popupArea.style.display = "none";
 
-                        var orderPanelContent = document.querySelector("#takeawayPanelOne-container");
+                        //var orderPanelContent = document.querySelector("#takeawayPanelOne-container");
 
-                        if (orderPanelContent) {
-                            var selectItemCardElements = orderPanelContent.querySelectorAll(".selectItemCard");
+                        // if (orderPanelContent) {
+                        //     var selectItemCardElements = orderPanelContent.querySelectorAll(".selectItemCard");
 
-                            for (var i = 0; i < selectItemCardElements.length; i++) {
-                                var childElement = selectItemCardElements[i];
-                                var selectedQtyElement = childElement.querySelector(".selectItemQty");
-                                var selectedPriceElement = childElement.querySelector(".selectItemPrice");
-                                var selectedQty = selectedQtyElement.innerText;
-                                var selectedPrice = selectedPriceElement.innerText;
-                                console.log("Qty for card " + (i + 1) + ": " + selectedQty);
-                                console.log("Price for card " + (i + 1) + ": " + selectedPrice);
-                            }
-                        }
+                        //     for (var i = 0; i < selectItemCardElements.length; i++) {
+                        //         var childElement = selectItemCardElements[i];
+                        //         var selectedQtyElement = childElement.querySelector(".selectItemQty");
+                        //         var selectedPriceElement = childElement.querySelector(".selectItemPrice");
+                        //         var selectedQty = selectedQtyElement.innerText;
+                        //         var selectedPrice = selectedPriceElement.innerText;
+                        //         console.log("Qty for card " + (i + 1) + ": " + selectedQty);
+                        //         console.log("Price for card " + (i + 1) + ": " + selectedPrice);
+                        //     }
+                        // }
                     }
 
                 } else {
@@ -530,7 +535,7 @@ function selectedDishPopupTab1(dishes, dishCards) {
     }
 
     function orderPayEventTabOne(subTotal) {
-    btnPay.addEventListener('click', function () {
+        btnPayTabOne.addEventListener('click', function () {
         orderConfrimPanelTabOne.style.display = "flex"
         container.classList.add("container-disabled");
 
@@ -645,6 +650,265 @@ function selectedDishPopupTab2(dishes, dishCards) {
          popupBoxClose.addEventListener('click', function () {
              popupArea.style.display = "none";
          });
+
+         //************popup box dishes-Size-buttons click event************
+        const sizeBtnContainers = document.querySelectorAll(".size-input-container");
+        const sizeBtns = document.querySelectorAll(".size-btn");
+        const sizeInput = document.querySelector(".qty-input");
+        const btnAddItem = document.querySelector(".btn-addItem");
+        const btnInputNumbers = document.querySelectorAll(".btn-number");
+        const btnPlus = document.querySelector("#qty-input-btn-plus");
+        const btnMinus = document.querySelector("#qty-input-btn-minus");
+        const dishBoxTitle = document.querySelector(".dishesBox-title");
+        // const selectedItemType = document.querySelector(".selectItemType")
+        let clickedNumbers = '';
+
+
+        
+        //============dishes-Size-buttons disabled-enabled============
+        sizeBtns.forEach((sizeBtn) => {
+            sizeBtn.addEventListener("click", function () {
+                sizeBtn.style.border = "none";
+                sizeBtn.style.outline = "none";
+                sizeBtn.disabled = false;
+
+                disableOtherButtons(sizeBtn);
+            });
+        });
+
+        function disableOtherButtons(clickedBtn) {
+            sizeBtns.forEach((sizeBtn) => {
+                if (sizeBtn !== clickedBtn) {
+                    sizeBtn.disabled = true;
+                    // sizeBtnsPrice.style.display="none";
+                    // sizeBtnContainers.disabled=true;
+                }
+            });
+        }
+
+        sizeBtnContainers.forEach((sizeBtnContainer) => {
+            const sizeBtnImg = sizeBtnContainer.querySelector(".size-btn-img");
+            let isClicked = false;
+
+            sizeBtnContainer.addEventListener("click", function () {
+                isClicked = !isClicked
+
+                if (isClicked) {
+
+                    btnPlus.disabled = false;
+                    btnMinus.disabled = false;
+
+                    //============change popupBox sizebtn colored and icon by clicked it============
+                    sizeBtnContainer.style.border = "2px solid var(--text-field-success)";
+                    sizeBtnImg.src = "../icons/correct.png";
+                    sizeBtnImg.style.width = "40px";
+                    sizeBtnImg.style.height = "40px";
+                    sizeInput.value = "1";
+                    btnAddItem.disabled = false;
+
+
+
+                    btnInputNumbers.forEach((btnInputNumber) => {
+                        btnInputNumber.disabled = false;
+
+                        //============change qtyInput value by clicked Numbers============
+                        btnInputNumber.addEventListener("click", function () {
+                            const clickedNumber = btnInputNumber.innerHTML;
+                            clickedNumbers += clickedNumber;
+                            //console.log(clickedNumbers);
+                            sizeInput.value = clickedNumbers;
+
+                        });
+                    });
+
+                    //============change qtyInput value by clicked plus Minus Buttons============
+                    btnPlus.addEventListener('click', function () {
+                        const currentValue = parseInt(sizeInput.value);
+                        sizeInput.value = currentValue + 1;
+                    });
+
+                    btnMinus.addEventListener('click', function () {
+                        const currentValue = parseInt(sizeInput.value);
+                        if (currentValue === 1) {
+                            sizeInput.value = "1";
+                        } else {
+                            sizeInput.value = currentValue - 1;
+                        }
+                    });
+
+
+                    //============added cart to selected items============
+
+                    btnAddItem.addEventListener("click", function () {
+                        addItemToOrderItems("Take-Away");
+
+                    });
+
+                    function addItemToOrderItems(itemType) {
+                        const orderItemsContainer = document.querySelector("#takeawayPanelTwo-container");
+                        const orderItemtitleName = dishBoxTitle.innerText;
+                        const orderItemInputQty = sizeInput.value;
+                        const orderItemInputSizenName = sizeBtnContainer.innerText;
+                        const orderValues = orderItemInputSizenName.split('\n');
+                        const orderType = itemType
+
+                        var total = orderItemInputQty * parseFloat(orderValues[1]);
+
+                        const selectItemCards = document.querySelectorAll(".selectItemCardTab2");
+                        let itemExists = false;
+
+                        for (let i = 0; i < selectItemCards.length; i++) {
+                            const selectItemCard = selectItemCards[i];
+                            const selectItemCardName = selectItemCard.querySelector(".selectItemNameTab2").innerText;
+                            const selectItemCardSize = selectItemCard.querySelector(".selectItemSizeTab2").innerText;
+                            const selectItemCardType = selectItemCard.querySelector(".selectItemTypeTab2").innerText;
+                            const selectItemCardQty = selectItemCard.querySelector(".selectItemQtyTab2");
+
+
+                            if (selectItemCardName === orderItemtitleName && selectItemCardSize === orderValues[0] && selectItemCardType === orderType) {
+
+
+                                const priceElement = selectItemCard.querySelector(".selectItemPriceTab2");
+
+                                const currentQty = parseInt(selectItemCardQty.innerText);
+                                var newQty = currentQty + parseInt(orderItemInputQty);
+                                selectItemCardQty.innerText = newQty;
+
+
+                                const currentPrice = parseFloat(priceElement.innerText);
+                                const newPrice = currentPrice + total;
+                                priceElement.innerText = newPrice;
+
+                                itemExists = true;
+                                popupArea.style.display = "none";
+
+                                break;
+                            }
+                        }
+
+                        if (!itemExists) {
+                            const selectOrderItemCards = document.createElement("div");
+                            selectOrderItemCards.classList.add("selectItemCard");
+                            selectOrderItemCards.classList.add("selectItemCardTab2");
+                            selectOrderItemCards.innerHTML = ` 
+                                        <div class="selectItemCard-left">
+                                            <div class="selectItemCard-head">
+                                                <h5 class="selectItemNameTab2">${orderItemtitleName}</h5>
+                                                <h5 class="selectItemSizeTab2">${orderValues[0]}</h5>
+                                                <h5 class="selectItemPriceTab2">${total}</h5>
+                                            </div>
+        
+                                            <div class="selectItemCard-bottom">
+                                                <h5 class="selectItemType selectItemTypeTab2">${itemType}</h5>
+                                                <h5 class="selectItemQtyTab2">${orderItemInputQty}</h5> 
+                                            </div>
+                                        </div>
+                                        <div class="selectItemCard-right">
+                                            <img class="imgDustbin" src="../icons/dustbin.png"  width="50%"
+                                            alt="">
+                                        </div>
+                                    `;
+                            selectOrderItemCards.style.display = "flex";
+                            orderItemsContainer.appendChild(selectOrderItemCards);
+                            popupArea.style.display = "none";
+                        }
+
+                        //============delete selected items from the order cart============
+                        const selectedOrderItemsDelete = document.querySelectorAll(".imgDustbin");
+                        selectedOrderItemsDelete.forEach((selectedOrderItemDelete) => {
+                            selectedOrderItemDelete.addEventListener("click", function () {
+                                //console.log("delete");
+                                const selectItemCard = selectedOrderItemDelete.closest(".selectItemCard");
+                                if (selectItemCard) {
+                                    selectItemCard.remove();
+                                    CalculateFullTotal();
+                                }
+                            });
+                        });
+
+                        //============calcutale full total============
+                        function CalculateFullTotal() {
+                            let fullTotal = parseFloat(0.0);
+                            const fullTotalElement = document.querySelector("#totalTab2");
+                            const selectedOrderItemsTotal =
+                                document.querySelectorAll(".selectItemPriceTab2");
+                            const subTotal = document.querySelector("#subTotalTab2");
+
+                            selectedOrderItemsTotal.forEach((selectedOrderItemTotal) => {
+                                const value = selectedOrderItemTotal.innerText;
+                                fullTotal += parseFloat(value);
+                            });
+
+                            // console.log(fullTotal);
+                            fullTotalElement.value = fullTotal.toFixed(2);
+                            subTotal.innerText = fullTotal.toFixed(2);
+                            orderPayEventTabTwo(subTotal.innerText)
+                        }
+
+                        CalculateFullTotal();
+                      
+
+                        popupArea.style.display = "none";
+
+                        // var orderPanelContent = document.querySelector("#takeawayPanelTwo-container");
+
+                        // if (orderPanelContent) {
+                        //     var selectItemCardElements = orderPanelContent.querySelectorAll(".selectItemCard");
+
+                        //     for (var i = 0; i < selectItemCardElements.length; i++) {
+                        //         var childElement = selectItemCardElements[i];
+                        //         var selectedQtyElement = childElement.querySelector(".selectItemQty");
+                        //         var selectedPriceElement = childElement.querySelector(".selectItemPrice");
+                        //         var selectedQty = selectedQtyElement.innerText;
+                        //         var selectedPrice = selectedPriceElement.innerText;
+                        //         console.log("Qty for card " + (i + 1) + ": " + selectedQty);
+                        //         console.log("Price for card " + (i + 1) + ": " + selectedPrice);
+                        //     }
+                        // }
+                    }
+
+                } else {
+                    sizeBtnContainer.style.border = "none";
+                    sizeBtnImg.src = "../assets/icons/plusicon.png";
+                    sizeBtnImg.style.width = "50px";
+                    sizeBtnImg.style.height = "50px";
+                    sizeInput.value = "";
+
+
+                    btnInputNumbers.forEach((btnInputNumber) => {
+                        btnInputNumber.disabled = true;
+                    });
+
+                    btnPlus.disabled = true;
+                    btnMinus.disabled = true;
+
+                    sizeBtns.forEach((btn) => {
+                        btn.disabled = false;
+                    });
+                }
+
+            });
+
+        });
+
+    }
+
+    function orderPayEventTabTwo(subTotal) {
+        btnPayTabTwo.addEventListener('click', function () {
+            orderConfrimPanelTabTwo.style.display = "flex"
+            container.classList.add("container-disabled");
+    
+            const newSubTotal = subTotal;
+            orderNetTotalTabTwo.innerText = newSubTotal;
+            orderDiscountTabTwo.addEventListener("input", function (event) {
+                console.log('TOUCH end', event.target.value);
+    
+                const discount = orderDiscountTabTwo.value;
+                var calcNetTotal = (newSubTotal - ((newSubTotal * discount) / 100))
+                orderNetTotalTabTwo.innerText = calcNetTotal.toFixed(2);
+            });
+    
+        })
     }
 
 

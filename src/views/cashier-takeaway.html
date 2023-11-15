@@ -271,8 +271,8 @@
                         </div>
                         <div class="cashier-dinein-right-inner-content-body-bottom">
                             <label for="total" id="total-lable">Total</label>
-                            <input type="text" id="total-input" class="tk-total totalTab1" placeholder="0.00">
-                            <button class="btn-pay">Pay</button>
+                            <input type="text" id="totalTab1" class="tk-total totalTab1 total-input" placeholder="0.00">
+                            <button class="btn-pay" id="btnPayTab1">Pay</button>
                         </div>
                     </div>
 
@@ -296,8 +296,8 @@
                         </div>
                         <div class="cashier-dinein-right-inner-content-body-bottom">
                             <label for="total" id="total-lable">Total</label>
-                            <input type="text" id="total-input" class="tk-total totalTab2" placeholder="0.00">
-                            <button class="btn-pay">Pay</button>
+                            <input type="text" id="totalTab2" class="tk-total totalTab2 total-input" placeholder="0.00">
+                            <button class="btn-pay" id="btnPayTab2">Pay</button>
                         </div>
                     </div>
 
@@ -321,8 +321,8 @@
                         </div>
                         <div class="cashier-dinein-right-inner-content-body-bottom">
                             <label for="total" id="total-lable">Total</label>
-                            <input type="text" id="total-input" class="tk-total" placeholder="0.00">
-                            <button class="btn-pay">Pay</button>
+                            <input type="text" id="totalTab3" class="tk-total total-input" placeholder="0.00">
+                            <button class="btn-pay" id="btnPayTab3">Pay</button>
                         </div>
                     </div>
                 </div>
@@ -341,15 +341,15 @@
     
                         <div class="confrim-orderPanel-body-inner-container">
                             <h4>Sub Total</h4>
-                            <h4 class="subTotal">0.00</h4>
+                            <h4 class="subTotal" id="subTotalTab1">0.00</h4>
                         </div>
                         <div class="confrim-orderPanel-body-inner-container">
                             <h4>Discount</h4>
-                            <input class="orderDiscount orderInput orderDiscountTabOne" type="text" name="" id="" placeholder="0%">
+                            <input class="orderDiscount orderInput orderDiscountTabOne" type="text" name="" id="discountTab1" placeholder="0%">
                         </div>
                         <div class="confrim-orderPanel-body-inner-container">
                             <h4>Net-Total</h4>
-                            <h4 class="orderNetTotal orderNetTotalTabOne">0.00</h4>
+                            <h4 class="orderNetTotal orderNetTotalTabOne" id="netTotaltab1">0.00</h4>
                         </div>
                         <div class="confrim-orderPanel-body-inner-payment">
                             <div class="confrim-orderPanel-body-inner-payment-label">
@@ -366,10 +366,81 @@
     
                         <div class="confrim-orderPanel-body-inner-container">
                             <h4>Balance</h4>
-                            <h4 class="orderBalance orderBalanceTabOne ">0.00</h4>
+                            <h4 class="orderBalance orderBalanceTabOne" id="OrderBalanceTab1">0.00</h4>
                         </div>
                         <div class="confrim-orderPanel-body-inner-container">
-                            <button class="btn-confrim">confrim</button>
+                            <button class="btn-confrim" id="btnConfrimTab1">confrim</button>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="confrim-orderPanel-footer">
+                    <div class="numberic-keypad-order">
+                        <ul id="keyboard-order">
+                            <li class="letter letter-order">1</li>
+                            <li class="letter letter-order">2</li>
+                            <li class="letter letter-order">3</li>
+                            <li class="letter letter-order">4</li>
+                            <li class="letter letter-order">5</li>
+                            <li class="letter letter-order">6</li>
+                            <li class="letter letter-order">7</li>
+                            <li class="letter letter-order">8</li>
+                            <li class="letter letter-order">9</li>
+                            <li class="delete delete-order">←</li>
+                            <li class="letter letter-order">0</li>
+                            <li class="enter enter-order">Enter</li>
+                        </ul>
+                    </div>
+    
+    
+                </div>
+    
+            </div>
+
+
+
+
+             <!--------- order confrim panel Tab Two------------------>
+             <div class="confrim-orderPanel" id="confrim-orderPanel-tabTwo">
+                <div class="confrim-orderPanel-top">
+                    <h3>Order ID</h3>
+                    <h3> Table ID</h3>
+                    <img class="close_icon_orderConfrim" src="../icons/close_icon.png" alt="">
+                </div>
+                <div class="confrim-orderPanel-body">
+                    <div class="confrim-orderPanel-body-inner">
+    
+                        <div class="confrim-orderPanel-body-inner-container">
+                            <h4>Sub Total</h4>
+                            <h4 class="subTotal" id="subTotalTab2">0.00</h4>
+                        </div>
+                        <div class="confrim-orderPanel-body-inner-container">
+                            <h4>Discount</h4>
+                            <input class="orderDiscount orderInput orderDiscountTabTwo" type="text" name="" id="discountTab2" placeholder="0%">
+                        </div>
+                        <div class="confrim-orderPanel-body-inner-container">
+                            <h4>Net-Total</h4>
+                            <h4 class="orderNetTotal orderNetTotalTabTwo" id="netTotaltab2">0.00</h4>
+                        </div>
+                        <div class="confrim-orderPanel-body-inner-payment">
+                            <div class="confrim-orderPanel-body-inner-payment-label">
+                                <label class="label-paymet" for="">Cash</label>
+                                <label class="label-paymet" for="">Card</label>
+                                <label class="label-paymet" for="">Credit</label>
+                            </div>
+                            <div class="confrim-orderPanel-body-inner-payment-input">
+                                <input type="number" value="0.00" name="" id="inputpaycash" class="input-paymet">
+                                <input type="number" value="0.00" name="" id="inputpaycard" class="input-paymet">
+                                <input type="number" value="0.00" name="" id="inputpaycredit" class="input-paymet">
+                            </div>
+                        </div>
+    
+                        <div class="confrim-orderPanel-body-inner-container">
+                            <h4>Balance</h4>
+                            <h4 class="orderBalance orderBalanceTabOne" id="OrderBalanceTab2">0.00</h4>
+                        </div>
+                        <div class="confrim-orderPanel-body-inner-container">
+                            <button class="btn-confrim" id="btnConfrimTab2">confrim</button>
                         </div>
                     </div>
     

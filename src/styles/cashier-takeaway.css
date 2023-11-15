@@ -229,55 +229,6 @@ input:checked+.slider:before {
 
 
 
-/* ---------------alphabet view---------------- */
-.alphabetArea{
-    width: 98%;
-    /* border: 1px solid green; */
-    height: 100%;
-    /* display: flex; */
-    position: relative;
-    left: 1%;
-    top: 4%;
-    display: none;
-
-
-}
-
-.backButtonArea{
-    width: 10%;
-    height: 100%;
-    /* border: 1px solid black; */
-    justify-content: center;
-    align-items: center;
-    display: flex;
-   
-    cursor: pointer;
- 
-}
-
-.alphabetLettersArea{
-    width: 90%;
-    height: 100%;
-    /* border: 2px solid green; */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-}
-
-.letter-btn{
-    width: 3.2rem;
-    height: 2.2rem;
-    padding: 3px;
-    background-color: rgb(241, 239, 239);
-    border: 1px solid #ccc4c4;
-    box-shadow: 2px 2px #b5b2b2;
-    color: var(--secondary-color);
-    font-weight: 700;
-    border-radius: 5px;
-    margin: 1px;
-    cursor: pointer;
-}
 
 /* ---------------Container Body Area---------------- */
 .container-body {
@@ -542,6 +493,125 @@ input:checked+.slider:before {
 }
 
 
+/* ===============second view================= */
+
+/* ---------------alphabet view---------------- */
+
+.alphabetArea{
+    width: 98%;
+    /* border: 1px solid green; */
+    height: 100%;
+    /* display: flex; */
+    position: relative;
+    left: 1%;
+    top: 4%;
+    display: none;
+
+
+}
+
+.backButtonArea{
+    width: 10%;
+    height: 100%;
+    /* border: 1px solid black; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+   
+    cursor: pointer;
+ 
+}
+
+.alphabetLettersArea{
+    width: 90%;
+    height: 100%;
+    /* border: 2px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.letter-btn{
+    width: 3.2rem;
+    height: 2.2rem;
+    padding: 3px;
+    background-color: rgb(241, 239, 239);
+    border: 1px solid #ccc4c4;
+    box-shadow: 2px 2px #b5b2b2;
+    color: var(--secondary-color);
+    font-weight: 700;
+    border-radius: 5px;
+    margin: 1px;
+    cursor: pointer;
+}
 
 
 
+/* ---------------dishes area---------------- */
+.dishes-area{
+    width: 95%;
+    height: 95%;
+    border-top: 2px solid var(--text-field-border);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* border: 1px solid firebrick; */
+    position: relative;
+    overflow-y: auto;
+    display: none;
+   
+}
+
+
+.dishcard {
+    width: 30%;
+    height: 30%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--tertiary-color);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    /* border: 1px solid blue; */
+    cursor: pointer;
+
+}
+
+.dishcard-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 75%;
+}
+
+.dishcard-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid rgb(255, 0, 183); */
+    width: 100%;
+    height: 25%;
+
+}
+
+.dish-title {
+    position: relative;
+    display: inline;
+    /* border: 1px solid rgb(174, 255, 0); */
+}
+
+.dish-title::after {
+    content: '';
+    width: 4px;
+    height: 25px;
+    display: block;
+    background-color: var(--primary-color);
+    position: absolute;
+    left: -12px;
+    top: 0px;
+}

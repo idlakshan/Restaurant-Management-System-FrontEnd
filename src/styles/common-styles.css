@@ -78,3 +78,8 @@ td {
     border-bottom: 1px solid var(--text-field-border);
     padding: 5px;
 }
+
+
+.active {
+    background: var(--selected-color);
+}

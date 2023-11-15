@@ -106,7 +106,7 @@ function updateTime() {
 }
 
 
-// =============selectCategoryCardEvent=============
+
 
 async function loadAllCategory() {
     try {
@@ -133,7 +133,7 @@ async function loadAllCategory() {
     }
 }
 
-
+// =============selectCategoryCardEvent=============
 function selectCategoryCardEvent(categoryCardList) {
  
        categoryCardList.forEach((categoryCard) => {

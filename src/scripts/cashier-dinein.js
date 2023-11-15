@@ -74,7 +74,6 @@ const progressWarning = document.querySelector(".progress-warning");
 
 document.addEventListener("DOMContentLoaded", function () {
     loadAllCategory()
-
     selectCustomerMobileEvent();
     loadDishes();
     searchCustomers();
@@ -127,7 +126,7 @@ async function loadAllCategory() {
             categoryCardListArea.innerHTML = categoryList;
         }
         const categoryCardList = document.querySelectorAll(".catergory-card");
-        selectCategoryCardEvent(categoryCardList);
+            selectCategoryCardEvent(categoryCardList);
 
     } catch (error) {
         console.error("Error fetching category data:", error);
@@ -136,18 +135,18 @@ async function loadAllCategory() {
 
 
 function selectCategoryCardEvent(categoryCardList) {
-    categoryCardList.forEach((categoryCard) => {
-        categoryCard.addEventListener("click", function () {
-            console.log(categoryCard);
-            categoryCardListArea.style.display = "none"
-            tableArea.style.display = "none"
-            dishCardListArea.style.display = "flex"
-            alphabetArea.style.display = "flex"
-
+ 
+       categoryCardList.forEach((categoryCard) => {
+            categoryCard.addEventListener("click", function () {
+                console.log(categoryCard);
+                categoryCardListArea.style.display = "none"
+                tableArea.style.display = "none"
+                dishCardListArea.style.display = "flex"
+                alphabetArea.style.display = "flex"
+    
+            })  
         })
-
-    })
-
+ 
     backTocategoryList.addEventListener('click', function () {
         categoryCardListArea.style.display = "flex"
         tableArea.style.display = "flex"
@@ -579,13 +578,12 @@ function orderPayEvent(subTotal) {
 
         const newSubTotal = subTotal;
         orderNetTotal.innerText = newSubTotal;
-        orderDiscount.addEventListener("touchend", function (event) {
+        orderDiscount.addEventListener("input", function (event) {
             console.log('TOUCH end', event.target.value);
 
-            const discount = orderDiscount.value;
-            var calcNetTotal = (newSubTotal - ((newSubTotal * discount) / 100))
-            orderNetTotal.innerText = calcNetTotal.toFixed(2);
-
+                const discount = orderDiscount.value;
+                var calcNetTotal = (newSubTotal - ((newSubTotal * discount) / 100))
+                orderNetTotal.innerText = calcNetTotal.toFixed(2);
         });
 
     })
@@ -657,8 +655,8 @@ orderConfrimPanelClose.addEventListener("click", function () {
 
 function OrderConfrimEvent(inputField) {
     numberkeysOrder.forEach((numberKey) => {
-        numberKey.addEventListener('click', function () {
-
+        numberKey.addEventListener('click', function (e) {
+            inputField.value = '';
             inputField.value += numberKey.textContent;
         })
     });
@@ -751,7 +749,7 @@ async function searchCustomers() {
             if (index !== -1) {
                 customerName.innerText = customerNames[index];
                 customerIds[index]
-                // console.log(customerNames[index]);
+                //console.log(customerNames[index]);
                 //console.log(customerIds[index]);
             } else {
                 inputMobileElement.value = ""
@@ -800,7 +798,7 @@ function handleButtonClick(event) {
             selectedInput.value = selectedInput.value.slice(0, -1);
         } else if (buttonValue === 'Space') {
             selectedInput.value += ' ';
-        } else if (/^[a-zA-Z ]+$/.test(buttonValue)) {
+        } else if (/^[a-zA-Z]+$/.test(buttonValue)) {
             selectedInput.value += buttonValue.toLowerCase();
         }
     } else if (selectedInput == mobileInput) {

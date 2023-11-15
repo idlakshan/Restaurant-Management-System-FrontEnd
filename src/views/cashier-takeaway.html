@@ -246,7 +246,7 @@
                                 style="padding-top: 1px; color: var(--secondary-color);"></label>
 
                         </div>
-                        <div class="cashier-dinein-right-inner-content-body-middle">
+                        <div class="cashier-dinein-right-inner-content-body-middle" id="takeawayPanelOne-container">
 
                             <!-- <div class="selectItemCard">
                                 <div class="selectItemCard-left">
@@ -271,7 +271,7 @@
                         </div>
                         <div class="cashier-dinein-right-inner-content-body-bottom">
                             <label for="total" id="total-lable">Total</label>
-                            <input type="text" id="total-input" class="tk-total" placeholder="0.00">
+                            <input type="text" id="total-input" class="tk-total totalTab1" placeholder="0.00">
                             <button class="btn-pay">Pay</button>
                         </div>
                     </div>
@@ -291,12 +291,12 @@
                                 style="padding-top: 1px; color: var(--secondary-color);"></label>
 
                         </div>
-                        <div class="cashier-dinein-right-inner-content-body-middle">
+                        <div class="cashier-dinein-right-inner-content-body-middle" id="takeawayPanelTwo-container">
 
                         </div>
                         <div class="cashier-dinein-right-inner-content-body-bottom">
                             <label for="total" id="total-lable">Total</label>
-                            <input type="text" id="total-input" class="tk-total" placeholder="0.00">
+                            <input type="text" id="total-input" class="tk-total totalTab2" placeholder="0.00">
                             <button class="btn-pay">Pay</button>
                         </div>
                     </div>
@@ -316,7 +316,7 @@
                                 style="padding-top: 1px; color: var(--secondary-color);"></label>
 
                         </div>
-                        <div class="cashier-dinein-right-inner-content-body-middle">
+                        <div class="cashier-dinein-right-inner-content-body-middle" id="takeawayPanelThree-container">
 
                         </div>
                         <div class="cashier-dinein-right-inner-content-body-bottom">
@@ -327,13 +327,75 @@
                     </div>
                 </div>
             </section>
-
-
-
-
-
-
         </section>
+
+            <!--------- order confrim panel Tab One------------------>
+            <div class="confrim-orderPanel" id="confrim-orderPanel-tabOne">
+                <div class="confrim-orderPanel-top">
+                    <h3>Order ID</h3>
+                    <h3> Table ID</h3>
+                    <img class="close_icon_orderConfrim" src="../icons/close_icon.png" alt="">
+                </div>
+                <div class="confrim-orderPanel-body">
+                    <div class="confrim-orderPanel-body-inner">
+    
+                        <div class="confrim-orderPanel-body-inner-container">
+                            <h4>Sub Total</h4>
+                            <h4 class="subTotal">0.00</h4>
+                        </div>
+                        <div class="confrim-orderPanel-body-inner-container">
+                            <h4>Discount</h4>
+                            <input class="orderDiscount orderInput orderDiscountTabOne" type="text" name="" id="" placeholder="0%">
+                        </div>
+                        <div class="confrim-orderPanel-body-inner-container">
+                            <h4>Net-Total</h4>
+                            <h4 class="orderNetTotal orderNetTotalTabOne">0.00</h4>
+                        </div>
+                        <div class="confrim-orderPanel-body-inner-payment">
+                            <div class="confrim-orderPanel-body-inner-payment-label">
+                                <label class="label-paymet" for="">Cash</label>
+                                <label class="label-paymet" for="">Card</label>
+                                <label class="label-paymet" for="">Credit</label>
+                            </div>
+                            <div class="confrim-orderPanel-body-inner-payment-input">
+                                <input type="number" value="0.00" name="" id="inputpaycash" class="input-paymet">
+                                <input type="number" value="0.00" name="" id="inputpaycard" class="input-paymet">
+                                <input type="number" value="0.00" name="" id="inputpaycredit" class="input-paymet">
+                            </div>
+                        </div>
+    
+                        <div class="confrim-orderPanel-body-inner-container">
+                            <h4>Balance</h4>
+                            <h4 class="orderBalance orderBalanceTabOne ">0.00</h4>
+                        </div>
+                        <div class="confrim-orderPanel-body-inner-container">
+                            <button class="btn-confrim">confrim</button>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="confrim-orderPanel-footer">
+                    <div class="numberic-keypad-order">
+                        <ul id="keyboard-order">
+                            <li class="letter letter-order">1</li>
+                            <li class="letter letter-order">2</li>
+                            <li class="letter letter-order">3</li>
+                            <li class="letter letter-order">4</li>
+                            <li class="letter letter-order">5</li>
+                            <li class="letter letter-order">6</li>
+                            <li class="letter letter-order">7</li>
+                            <li class="letter letter-order">8</li>
+                            <li class="letter letter-order">9</li>
+                            <li class="delete delete-order">←</li>
+                            <li class="letter letter-order">0</li>
+                            <li class="enter enter-order">Enter</li>
+                        </ul>
+                    </div>
+    
+    
+                </div>
+    
+            </div>
 
 
     </main>

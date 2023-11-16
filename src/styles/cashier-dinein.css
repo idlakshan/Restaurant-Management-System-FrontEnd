@@ -286,6 +286,7 @@ input:checked+.slider:before {
     /* margin: 5px; */
     transition: transform 0.3s ease-in-out;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .catergory-card:hover {
@@ -524,6 +525,7 @@ input:checked+.slider:before {
     position: absolute;
     top: 70%;
     left: 20%;
+    cursor: pointer;
 }
 
 /* ---------------order pay area popup number pad---------------- */

@@ -38,6 +38,15 @@ const orderDiscountTabThree = document.querySelector(".orderDiscountTabThree");
 const orderNetTotalTabThree = document.querySelector(".orderNetTotalTabThree");
 const orderBalanceTabThree = document.querySelector(".orderBalanceTabThree");
 
+const customerMobile = document.querySelector('#customer-mobile');
+const customerNameTab1 = document.querySelector('#customer-name-tab1');
+const customerNameTab2 = document.querySelector('#customer-name-tab2');
+const customerNameTab3 = document.querySelector('#customer-name-tab3');
+const inputMobileElementTab1 = document.querySelector(".inputCustomer-Mobile-tab1");
+const inputMobileElementTab2 = document.querySelector(".inputCustomer-Mobile-tab2");
+const inputMobileElementTab3 = document.querySelector(".inputCustomer-Mobile-tab3");
+
+
 let activeTab = 1;
 
 
@@ -46,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     tabEvenet();
     loadAllCategory();
     loadDishes();
+    searchCustomers();
 
 
 });
@@ -510,7 +520,7 @@ function selectedDishPopupTab1(dishes, dishCards) {
 
                 } else {
                     sizeBtnContainer.style.border = "none";
-                    sizeBtnImg.src = "../assets/icons/plusicon.png";
+                    sizeBtnImg.src = "../icons/plusicon.png";
                     sizeBtnImg.style.width = "50px";
                     sizeBtnImg.style.height = "50px";
                     sizeInput.value = "";
@@ -869,7 +879,7 @@ function selectedDishPopupTab2(dishes, dishCards) {
 
                 } else {
                     sizeBtnContainer.style.border = "none";
-                    sizeBtnImg.src = "../assets/icons/plusicon.png";
+                    sizeBtnImg.src = "../icons/plusicon.png";
                     sizeBtnImg.style.width = "50px";
                     sizeBtnImg.style.height = "50px";
                     sizeInput.value = "";
@@ -1230,7 +1240,7 @@ function selectedDishPopupTab3(dishes, dishCards) {
 
                 } else {
                     sizeBtnContainer.style.border = "none";
-                    sizeBtnImg.src = "../assets/icons/plusicon.png";
+                    sizeBtnImg.src = "../icons/plusicon.png";
                     sizeBtnImg.style.width = "50px";
                     sizeBtnImg.style.height = "50px";
                     sizeInput.value = "";
@@ -1247,7 +1257,6 @@ function selectedDishPopupTab3(dishes, dishCards) {
                         btn.disabled = false;
                     });
                 }
-
             });
 
         });
@@ -1271,3 +1280,87 @@ function selectedDishPopupTab3(dishes, dishCards) {
     
         })
     }
+
+    //============Search Customers============
+async function searchCustomers() {
+    try {
+        const response = await fetch("../json/customers.json");
+        const customers = await response.json();
+
+        const mobileNumbers = customers.map(function (customer) {
+            return customer.mobile;
+        });
+
+        const customerNames = customers.map(function (customer) {
+            return customer.name;
+        });
+
+        const customerIds = customers.map(function (customer) {
+            return customer.cusId;
+        });
+
+        mobileNumbers.forEach(function (number) {
+            const option = document.createElement('option');
+            option.value = number;
+            customerMobile.appendChild(option);
+          });
+
+        inputMobileElementTab1.addEventListener('change', function () {
+            const selectedMobileNumber = inputMobileElementTab1.value;
+            const index = mobileNumbers.indexOf(selectedMobileNumber);
+            //console.log(index);
+      
+            if (index !== -1) {   
+              customerNameTab1.innerText = customerNames[index];
+              customerIds[index]
+              //console.log(customerNames[index]);
+              //console.log(customerIds[index]);
+            } else {
+              inputMobileElementTab1.value=""
+              customerNameTab1.innerText = '';
+             }   
+    
+          })
+
+
+          inputMobileElementTab2.addEventListener('change', function () {
+            const selectedMobileNumber = inputMobileElementTab2.value;
+            const index = mobileNumbers.indexOf(selectedMobileNumber);
+            //console.log(index);
+      
+            if (index !== -1) {   
+              customerNameTab2.innerText = customerNames[index];
+              customerIds[index]
+              //console.log(customerNames[index]);
+              //console.log(customerIds[index]);
+            } else {
+              inputMobileElementTab2.value=""
+              customerNameTab2.innerText = '';
+             }   
+    
+          })
+
+
+
+          inputMobileElementTab3.addEventListener('change', function () {
+            const selectedMobileNumber = inputMobileElementTab3.value;
+            const index = mobileNumbers.indexOf(selectedMobileNumber);
+            //console.log(index);
+      
+            if (index !== -1) {   
+              customerNameTab3.innerText = customerNames[index];
+              customerIds[index]
+              //console.log(customerNames[index]);
+              //console.log(customerIds[index]);
+            } else {
+              inputMobileElementTab3.value=""
+              customerNameTab3.innerText = '';
+             }   
+    
+          })
+
+    } catch (error) {
+        console.error("Error fetching category data:", error);
+    }
+
+}

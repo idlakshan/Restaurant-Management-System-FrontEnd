@@ -161,7 +161,7 @@
                 <div class="container-body-left">
                     <div class="container-body-left-inner">
                         <div class="category-items-area">
-                            <div class="catergory-card">
+                            <!-- <div class="catergory-card">
                                 <h3 class="catergory-card-title">Fried Rice</h3>
                             </div>
                             <div class="catergory-card">
@@ -214,7 +214,7 @@
                             </div>
                             <div class="catergory-card">
                                 <h3 class="catergory-card-title">Fried Rice</h3>
-                            </div>
+                            </div> -->
                         </div>
                         <!--------- dishes List------------------>
                         <div class="dishes-area">
@@ -237,12 +237,12 @@
                             <input type="text" name="" class="cashier-orderId" placeholder="O-001">
 
                             <label for="cashier-customerId" class="customer-mobile-lable">Mobile</label>
-                            <input type="text" list="customer-mobile" class="customer-mobile-input"
+                            <input type="text" list="customer-mobile" class="customer-mobile-input inputCustomer-Mobile-tab1"
                                 id="inputCustomer-Mobile" autocomplete="on" />
-                            <datalist id="customer-mobile">
+                            <datalist id="customer-mobile" class="customer-mobile">
 
                             </datalist>
-                            <label type="text" id="customer-name" class="customer-name"
+                            <label type="text" id="customer-name-tab1" class="customer-name"
                                 style="padding-top: 1px; color: var(--secondary-color);"></label>
 
                         </div>
@@ -282,12 +282,12 @@
                             <input type="text" name="" class="cashier-orderId" placeholder="O-002">
 
                             <label for="cashier-customerId" class="customer-mobile-lable">Mobile</label>
-                            <input type="text" list="customer-mobile" class="customer-mobile-input"
+                            <input type="text" list="customer-mobile" class="customer-mobile-input inputCustomer-Mobile-tab2"
                                 id="inputCustomer-Mobile" autocomplete="on" />
                             <datalist id="customer-mobile">
 
                             </datalist>
-                            <label type="text" id="customer-name" class="customer-name"
+                            <label type="text" id="customer-name-tab2" class="customer-name"
                                 style="padding-top: 1px; color: var(--secondary-color);"></label>
 
                         </div>
@@ -307,12 +307,12 @@
                             <input type="text" name="" class="cashier-orderId" placeholder="O-003">
 
                             <label for="cashier-customerId" class="customer-mobile-lable">Mobile</label>
-                            <input type="text" list="customer-mobile" class="customer-mobile-input"
+                            <input type="text" list="customer-mobile" class="customer-mobile-input inputCustomer-Mobile-tab3"
                                 id="inputCustomer-Mobile" autocomplete="on" />
                             <datalist id="customer-mobile">
 
                             </datalist>
-                            <label type="text" id="customer-name" class="customer-name"
+                            <label type="text" id="customer-name-tab3" class="customer-name"
                                 style="padding-top: 1px; color: var(--secondary-color);"></label>
 
                         </div>
@@ -332,8 +332,8 @@
             <!--------- order confrim panel Tab One------------------>
             <div class="confrim-orderPanel" id="confrim-orderPanel-tabOne">
                 <div class="confrim-orderPanel-top">
-                    <h3>Order ID</h3>
-                    <h3> Table ID</h3>
+                    <h3 id="orderId-tab1-confrim">Order ID</h3>
+                  
                     <img class="close_icon_orderConfrim" src="../icons/close_icon.png" alt="">
                 </div>
                 <div class="confrim-orderPanel-body">
@@ -403,8 +403,7 @@
              <!--------- order confrim panel Tab Two------------------>
              <div class="confrim-orderPanel" id="confrim-orderPanel-tabTwo">
                 <div class="confrim-orderPanel-top">
-                    <h3>Order ID</h3>
-                    <h3> Table ID</h3>
+                    <h3 id="orderId-tab2-confrim">Order ID</h3>
                     <img class="close_icon_orderConfrim" src="../icons/close_icon.png" alt="">
                 </div>
                 <div class="confrim-orderPanel-body">
@@ -472,8 +471,7 @@
              <!--------- order confrim panel Tab three------------------>
              <div class="confrim-orderPanel" id="confrim-orderPanel-tabThree">
                 <div class="confrim-orderPanel-top">
-                    <h3>Order ID</h3>
-                    <h3> Table ID</h3>
+                    <h3 id="orderId-tab3-confrim">Order ID</h3>
                     <img class="close_icon_orderConfrim" src="../icons/close_icon.png" alt="">
                 </div>
                 <div class="confrim-orderPanel-body">

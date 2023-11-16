@@ -546,7 +546,7 @@ function selectedDishPopup(dishes, dishCards) {
 
                 } else {
                     sizeBtnContainer.style.border = "none";
-                    sizeBtnImg.src = "../assets/icons/plusicon.png";
+                    sizeBtnImg.src = "../icons/plusicon.png";
                     sizeBtnImg.style.width = "50px";
                     sizeBtnImg.style.height = "50px";
                     sizeInput.value = "";

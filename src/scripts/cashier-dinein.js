@@ -8,7 +8,7 @@ const tableArea = document.querySelector(".tableArea");
 const backTocategoryList = document.querySelector(".backButtonArea");
 const letterButtons = document.querySelectorAll(".letter-btn");
 
-const toTakeawayToToggle=document.querySelector("#toTakeAwayToggle")
+const toTakeawayToToggle = document.querySelector("#toTakeAwayToggle")
 
 const customerMobile = document.querySelector(".customer-mobile-input");
 const numbericKeypad = document.querySelector(".numberic-keypad-mobile");
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     selectCustomerMobileEvent();
     loadDishes();
     searchCustomers();
-    paymentType();
+    // paymentType();
     addCustomerEvent();
     loadAllTables();
     setInterval(updateTime, 1000);
@@ -128,7 +128,7 @@ async function loadAllCategory() {
             categoryCardListArea.innerHTML = categoryList;
         }
         const categoryCardList = document.querySelectorAll(".catergory-card");
-            selectCategoryCardEvent(categoryCardList);
+        selectCategoryCardEvent(categoryCardList);
 
     } catch (error) {
         console.error("Error fetching category data:", error);
@@ -137,18 +137,18 @@ async function loadAllCategory() {
 
 // =============selectCategoryCardEvent=============
 function selectCategoryCardEvent(categoryCardList) {
- 
-       categoryCardList.forEach((categoryCard) => {
-            categoryCard.addEventListener("click", function () {
-                console.log(categoryCard);
-                categoryCardListArea.style.display = "none"
-                tableArea.style.display = "none"
-                dishCardListArea.style.display = "flex"
-                alphabetArea.style.display = "flex"
-    
-            })  
+
+    categoryCardList.forEach((categoryCard) => {
+        categoryCard.addEventListener("click", function () {
+            console.log(categoryCard);
+            categoryCardListArea.style.display = "none"
+            tableArea.style.display = "none"
+            dishCardListArea.style.display = "flex"
+            alphabetArea.style.display = "flex"
+
         })
- 
+    })
+
     backTocategoryList.addEventListener('click', function () {
         categoryCardListArea.style.display = "flex"
         tableArea.style.display = "flex"
@@ -583,53 +583,70 @@ function orderPayEvent(subTotal) {
         orderDiscount.addEventListener("input", function (event) {
             console.log('TOUCH end', event.target.value);
 
-                const discount = orderDiscount.value;
-                var calcNetTotal = (newSubTotal - ((newSubTotal * discount) / 100))
-                orderNetTotal.innerText = calcNetTotal.toFixed(2);
+            const discount = orderDiscount.value;
+            var calcNetTotal = (newSubTotal - ((newSubTotal * discount) / 100))
+            orderNetTotal.innerText = calcNetTotal.toFixed(2);
         });
+        paymentType("One")
 
     })
 }
 
 
-function paymentType() {
-    inputPayCash.addEventListener("click", function () {
-        inputPayCash.value = ""
-    });
+function paymentType(tabNumber) {
+    const inputPayCash = document.querySelector(`#inputpaycash${tabNumber}`);
+    const inputPayCard = document.querySelector(`#inputpaycard${tabNumber}`);
+    const inputPayCredit = document.querySelector(`#inputpaycredit${tabNumber}`);
+    const orderNetTotal = document.querySelector(`#netTotal${tabNumber}`);
+    const orderBalance = document.querySelector(`.orderBalance${tabNumber}`);
+    let currentlyFocusedInput = null;
 
-    inputPayCash.addEventListener("keypress", function (event) {
-        if (event.key == "Enter") {
-            orderBalance.innerText = parseFloat(inputPayCash.value) + parseFloat(inputPayCard.value) + parseFloat(inputPayCredit.value) - parseFloat(orderNetTotal.innerText)
-            console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
-        }
-    });
+    function clearInput(inputElement) {
+        inputElement.addEventListener("click", function () {
+            if (currentlyFocusedInput && currentlyFocusedInput !== inputElement) {
+                if (!currentlyFocusedInput.value.trim()) {
+                    currentlyFocusedInput.value = "0.00";
+                }
+            }
+            currentlyFocusedInput = inputElement;
+            inputElement.value = "";
+        });
+    }
 
-    inputPayCard.addEventListener("click", function () {
-        inputPayCard.value = ""
-    });
+    function handleKeyPress(inputElement) {
+        inputElement.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                orderBalance.innerText =
+                    parseFloat(inputPayCash.value) + parseFloat(inputPayCard.value) + parseFloat(inputPayCredit.value) - parseFloat(orderNetTotal.innerText);
+            }
+        });
+    }
 
-    inputPayCard.addEventListener("keypress", function (event) {
-        if (event.key == "Enter") {
-            orderBalance.innerText = parseFloat(inputPayCash.value) + parseFloat(inputPayCard.value) + parseFloat(inputPayCredit.value) - parseFloat(orderNetTotal.innerText)
-            console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
-        }
+    clearInput(inputPayCash);
+    clearInput(inputPayCard);
+    clearInput(inputPayCredit);
 
-    });
-
-    inputPayCredit.addEventListener("click", function () {
-        inputPayCredit.value = ""
-
-    });
-
-    inputPayCredit.addEventListener("keypress", function (event) {
-        if (event.key == "Enter") {
-            orderBalance.innerText = parseFloat(inputPayCash.value) + parseFloat(inputPayCard.value) + parseFloat(inputPayCredit.value) - parseFloat(orderNetTotal.innerText)
-            console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
-        }
-
-    });
-
+    handleKeyPress(inputPayCash);
+    handleKeyPress(inputPayCard);
+    handleKeyPress(inputPayCredit);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 btnConfrim.addEventListener("click", function () {
     orderConfrimPanel.style.display = "none"
@@ -638,13 +655,13 @@ btnConfrim.addEventListener("click", function () {
     orderPanelContent.innerHTML = ""
     fullTakeawayTotalElement.value = ""
     fullDineinTotalElement.value = ""
-    groupIdInput.value=""
+    groupIdInput.value = ""
     categoryCardListArea.style.display = "flex"
     tableArea.style.display = "flex"
     dishCardListArea.style.display = "none"
     alphabetArea.style.display = "none"
     orderDiscount.value = ""
-    checkInputTableValue();  
+    checkInputTableValue();
 })
 
 orderConfrimPanelClose.addEventListener("click", function () {
@@ -655,37 +672,37 @@ orderConfrimPanelClose.addEventListener("click", function () {
 });
 
 
-function OrderConfrimEvent(inputField) {
-    numberkeysOrder.forEach((numberKey) => {
-        numberKey.addEventListener('click', function (e) {
-            inputField.value += numberKey.textContent;
-        })
-    });
-    keyBackspaceOrder.addEventListener('click', () => {
-        inputField.value = inputField.value.slice(0, -1);
-    });
-    keyEnterOrder.addEventListener("click", function () {
+// function OrderConfrimEvent(inputField) {
+//     numberkeysOrder.forEach((numberKey) => {
+//         numberKey.addEventListener('click', function (e) {
+//             inputField.value += numberKey.textContent;
+//         })
+//     });
+//     keyBackspaceOrder.addEventListener('click', () => {
+//         inputField.value = inputField.value.slice(0, -1);
+//     });
+//     keyEnterOrder.addEventListener("click", function () {
 
-    });
-}
+//     });
+// }
 
 
-orderDiscount.addEventListener('click', function () {
-    OrderConfrimEvent(orderDiscount);
+// orderDiscount.addEventListener('click', function () {
+//     OrderConfrimEvent(orderDiscount);
 
-});
+// });
 
-inputPayCash.addEventListener('click', function () {
-    OrderConfrimEvent(inputPayCash);
-});
+// inputPayCash.addEventListener('click', function () {
+//     OrderConfrimEvent(inputPayCash);
+// });
 
-inputPayCard.addEventListener('click', function () {
-    OrderConfrimEvent(inputPayCard);
-});
+// inputPayCard.addEventListener('click', function () {
+//     OrderConfrimEvent(inputPayCard);
+// });
 
-inputPayCredit.addEventListener('click', function () {
-    OrderConfrimEvent(inputPayCredit);
-});
+// inputPayCredit.addEventListener('click', function () {
+//     OrderConfrimEvent(inputPayCredit);
+// });
 
 
 

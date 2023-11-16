@@ -61,6 +61,8 @@ let selectedInput;
 
 let activeTab = 1;
 
+let currentlyFocusedInput = null;
+
 
 document.addEventListener("DOMContentLoaded", function () {
     setInterval(updateTime, 1000);
@@ -1296,16 +1298,14 @@ function orderPayEventTabThree(subTotal) {
             orderNetTotalTabThree.innerText = calcNetTotal.toFixed(2);
         });
         paymentType("Three")
-
-
     })
 }
 
 
-
+//===========Paymet process======================
 function paymentType(tabNumber) {
     console.log(tabNumber);
-    
+
     const inputPayCash = document.querySelector(`#inputpaycash${tabNumber}`);
     const inputPayCard = document.querySelector(`#inputpaycard${tabNumber}`);
     const inputPayCredit = document.querySelector(`#inputpaycredit${tabNumber}`);
@@ -1314,7 +1314,14 @@ function paymentType(tabNumber) {
 
     function clearInput(inputElement) {
         inputElement.addEventListener("click", function () {
+            if (currentlyFocusedInput && currentlyFocusedInput !== inputElement) {
+                if (!currentlyFocusedInput.value.trim()) {
+                    currentlyFocusedInput.value = "0.00";
+                }
+            }   
+            currentlyFocusedInput = inputElement;
             inputElement.value = "";
+           
         });
     }
 

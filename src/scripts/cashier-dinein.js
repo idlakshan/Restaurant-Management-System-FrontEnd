@@ -8,6 +8,8 @@ const tableArea = document.querySelector(".tableArea");
 const backTocategoryList = document.querySelector(".backButtonArea");
 const letterButtons = document.querySelectorAll(".letter-btn");
 
+const toTakeawayToToggle=document.querySelector("#toTakeAwayToggle")
+
 const customerMobile = document.querySelector(".customer-mobile-input");
 const numbericKeypad = document.querySelector(".numberic-keypad-mobile");
 const numberkeys = document.querySelectorAll('.letter-mobile');
@@ -50,6 +52,7 @@ const keypadButtons = document.querySelectorAll('.btns-addCustomer, .btns-addCus
 const mobileInput = document.getElementById('dnCustomerMobile');
 const nameInput = document.getElementById('dnCustomerName');
 
+
 let selectedInput;
 
 const groupIdInput = document.querySelector('.cashier-groupId');
@@ -85,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
     inPreparingOrders();
 
 });
-
 
 //============date and time============
 function updateTime() {
@@ -636,13 +638,13 @@ btnConfrim.addEventListener("click", function () {
     orderPanelContent.innerHTML = ""
     fullTakeawayTotalElement.value = ""
     fullDineinTotalElement.value = ""
-
+    groupIdInput.value=""
     categoryCardListArea.style.display = "flex"
     tableArea.style.display = "flex"
     dishCardListArea.style.display = "none"
     alphabetArea.style.display = "none"
     orderDiscount.value = ""
-
+    checkInputTableValue();  
 })
 
 orderConfrimPanelClose.addEventListener("click", function () {
@@ -656,7 +658,6 @@ orderConfrimPanelClose.addEventListener("click", function () {
 function OrderConfrimEvent(inputField) {
     numberkeysOrder.forEach((numberKey) => {
         numberKey.addEventListener('click', function (e) {
-            inputField.value = '';
             inputField.value += numberKey.textContent;
         })
     });
@@ -871,13 +872,6 @@ function loadAllTables() {
 
         });
 
-    function checkInputTableValue() {
-        if (!groupIdInput.value) {
-            tableAreaView.style.display = 'block';
-            btnTableDropdown.classList.add("btnPopUpTable-rotate");
-        }
-    }
-
     btnTableDropdown.addEventListener("click", function () {
         if (clicked) {
             btnTableDropdown.classList.remove("btnPopUpTable-rotate");
@@ -889,6 +883,13 @@ function loadAllTables() {
         }
         clicked = !clicked;
     })
+}
+
+function checkInputTableValue() {
+    if (!groupIdInput.value) {
+        tableAreaView.style.display = 'block';
+        btnTableDropdown.classList.add("btnPopUpTable-rotate");
+    }
 }
 
 

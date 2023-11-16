@@ -6,6 +6,8 @@ const orderConfrimPanelTabOne = document.querySelector("#confrim-orderPanel-tabO
 const orderConfrimPanelTabTwo = document.querySelector("#confrim-orderPanel-tabTwo");
 const orderConfrimPanelTabThree = document.querySelector("#confrim-orderPanel-tabThree");
 
+const toDineinToToggle=document.querySelector("#toDineinToggle")
+
 const tabOne = document.getElementById("tab1");
 const tabTwo = document.getElementById("tab2");
 const tabThree = document.getElementById("tab3");
@@ -38,6 +40,16 @@ const orderDiscountTabThree = document.querySelector(".orderDiscountTabThree");
 const orderNetTotalTabThree = document.querySelector(".orderNetTotalTabThree");
 const orderBalanceTabThree = document.querySelector(".orderBalanceTabThree");
 
+const inputPayCashTabOne = document.querySelector("#inputpaycashOne");
+const inputPayCardTabOne = document.querySelector("#inputpaycardOne");
+const inputPayCreditTabOne = document.querySelector("#inputpaycreditOne");
+const inputPayCashTabTwo = document.querySelector("#inputpaycashTwo");
+const inputPayCardTabTwo = document.querySelector("#inputpaycardTwo");
+const inputPayCreditTabTwo = document.querySelector("#inputpaycreditTwo");
+const inputPayCashTabThree = document.querySelector("#inputpaycashThree");
+const inputPayCardTabThree = document.querySelector("#inputpaycardThree");
+const inputPayCreditTabThree = document.querySelector("#inputpaycreditThree");
+
 const customerMobile = document.querySelector('#customer-mobile');
 const customerNameTab1 = document.querySelector('#customer-name-tab1');
 const customerNameTab2 = document.querySelector('#customer-name-tab2');
@@ -47,18 +59,32 @@ const inputMobileElementTab2 = document.querySelector(".inputCustomer-Mobile-tab
 const inputMobileElementTab3 = document.querySelector(".inputCustomer-Mobile-tab3");
 
 
+const addCustomerBox = document.querySelector(".addCustomer-box");
+const btnAddCustomer = document.querySelector(".btn-addcustomer");
+const addCustomerBoxClose = document.querySelector(".addCustomer-box-close-icon");
+const keypadButtons = document.querySelectorAll('.btns-addCustomer, .btns-addCustomer-number');
+const mobileInput = document.getElementById('dnCustomerMobile');
+const nameInput = document.getElementById('dnCustomerName');
+
+let selectedInput;
+
+
 let activeTab = 1;
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    updateTime();
+    setInterval(updateTime, 1000);
+   
     tabEvenet();
     loadAllCategory();
     loadDishes();
     searchCustomers();
+    addCustomerEvent();
+    paymentType();
 
 
 });
+
 
 //============date and time============
 function updateTime() {
@@ -199,7 +225,7 @@ async function loadDishes() {
         selectedDishPopupTab1(dishes, dishCards);
         selectedDishPopupTab2(dishes, dishCards);
         selectedDishPopupTab3(dishes, dishCards);
-        // searchDishByLetter(dishCards)
+        searchDishByLetter(dishCards)
 
     } catch (error) {
         console.error("Error fetching category data:", error);
@@ -1281,6 +1307,120 @@ function selectedDishPopupTab3(dishes, dishCards) {
         })
     }
 
+
+
+    function paymentType() {
+        inputPayCashTabOne.addEventListener("click", function () {
+            inputPayCashTabOne.value = ""
+        });
+    
+        inputPayCashTabOne.addEventListener("keypress", function (event) {
+            if (event.key == "Enter") {
+                orderBalanceTabOne.innerText = parseFloat(inputPayCashTabOne.value) + parseFloat(inputPayCardTabOne.value) + parseFloat(inputPayCreditTabOne.value) - parseFloat(orderNetTotalTabOne.innerText)
+                //console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+            }
+        });
+    
+        inputPayCardTabOne.addEventListener("click", function () {
+            inputPayCardTabOne.value = ""
+        });
+    
+        inputPayCardTabOne.addEventListener("keypress", function (event) {
+            if (event.key == "Enter") {
+                orderBalanceTabOne.innerText = parseFloat(inputPayCashTabOne.value) + parseFloat(inputPayCardTabOne.value) + parseFloat(inputPayCreditTabOne.value) - parseFloat(orderNetTotalTabOne.innerText)
+                //console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+            }
+    
+        });
+    
+        inputPayCreditTabOne.addEventListener("click", function () {
+            inputPayCreditTabOne.value = ""
+    
+        });
+    
+        inputPayCreditTabOne.addEventListener("keypress", function (event) {
+            if (event.key == "Enter") {
+                orderBalanceTabOne.innerText = parseFloat(inputPayCashTabOne.value) + parseFloat(inputPayCardTabOne.value) + parseFloat(inputPayCreditTabOne.value) - parseFloat(orderNetTotalTabOne.innerText)
+                //console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+            }
+    
+        });
+
+
+        inputPayCashTabTwo.addEventListener("click", function () {
+            inputPayCashTabTwo.value = ""
+        });
+    
+        inputPayCashTabTwo.addEventListener("keypress", function (event) {
+            if (event.key == "Enter") {
+                orderBalanceTabTwo.innerText = parseFloat(inputPayCashTabTwo.value) + parseFloat(inputPayCardTabTwo.value) + parseFloat(inputPayCreditTabTwo.value) - parseFloat(orderNetTotalTabTwo.innerText)
+                //console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+            }
+        });
+    
+        inputPayCardTabTwo.addEventListener("click", function () {
+            inputPayCardTabTwo.value = ""
+        });
+    
+        inputPayCardTabTwo.addEventListener("keypress", function (event) {
+            if (event.key == "Enter") {
+                orderBalanceTabTwo.innerText = parseFloat(inputPayCashTabTwo.value) + parseFloat(inputPayCardTabTwo.value) + parseFloat(inputPayCreditTabTwo.value) - parseFloat(orderNetTotalTabTwo.innerText)
+                //console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+            }
+    
+        });
+    
+        inputPayCreditTabTwo.addEventListener("click", function () {
+            inputPayCreditTabTwo.value = ""
+    
+        });
+    
+        inputPayCreditTabTwo.addEventListener("keypress", function (event) {
+            if (event.key == "Enter") {
+                orderBalanceTabTwo.innerText = parseFloat(inputPayCashTabTwo.value) + parseFloat(inputPayCardTabTwo.value) + parseFloat(inputPayCreditTabTwo.value) - parseFloat(orderNetTotalTabTwo.innerText)
+                //console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+            }
+    
+        });
+
+        inputPayCashTabThree.addEventListener("click", function () {
+            inputPayCashTabThree.value = ""
+        });
+    
+        inputPayCashTabThree.addEventListener("keypress", function (event) {
+            if (event.key == "Enter") {
+                orderBalanceTabThree.innerText = parseFloat(inputPayCashTabThree.value) + parseFloat(inputPayCardTabThree.value) + parseFloat(inputPayCreditTabThree.value) - parseFloat(orderNetTotalTabThree.innerText)
+                //console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+            }
+        });
+    
+        inputPayCardTabThree.addEventListener("click", function () {
+            inputPayCardTabThree.value = ""
+        });
+    
+        inputPayCardTabThree.addEventListener("keypress", function (event) {
+            if (event.key == "Enter") {
+                orderBalanceTabThree.innerText = parseFloat(inputPayCashTabThree.value) + parseFloat(inputPayCardTabThree.value) + parseFloat(inputPayCreditTabThree.value) - parseFloat(orderNetTotalTabThree.innerText)
+                //console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+            }
+    
+        });
+    
+        inputPayCreditTabThree.addEventListener("click", function () {
+            inputPayCreditTabThree.value = ""
+    
+        });
+    
+        inputPayCreditTabThree.addEventListener("keypress", function (event) {
+            if (event.key == "Enter") {
+                orderBalanceTabThree.innerText = parseFloat(inputPayCashTabThree.value) + parseFloat(inputPayCardTabThree.value) + parseFloat(inputPayCreditTabThree.value) - parseFloat(orderNetTotalTabThree.innerText)
+                //console.log(parseFloat(inputPayCash.value) - parseFloat(orderNetTotal.innerText));
+            }
+    
+        });
+    
+    }
+
     //============Search Customers============
 async function searchCustomers() {
     try {
@@ -1363,4 +1503,82 @@ async function searchCustomers() {
         console.error("Error fetching category data:", error);
     }
 
+}
+
+
+//============cashier add-customerbox Popup and Close Events============
+
+function addCustomerEvent() {
+    btnAddCustomer.addEventListener('click', function () {
+        addCustomerBox.style.display = "block"
+    })
+
+    addCustomerBoxClose.addEventListener('click', function () {
+        addCustomerBox.style.display = "none"
+    })
+
+    keypadButtons.forEach(button => {
+        button.addEventListener('click', handleButtonClick);
+    });
+
+    mobileInput.addEventListener('focus', () => {
+        selectedInput = mobileInput;
+    });
+
+    nameInput.addEventListener('focus', () => {
+        selectedInput = nameInput;
+    });
+}
+
+
+function handleButtonClick(event) {
+    const buttonValue = event.target.textContent;
+
+    if (selectedInput == nameInput) {
+        if (buttonValue === '←') {
+            selectedInput.value = selectedInput.value.slice(0, -1);
+        } else if (buttonValue === 'Space') {
+            selectedInput.value += ' ';
+        } else if (/^[a-zA-Z]+$/.test(buttonValue)) {
+            selectedInput.value += buttonValue.toLowerCase();
+        }
+    } else if (selectedInput == mobileInput) {
+        if (buttonValue === '←') {
+            selectedInput.value = selectedInput.value.slice(0, -1);
+        } else if (/^[0-9]$/.test(buttonValue)) {
+            selectedInput.value += buttonValue;
+        }
+    }
+}
+
+
+//============Search Dishes============
+function searchDishByLetter(dishCards) {
+    letterButtons.forEach(letterButton => {
+        letterButton.addEventListener('click', function () {
+            const clickedLetter = letterButton.textContent.toLowerCase();
+            //console.log("Clicked Letter:", clickedLetter);
+
+            dishCards.forEach(dishCard => {
+                const dishName = dishCard.getAttribute("data-name").toLowerCase();
+                //console.log("dishName  " + dishName)
+
+                if (dishName.startsWith(clickedLetter)) {
+                    dishCard.style.display = "block";
+                } else {
+                    dishCard.style.display = "none";
+                }
+            });
+        });
+    });
+
+    dishContentArea.addEventListener("click", () => {
+        dishCards.forEach(dishCard => {
+            dishCard.style.display = "block";
+        });
+
+        // letterButtons.forEach((letterButton) => {
+        //     letterButton.classList.remove("active")
+        // })
+    });
 }

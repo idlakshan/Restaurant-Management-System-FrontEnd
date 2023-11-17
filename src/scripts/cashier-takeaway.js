@@ -44,9 +44,11 @@ const customerMobile = document.querySelector('#customer-mobile');
 const customerNameTab1 = document.querySelector('#customer-name-tab1');
 const customerNameTab2 = document.querySelector('#customer-name-tab2');
 const customerNameTab3 = document.querySelector('#customer-name-tab3');
-const inputMobileElementTab1 = document.querySelector(".inputCustomer-Mobile-tab1");
-const inputMobileElementTab2 = document.querySelector(".inputCustomer-Mobile-tab2");
-const inputMobileElementTab3 = document.querySelector(".inputCustomer-Mobile-tab3");
+const inputMobileElementTab1 = document.querySelector(".inputCustomer-Mobile1");
+const inputMobileElementTab2 = document.querySelector(".inputCustomer-Mobile2");
+const inputMobileElementTab3 = document.querySelector(".inputCustomer-Mobile3");
+
+
 
 
 const addCustomerBox = document.querySelector(".addCustomer-box");
@@ -59,12 +61,29 @@ const nameInput = document.getElementById('dnCustomerName');
 const btnConfrim = document.querySelector(".btn-confrim");
 const orderConfrimPanel = document.querySelector(".confrim-orderPanel");
 
+
 const inPreparingContainer = document.querySelector(".in-preparing-container");
 const btnInPreparing = document.querySelector(".inPreparing-bell");
 const inPreparingContainerClose = document.querySelector(".inPreparing-container-close-icon");
 const readyOrderContainer = document.querySelector("#ready-order-container");
 const btnOrderReady = document.querySelector(".ready-bell");
 const readyOrderClose = document.querySelector(".ready-container-close-icon");
+
+
+const numbericKeypadOne = document.querySelector(".numberic-keypad1");
+const numbericKeypadTwo = document.querySelector(".numberic-keypad2");
+const numbericKeypadThree = document.querySelector(".numberic-keypad3");
+const numberkeysOne = document.querySelectorAll('.letter-mobile1');
+const keyEnterOne = document.querySelector(".enter-mobile1");
+const keyBackspaceOne = document.querySelector(".delete-mobile1");
+
+const numberkeysTwo = document.querySelectorAll('.letter-mobile2');
+const keyEnterTwo = document.querySelector(".enter-mobile2");
+const keyBackspaceTwo = document.querySelector(".delete-mobile2");
+const numberkeysThree = document.querySelectorAll('.letter-mobile3');
+const keyEnterThree = document.querySelector(".enter-mobile3");
+const keyBackspaceThree = document.querySelector(".delete-mobile3");
+
 
 
 let selectedInput;
@@ -85,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     addCustomerEvent();
     readyOrders();
     inPreparingOrders();
+    selectCustomerMobileEvent();
     // paymentType();
 
 
@@ -132,6 +152,7 @@ function tabEvenet() {
         tabTwo.classList.remove('active');
         tabThree.classList.remove('active');
         activeTab = 1;
+        hideAllNumericKeypads();
     });
 
     tabTwo.addEventListener("click", function () {
@@ -140,6 +161,7 @@ function tabEvenet() {
         tabOne.classList.remove('active');
         tabThree.classList.remove('active');
         activeTab = 2;
+        hideAllNumericKeypads();
     });
 
     tabThree.addEventListener("click", function () {
@@ -148,6 +170,7 @@ function tabEvenet() {
         tabTwo.classList.remove('active');
         tabOne.classList.remove('active');
         activeTab = 3;
+        hideAllNumericKeypads();
     });
 
 }
@@ -201,6 +224,45 @@ function selectCategoryCardEvent(categoryCardList) {
     })
 
 }
+
+// =============selectCustomerMobileEvent=============
+function setupNumericKeypad(tabIndex, inputElement, numericKeypad, numberKeys, keyBackspace, keyEnter) {
+    inputElement.addEventListener("click", function () {
+        hideAllNumericKeypads(tabIndex);
+        numericKeypad.style.display = 'block';
+    });
+
+    numberKeys.forEach((numberKey) => {
+        numberKey.addEventListener('click', function () {
+            inputElement.value += numberKey.textContent;
+        });
+    });
+
+    keyBackspace.addEventListener('click', () => {
+        inputElement.value = inputElement.value.slice(0, -1);
+    });
+
+    keyEnter.addEventListener("click", function () {
+        numericKeypad.style.display = 'none';
+    });
+
+}
+
+function hideAllNumericKeypads(tabIndex) {
+    for (let i = 1; i <= 3; i++) {
+        const keypad = document.querySelector(`.numberic-keypad${i}`);
+        if (i !== tabIndex && keypad.style.display === 'block') {
+            keypad.style.display = 'none';
+        }
+    }
+}
+
+function selectCustomerMobileEvent() {
+    setupNumericKeypad(1, inputMobileElementTab1, numbericKeypadOne, numberkeysOne, keyBackspaceOne, keyEnterOne);
+    setupNumericKeypad(2, inputMobileElementTab2, numbericKeypadTwo, numberkeysTwo, keyBackspaceTwo, keyEnterTwo);
+    setupNumericKeypad(3, inputMobileElementTab3, numbericKeypadThree, numberkeysThree, keyBackspaceThree, keyEnterThree);
+}
+
 
 // =============Load All dishes=============
 async function loadDishes() {

@@ -84,6 +84,20 @@ const numberkeysThree = document.querySelectorAll('.letter-mobile3');
 const keyEnterThree = document.querySelector(".enter-mobile3");
 const keyBackspaceThree = document.querySelector(".delete-mobile3");
 
+const orderConfrimTab1 = document.querySelector("#btnConfrimTab1")
+const orderConfrimTab2 = document.querySelector("#btnConfrimTab2")
+const orderConfrimTab3 = document.querySelector("#btnConfrimTab3")
+
+const totalTab1 = document.querySelector("#totalTab1")
+const totalTab2 = document.querySelector("#totalTab2")
+const totalTab3 = document.querySelector("#totalTab3")
+
+const selectedItemsContainer1 = document.querySelector("#takeawayPanelOne-container");
+const selectedItemsContainer2 = document.querySelector("#takeawayPanelTwo-container");
+const selectedItemsContainer3 = document.querySelector("#takeawayPanelThree-container");
+
+
+
 
 
 let selectedInput;
@@ -651,7 +665,8 @@ function orderPayEventTabOne(subTotal) {
             var calcNetTotal = (newSubTotal - ((newSubTotal * discount) / 100))
             orderNetTotalTabOne.innerText = calcNetTotal.toFixed(2);
         });
-        paymentType("One")
+        paymentType("One");
+        confrimOrder(orderConfrimTab1, totalTab1, orderConfrimPanelTabOne, selectedItemsContainer1, inputMobileElementTab1, customerNameTab1);
 
     })
 }
@@ -1012,6 +1027,7 @@ function orderPayEventTabTwo(subTotal) {
             orderNetTotalTabTwo.innerText = calcNetTotal.toFixed(2);
         });
         paymentType("Two");
+        confrimOrder(orderConfrimTab2, totalTab2, orderConfrimPanelTabTwo, selectedItemsContainer2, inputMobileElementTab2, customerNameTab2);
 
     })
 }
@@ -1373,6 +1389,7 @@ function orderPayEventTabThree(subTotal) {
             orderNetTotalTabThree.innerText = calcNetTotal.toFixed(2);
         });
         paymentType("Three")
+        confrimOrder(orderConfrimTab3, totalTab3, orderConfrimPanelTabThree, selectedItemsContainer3, inputMobileElementTab3, customerNameTab3)
     })
 }
 
@@ -1393,10 +1410,10 @@ function paymentType(tabNumber) {
                 if (!currentlyFocusedInput.value.trim()) {
                     currentlyFocusedInput.value = "0.00";
                 }
-            }   
+            }
             currentlyFocusedInput = inputElement;
             inputElement.value = "";
-           
+
         });
     }
 
@@ -1418,6 +1435,23 @@ function paymentType(tabNumber) {
     handleKeyPress(inputPayCredit);
 
 }
+
+//===========Confrim Order======================
+function confrimOrder(orderConfrimBtn, totalTab, orderConfrimPanel, orderBody, selectedMobile, selectedName) {
+    orderConfrimBtn.addEventListener("click", function () {
+        orderConfrimPanel.style.display = "none";
+        container.classList.remove("container-disabled");
+        orderBody.innerHTML = "";
+        categoryCardListArea.style.display = "flex";
+        dishCardListArea.style.display = "none";
+        alphabetArea.style.display = "none";
+        totalTab.value = "";
+        selectedMobile.value = "";
+        selectedName.innerText = ""
+    });
+}
+
+
 
 //============Search Customers============
 async function searchCustomers() {
@@ -1578,23 +1612,6 @@ function searchDishByLetter(dishCards) {
     });
 }
 
-btnConfrim.addEventListener("click", function () {
-    orderConfrimPanel.style.display = "none"
-    container.classList.remove("container-disabled")
-    var orderPanelContent = document.querySelector(".cashier-dinein-right-inner-content-body-middle");
-    orderPanelContent.innerHTML = ""
-    categoryCardListArea.style.display = "flex"
-    dishCardListArea.style.display = "none"
-    alphabetArea.style.display = "none"
-  
-})
-
-orderConfrimPanelClose.addEventListener("click", function () {
-    orderConfrimPanel.style.display = "none"
-    container.classList.remove("container-disabled")
-
-
-});
 
 
 //============load all dinein inPreparingOrders orders and search============ 

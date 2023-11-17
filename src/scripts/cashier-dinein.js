@@ -17,7 +17,7 @@ const keyEnter = document.querySelector(".enter-mobile");
 const keyBackspace = document.querySelector(".delete-mobile");
 const customerMobileDataList = document.getElementById('customer-mobile');
 const customerName = document.getElementById('customer-name');
-const inputMobileElement = document.getElementById("inputCustomer-Mobile");
+const inputMobileElement = document.querySelector(".customer-mobile-input");
 
 const dishContentArea = document.querySelector(".dishes-area");
 const popupArea = document.querySelector(".selectedDishPopup");
@@ -688,6 +688,7 @@ function searchDishByLetter(dishCards) {
         // })
     });
 }
+
 //============Search Customers============
 async function searchCustomers() {
     try {
@@ -714,6 +715,7 @@ async function searchCustomers() {
 
         inputMobileElement.addEventListener('change', function () {
             const selectedMobileNumber = inputMobileElement.value;
+            console.log(selectedMobileNumber);
             const index = mobileNumbers.indexOf(selectedMobileNumber);
 
             if (index !== -1) {

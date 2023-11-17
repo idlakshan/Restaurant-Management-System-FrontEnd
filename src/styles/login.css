@@ -1,0 +1,241 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+
+    width: 95%;
+    height: 98%;
+}
+
+.top{
+
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.headerTitle {
+    border-left: 5px solid var(--primary-color);
+    margin: 0.5%;
+}
+
+.heading {
+    color: var(--secondary-color);
+    padding: 10px;
+    font-size: 2rem;
+}
+
+.body{
+    width: 100%;
+    height: 48%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;;
+}
+
+.body-inner{
+  width: 48%;
+  height: 95%;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+
+ 
+}
+
+.input-container {
+    width: 560px;
+    height: 50px;
+    border: 1px solid #5C6574;
+    margin: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 5px;
+   
+}
+
+.input-container i{
+    margin-right: 6%;
+}
+
+.input-field {
+    border: none;
+    outline: none;
+    background-color: var(--bg-color);
+    font-family: var(--primary-font-family);
+    width: 560px;
+    height: 40px;
+    background-color: white;
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+}
+
+.body-inner-bottom{
+    width: 100%;
+    height: 20%;
+ 
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.footer{
+  
+    width: 100%;
+    height: 40%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.footer-inner{
+    width: 90%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-inner-top{
+    width: 100%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
+
+
+.btn-login {
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+    font-family: var(--primary-font-family);
+    font-size: 1.25rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 255px;
+    height: 48px;
+
+    border-radius: 10px;
+    box-shadow: 10px 10px 8px #8888;
+}
+
+
+
+
+.keypad-login {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: #cecece;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  }
+
+  .keys-login {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
+
+    top: -6%;
+    position: relative;
+  }
+
+  .btns-login {
+    padding: 18px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    color: var(--secondary-color);
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+
+  .wide {
+    grid-column: span 3;
+  }
+
+  .login-numberArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 80%;
+    height: 30%;
+    position:relative;
+    left: 15%;
+    top: -5%;
+  }
+.btn-login-delete{
+    position: relative;
+    left: 143px;
+    width: 117px;
+}
+
+  .keys-numbers{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 8px;
+  }
+
+  .btns-login-number{
+    padding: 16px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    color: var(--secondary-color);
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+
+  .btns-login-number:hover{
+    transform: scale(1.05);
+  }
+
+
+  .btns-login i {
+    font-size: 20px;
+  }
+
+  .btns-login:hover {
+    transform: scale(1.05);
+  }
+
+  .btns-login:focus {
+    outline: none;
+  }

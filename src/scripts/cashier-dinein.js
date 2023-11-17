@@ -73,6 +73,8 @@ const alertWarning = document.querySelector(".alert-warning");
 const closeIconWarning = document.querySelector(".close-warning");
 const progressWarning = document.querySelector(".progress-warning");
 
+let currentlyFocusedInput = null;
+
 // const customerContactPattern = /^(070|071|074|075|076|077|078)[-]?[0-9]{7}$/;
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -80,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
     selectCustomerMobileEvent();
     loadDishes();
     searchCustomers();
-    // paymentType();
     addCustomerEvent();
     loadAllTables();
     setInterval(updateTime, 1000);
@@ -599,7 +600,7 @@ function paymentType(tabNumber) {
     const inputPayCredit = document.querySelector(`#inputpaycredit${tabNumber}`);
     const orderNetTotal = document.querySelector(`#netTotal${tabNumber}`);
     const orderBalance = document.querySelector(`.orderBalance${tabNumber}`);
-    let currentlyFocusedInput = null;
+  
 
     function clearInput(inputElement) {
         inputElement.addEventListener("click", function () {
@@ -633,21 +634,6 @@ function paymentType(tabNumber) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 btnConfrim.addEventListener("click", function () {
     orderConfrimPanel.style.display = "none"
     container.classList.remove("container-disabled")
@@ -670,40 +656,6 @@ orderConfrimPanelClose.addEventListener("click", function () {
 
 
 });
-
-
-// function OrderConfrimEvent(inputField) {
-//     numberkeysOrder.forEach((numberKey) => {
-//         numberKey.addEventListener('click', function (e) {
-//             inputField.value += numberKey.textContent;
-//         })
-//     });
-//     keyBackspaceOrder.addEventListener('click', () => {
-//         inputField.value = inputField.value.slice(0, -1);
-//     });
-//     keyEnterOrder.addEventListener("click", function () {
-
-//     });
-// }
-
-
-// orderDiscount.addEventListener('click', function () {
-//     OrderConfrimEvent(orderDiscount);
-
-// });
-
-// inputPayCash.addEventListener('click', function () {
-//     OrderConfrimEvent(inputPayCash);
-// });
-
-// inputPayCard.addEventListener('click', function () {
-//     OrderConfrimEvent(inputPayCard);
-// });
-
-// inputPayCredit.addEventListener('click', function () {
-//     OrderConfrimEvent(inputPayCredit);
-// });
-
 
 
 //============Search Dishes============

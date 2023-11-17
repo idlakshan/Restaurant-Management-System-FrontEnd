@@ -56,6 +56,17 @@ const keypadButtons = document.querySelectorAll('.btns-addCustomer, .btns-addCus
 const mobileInput = document.getElementById('dnCustomerMobile');
 const nameInput = document.getElementById('dnCustomerName');
 
+const btnConfrim = document.querySelector(".btn-confrim");
+const orderConfrimPanel = document.querySelector(".confrim-orderPanel");
+
+const inPreparingContainer = document.querySelector(".in-preparing-container");
+const btnInPreparing = document.querySelector(".inPreparing-bell");
+const inPreparingContainerClose = document.querySelector(".inPreparing-container-close-icon");
+const readyOrderContainer = document.querySelector("#ready-order-container");
+const btnOrderReady = document.querySelector(".ready-bell");
+const readyOrderClose = document.querySelector(".ready-container-close-icon");
+
+
 let selectedInput;
 
 
@@ -72,6 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
     loadDishes();
     searchCustomers();
     addCustomerEvent();
+    readyOrders();
+    inPreparingOrders();
     // paymentType();
 
 
@@ -1500,8 +1513,95 @@ function searchDishByLetter(dishCards) {
             dishCard.style.display = "block";
         });
 
-        // letterButtons.forEach((letterButton) => {
-        //     letterButton.classList.remove("active")
-        // })
     });
+}
+
+btnConfrim.addEventListener("click", function () {
+    orderConfrimPanel.style.display = "none"
+    container.classList.remove("container-disabled")
+    var orderPanelContent = document.querySelector(".cashier-dinein-right-inner-content-body-middle");
+    orderPanelContent.innerHTML = ""
+    categoryCardListArea.style.display = "flex"
+    dishCardListArea.style.display = "none"
+    alphabetArea.style.display = "none"
+  
+})
+
+orderConfrimPanelClose.addEventListener("click", function () {
+    orderConfrimPanel.style.display = "none"
+    container.classList.remove("container-disabled")
+
+
+});
+
+
+//============load all dinein inPreparingOrders orders and search============ 
+function inPreparingOrders() {
+    btnInPreparing.addEventListener('click', function () {
+        inPreparingContainer.style.display = "block"
+    })
+
+    inPreparingContainerClose.addEventListener('click', function () {
+        inPreparingContainer.style.display = "none"
+    })
+
+    fetch("../json/orders.json")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (orders) {
+            const dineinOrders = document.querySelector(".dinein-orders-inpreparing");
+            let ordersList = "";
+
+            for (let i = 0; i < orders.length; i++) {
+                ordersList += `
+          <tr data-table="${orders[i].table}">
+            <td>${orders[i].orderId}</td>
+            <td>${orders[i].mobile}</td>
+            <td>${orders[i].time}</td>
+            <td>${orders[i].items}</td>
+            <td>${orders[i].size}</td>
+          </tr>
+        `;
+            }
+
+            dineinOrders.innerHTML = ordersList;
+        });
+
+}
+
+
+//============load all dinein ready orders and search============ 
+function readyOrders() {
+    btnOrderReady.addEventListener('click', function () {
+        readyOrderContainer.style.display = "block"
+    })
+
+    readyOrderClose.addEventListener('click', function () {
+        readyOrderContainer.style.display = "none"
+    });
+
+    fetch("../json/orders.json")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (orders) {
+            const dineinOrders = document.querySelector(".dinein-orders-ready");
+            let ordersList = "";
+
+            for (let i = 0; i < orders.length; i++) {
+                ordersList += `
+          <tr data-table="${orders[i].table}">
+            <td>${orders[i].orderId}</td>
+            <td>${orders[i].mobile}</td>
+            <td>${orders[i].time}</td>
+            <td>${orders[i].items}</td>
+            <td>${orders[i].size}</td>
+          </tr>
+        `;
+            }
+
+            dineinOrders.innerHTML = ordersList;
+        });
+
 }

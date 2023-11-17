@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(updateTime, 1000);
     readyOrders();
     inPreparingOrders();
+  
 
 });
 
@@ -588,7 +589,8 @@ function orderPayEvent(subTotal) {
             var calcNetTotal = (newSubTotal - ((newSubTotal * discount) / 100))
             orderNetTotal.innerText = calcNetTotal.toFixed(2);
         });
-        paymentType("One")
+        paymentType("One");
+        confrimOrder();
 
     })
 }
@@ -633,29 +635,33 @@ function paymentType(tabNumber) {
 }
 
 
+function confrimOrder(){
+    btnConfrim.addEventListener("click", function () {
+        orderConfrimPanel.style.display = "none"
+        container.classList.remove("container-disabled")
+        var orderPanelContent = document.querySelector(".cashier-dinein-right-inner-content-body-middle");
+        orderPanelContent.innerHTML = ""
+        fullTakeawayTotalElement.value = ""
+        fullDineinTotalElement.value = ""
+        groupIdInput.value = ""
+        categoryCardListArea.style.display = "flex"
+        tableArea.style.display = "flex"
+        dishCardListArea.style.display = "none"
+        alphabetArea.style.display = "none"
+        orderDiscount.value = "";
+        inputMobileElement.value="";
+        customerName.innerText = "";
+        checkInputTableValue();
+    })
+    
+    orderConfrimPanelClose.addEventListener("click", function () {
+        orderConfrimPanel.style.display = "none"
+        container.classList.remove("container-disabled")
+    
+    
+    });
+}
 
-btnConfrim.addEventListener("click", function () {
-    orderConfrimPanel.style.display = "none"
-    container.classList.remove("container-disabled")
-    var orderPanelContent = document.querySelector(".cashier-dinein-right-inner-content-body-middle");
-    orderPanelContent.innerHTML = ""
-    fullTakeawayTotalElement.value = ""
-    fullDineinTotalElement.value = ""
-    groupIdInput.value = ""
-    categoryCardListArea.style.display = "flex"
-    tableArea.style.display = "flex"
-    dishCardListArea.style.display = "none"
-    alphabetArea.style.display = "none"
-    orderDiscount.value = ""
-    checkInputTableValue();
-})
-
-orderConfrimPanelClose.addEventListener("click", function () {
-    orderConfrimPanel.style.display = "none"
-    container.classList.remove("container-disabled")
-
-
-});
 
 
 //============Search Dishes============

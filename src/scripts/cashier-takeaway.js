@@ -1444,6 +1444,8 @@ function paymentType(tabNumber) {
 
 }
 
+
+
 //===========Confrim Order======================
 function confrimOrder(orderConfrimBtn, totalTab, orderConfrimPanel, orderBody, selectedMobile, selectedName,btnClose) {
     orderConfrimBtn.addEventListener("click", function () {

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../styles/admin/layout.css">
+    <link rel="stylesheet" href="../styles/common-styles.css">
+
+</head>
+
+<body>
+    <main>
+        <aside>
+            <div class="aside-top">
+                <img class="logo" src="../icons/rms_logo.png" height="60px" alt="resturant management system logo" loading="eager">
+                <h1>Restua<span>rant</span></h1>
+            </div>
+
+            <ul class="aside-nav-button-list">
+                <li>
+                    <div class="side-nav-link" id="btn-adminDashboard">
+                        <img src="../icons/dashboard.png" alt="admin-dashboard" loading="eager">
+                        Dashboard
+                    </div>
+                </li>
+
+                <li>
+                    <div class="side-nav-link" id="btn-adminEmployer">
+                        <img src="../icons/user.png" alt="admin-dashboard user" loading="eager">
+                        Employer
+                    </div>
+                </li>
+
+                <li>
+                    <div class="side-nav-link" id="btn-adminDish">
+                        <img src="../icons/dish.png" alt="admin-dashboard dish" loading="eager">
+                        Dish
+                    </div>
+
+                </li>
+
+                <li>
+                    <div class="side-nav-link" id="btn-adminStock">
+                        <img src="../icons/stock.png" alt="admin-dashboard stock" loading="eager">
+                        Stock
+                    </div>
+
+                </li>
+
+                <li>
+                    <div class="side-nav-link" id="btn-adminOrder">
+                        <img src="../icons/order.png" alt="admin-dashboard order" loading="eager">
+                        Order
+                    </div>
+
+                </li>
+
+                <li>
+
+                    <div class="side-nav-link" id="btn-adminReport">
+                        <img src="../icons/customer.png"  width="50px" alt="admin-dashboard report" loading="eager">
+                        Cusomer
+                    </div>
+
+                </li>
+
+                <li>
+
+                    <div class="side-nav-link" id="btn-adminReport">
+                        <img src="../icons/report.png" alt="admin-dashboard report" loading="eager">
+                        Report
+                    </div>
+
+                </li>
+
+            </ul>
+
+
+
+        </aside>
+        <section class="container">
+            <nav class="navbar">
+                <div class="navbar-left">
+                    <img src="../icons/admin-img.png" class="logo" height="50px" alt="admin logo" loading="eager">
+                    <p id="currentDateAndTime">11 NOV 2023 | 9.02 AM</p>
+                </div>
+                <div class="navbar-right">
+                    <label class="switch">
+                        <input type="checkbox" checked id="toTakeAwayToggle">
+                        <span class="slider round" style="font-size: 14px; padding: 10px;"><span
+                                style="color:#F2F2F5; font-size: 14px; margin-left: 6px;">Admin</span>Cashier</span>
+                    </label>
+
+                    <div class="cashier-top-notification">
+                        <img src="../icons/notification-orange.png" class="inPreparing-bell" alt="notifications"
+                            loading="eager" width="35px" height="35px">
+                        <p class="notifications-count">6</p>
+                    </div>
+                    <img class="cashier-logout" src="../icons/logout.png" style="cursor: pointer;" alt="log out"
+                        loading="eager" width="35px" height="35px" id="logOut">
+
+                </div>
+            </nav>
+
+
+
+        </section>
+
+
+
+    </main>
+
+</body>
+
+</html>

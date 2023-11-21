@@ -147,7 +147,8 @@ function selectCategoryCardEvent(categoryCardList) {
             tableArea.style.display = "none"
             dishCardListArea.style.display = "flex"
             alphabetArea.style.display = "flex"
-
+            const titleInnerText = categoryCard.querySelector('.catergory-card-title').innerText;
+            console.log(titleInnerText);
         })
     })
 
@@ -976,3 +977,21 @@ function warningAlert(msg) {
 
 
 
+
+
+
+
+fetch(customer + "one", {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
+    },
+})
+    .then(function (response) {
+        console.log(response);
+        return response.json();
+    })
+    .then(function (customers) {
+        
+    })

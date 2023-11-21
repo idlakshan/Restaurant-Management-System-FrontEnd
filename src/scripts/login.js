@@ -33,7 +33,7 @@ function handleButtonClick(event) {
             selectedInput.value = selectedInput.value.slice(0, -1);
         } else if (buttonValue === 'Space') {
             selectedInput.value += ' ';
-        } else if (/^[a-zA-Z]+$/.test(buttonValue)) {
+        } else if (/^[A-Za-z0-9]$/.test(buttonValue)) {
             selectedInput.value += buttonValue.toLowerCase();
         }
     } else if (selectedInput == passwordInput) {

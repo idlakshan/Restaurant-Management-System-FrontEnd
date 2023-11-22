@@ -1,31 +1,36 @@
+const orderContent=document.querySelector("#order-section")
+
 const datepicker = document.getElementById('date-picker');
-const dataTable = document.getElementById('order');
+const OrderTable = document.getElementById('order');
 const orderIdList = document.querySelector("#dropdown-menu-oid");
 const tableIdList = document.querySelector("#dropdown-menu-tid");
 const employeIdList = document.querySelector("#dropdown-menu-eid");
 
+const orderIdInput = document.querySelector('.dropdown-input-oid');
+const tableIdInput = document.querySelector('.dropdown-input-tid');
+const employeeIdInput = document.querySelector('.dropdown-input-eid');
+const dataTable = document.getElementById('order').getElementsByTagName('tbody')[0];
 
-
-
-
-
+orderIdInput.addEventListener('input', filterTable);
+tableIdInput.addEventListener('input', filterTable);
+employeeIdInput.addEventListener('input', filterTable);
 
 document.addEventListener("DOMContentLoaded", function () {
-    datepicker.addEventListener('change', filterTable);
+    datepicker.addEventListener('change', filterTableByDate);
     getOrderIds();
     getTableIds();
     getEmployeeIds();
-
+    filterTable();
 
 });
 
 
 
 //----------Order search by Date------------------------
-function filterTable() {
+function filterTableByDate() {
     const selectedDate = datepicker.value;
 
-    const rows = dataTable.getElementsByTagName('tr');
+    const rows = OrderTable.getElementsByTagName('tr');
     for (let i = 1; i < rows.length; i++) {
         const row = rows[i];
         const dateCell = row.getElementsByTagName('td')[3]
@@ -57,6 +62,9 @@ async function getOrderIds() {
             option.value = orderId;
             orderIdList.appendChild(option);
         });
+
+
+        
 
     } catch (error) {
         console.error("Error fetching  data:", error);
@@ -110,6 +118,29 @@ async function getEmployeeIds() {
 }
 
 
+function filterTable() {
+    const selectedOrderId = orderIdInput.value.toUpperCase();
+    const selectedTableId = tableIdInput.value.toUpperCase();
+    const selectedEmployeeId = employeeIdInput.value.toUpperCase();
+
+    const rows = dataTable.getElementsByTagName('tr');
+
+    for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        const orderId = cells[0].textContent || cells[0].innerText;
+        const tableId = cells[1].textContent || cells[1].innerText;
+        const employeeId = cells[2].textContent || cells[2].innerText;
+
+        const displayRow =
+            (selectedOrderId === '' || orderId.toUpperCase().includes(selectedOrderId)) &&
+            (selectedTableId === '' || tableId.toUpperCase().includes(selectedTableId)) &&
+            (selectedEmployeeId === '' || employeeId.toUpperCase().includes(selectedEmployeeId));
+
+        rows[i].style.display = displayRow ? '' : 'none';
+
+      
+    }
+}
 
 
 

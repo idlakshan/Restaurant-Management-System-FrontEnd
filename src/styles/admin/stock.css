@@ -1,0 +1,200 @@
+.stock-container{
+    width: 98%;
+    height: 98%;
+    /* border: 1px solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.stock-manage-wrap {
+    width: 100%;
+    height: 55%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    margin-left: 2%;
+    margin-top: 1%;
+}
+.header-wrap-ingredientsManage{
+    /* border: 1px solid green; */
+    width: 100%;
+    height: 15%;
+}
+
+.heading-ingredientsManage{
+    margin-left: 4%;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 2%;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.all-stock-wrap {
+    width: 100%;
+    height: 50%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: 2%;
+ 
+}
+
+.stock-form {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 30px;
+    /* border: 1px solid blue; */
+    flex-wrap: wrap;
+
+}
+
+#stockForm{
+    display: flex;
+    flex-direction: row;
+   
+
+}
+
+.ingredients-form{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 1px solid blue; */
+}
+
+#ingredients-form-inputArea{
+    display: flex;
+    flex-direction: row;   
+    gap: 3%;
+    /* border: 1px solid blue; */
+}
+
+.ingredients-form-btnArea{
+    /* border: 1px solid pink; */
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2%;
+    align-items: center;
+}
+
+.input-field-stock{
+    outline: none;
+    width: 90%;
+    border-radius: 6px;
+    border: 1px solid var(--text-field-border);
+    padding-left: 2%;
+}
+
+
+.form-row {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px;
+    /* border: 1px solid black; */
+    flex-wrap: wrap;
+    margin-top: 1%;
+}
+
+
+.input-field-stock {
+    width: 15rem;
+    height: 2rem;
+}
+
+.stock-btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:20%;
+    height: 80%;
+    gap: 6%;
+    margin-top: 25px;
+   
+}
+
+.stock-btn-container>button {
+    width: 6rem;
+    padding: 5px;
+}
+
+.all-stock-noti-box-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    
+}
+
+.all-stock-noti-wrap {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1%;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+
+
+
+
+
+.all-stock-tbl {
+    max-height: 220px; 
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    /* border: 1px solid green; */
+}
+
+
+
+.header-wrap-stockManage{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.heading--stockManage{
+    margin-left: 4%;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 2%;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.header-wrap-buttonArea{
+    width: 30%;
+    height: 600%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* border: 1px solid black; */
+}

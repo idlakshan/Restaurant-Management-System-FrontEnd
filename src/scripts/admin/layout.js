@@ -88,10 +88,33 @@ $("#btn-adminCustomer").click('on', function () {
 });
 
 
+const dateAndTimeElement = document.getElementById("currentDateAndTime");
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    navigationButtonClickEvent()
+    navigationButtonClickEvent();
+    setInterval(updateTime, 1000);
 
 });
+
+//============date and time============
+function updateTime() {
+    const months = [
+        "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+        "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+    ];
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = months[currentDate.getMonth()];
+    const year = currentDate.getFullYear();
+    const hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+    const amOrpm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+    const formattedDate = `${day} ${month} ${year} | ${formattedHours}.${minutes.toString().padStart(2, '0')} ${amOrpm}`;
+    dateAndTimeElement.innerHTML = formattedDate;
+}
+
 
 //Admin navigation Button Clicked
 function navigationButtonClickEvent() {

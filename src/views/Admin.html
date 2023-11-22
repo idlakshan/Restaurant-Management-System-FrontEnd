@@ -219,10 +219,6 @@
                                     <input class="input-field" type="text" id="userName" placeholder="Employee Name"
                                         name="userName">
                                 </div>
-                                <!-- <div class="input-container">
-                                    <input class="input-field" type="text" id="userPassword" placeholder="Employee Password"
-                                        name="userPassword">
-                                </div> -->
                                 <div class="input-container" id="emp-input-container">
                                     <input class="input-field" type="text" id="userContact"
                                         placeholder="Employee Contact" name="userContact">
@@ -277,6 +273,20 @@
                                     </tr>
                                 </thead>
                                 <tbody id="employeerTable">
+                                    <tr>
+                                        <td>Emp001</td>
+                                        <td>Sanga</td>
+                                        <td>0789878675</td>
+                                        <td>Chef</td>
+                                        <td>Panadura</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emp002</td>
+                                        <td>shewag</td>
+                                        <td>0712345676</td>
+                                        <td>Cashier,Chef</td>
+                                        <td>Panadura</td>
+                                    </tr>
 
 
                                 </tbody>
@@ -597,7 +607,7 @@
                             <input class="input-field-customer-main" type="text"
                             placeholder="Customer Mobile">
 
-                            <select class="input-field-customer-main" name="cars" id="cars">
+                            <select class="input-field-customer-main" name="cars" id="customerStatus">
                                 <option value="">Select Credit Status</option>
                                 <option value="enable">enable</option>
                                 <option value="disable">disable</option>
@@ -621,7 +631,7 @@
                             <button class="btn-submit btn-customer-search">Search</button>
                         </div>
                         <div class="table-container">
-                            <table id="stock">
+                            <table id="customer">
                                 <thead>
                                     <tr>
                                         <th>#Customer ID</th>
@@ -675,6 +685,13 @@
     </main>
     <script src="../lib/jquery-3.6.1.min.js"></script>
     <script src="../scripts/admin/layout.js"></script>
+    <script src="../scripts/admin/dashboard.js"></script>
+    <script src="../scripts/admin/employee.js"></script>
+    <script src="../scripts/admin/dish.js"></script>
+    <script src="../scripts/admin/stock.js"></script>
+    <script src="../scripts/admin/order.js"></script>
+    <script src="../scripts/admin/customer.js"></script>
+    <script src="../scripts/admin/report.js"></script>
 </body>
 
 </html>

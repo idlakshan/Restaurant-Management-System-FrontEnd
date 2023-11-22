@@ -117,6 +117,7 @@
     border: 1px solid var(--text-field-border);
     outline: none;
     border-radius: 5px;
+    width: 15%;
 }
 
 ::-Webkit-calendar-picker-indicator{

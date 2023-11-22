@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../styles/admin/dish.css">
     <link rel="stylesheet" href="../styles/admin/stock.css">
     <link rel="stylesheet" href="../styles/admin/order.css">
+    <link rel="stylesheet" href="../styles/admin/customer.css">
 
 
 </head>
@@ -111,7 +112,7 @@
                 </div>
             </nav>
 
-            <section class="admin-section dashboard" style="display: none;" id="dashboard-section">
+            <section class="admin-section dashboard" style="display: block;" id="dashboard-section">
                 <div class="dashboard-container">
                     <div class="dashboard-left">
                         <div class="dashboard-details">
@@ -465,7 +466,7 @@
                 </div>
             </section>
 
-            <section class="admin-section order" id="order-section" style="display: block;">
+            <section class="admin-section order" id="order-section" style="display: none;">
                 <div class="order-container">
                     <div class="order-header-wrap">
                         <h1 class="order-heading">Order Summary</h3>
@@ -580,6 +581,88 @@
 
             </section>
 
+            <section class="admin-section customer" id="customer-section" style="display: none;">
+                <div class="customer-container">
+                    <div class="customer-header-wrap">
+                        <h1 class="heading-customer">Customer Manage</h3>
+                    </div>
+                    <div class="customer-container-top">
+                        <div class="customer-inputArea">
+                            <input class="input-field-customer-main" type="text"
+                            placeholder="Customer Id" disabled>
+
+                            <input class="input-field-customer-main" type="text"
+                            placeholder="Customer Name">
+
+                            <input class="input-field-customer-main" type="text"
+                            placeholder="Customer Mobile">
+
+                            <select class="input-field-customer-main" name="cars" id="cars">
+                                <option value="">Select Credit Status</option>
+                                <option value="enable">enable</option>
+                                <option value="disable">disable</option>
+                               
+                              </select>
+
+                        </div>
+
+                        <div  class="customer-buttonArea">
+                            <button class="btn-submit" type="button" id="ingredientsSaveBtn">Save</button>
+                            <button class="btn-submit" type="button" id="ingredientsUpdateBtn">Update</button>
+                            <button class="btn-submit" type="button" id="ingredientsDeleteBtn">Delete</button>
+                        </div>
+
+                    </div>
+
+                    <div class="customer-container-bottom">
+                        <div class="customer-searchArea">
+                            <input class="input-field input-field-customer" type="text"
+                            placeholder="Customer Mobile">
+                            <button class="btn-submit btn-customer-search">Search</button>
+                        </div>
+                        <div class="table-container">
+                            <table id="stock">
+                                <thead>
+                                    <tr>
+                                        <th>#Customer ID</th>
+                                        <th>Name</th>
+                                        <th>Mobile</th>
+                                        <th>Credit Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="stock-data-output">
+                                    <tr>
+                                        <td>C-001</td>
+                                        <td>Dasun</td>
+                                        <td>0723478908</td>
+                                        <td>enable</td>
+                                    </tr>
+                                    <tr>
+                                        <td>C-002</td>
+                                        <td>Malinga</td>
+                                        <td>0772345678</td>
+                                        <td>disable</td>
+                                    </tr>
+                                    <tr>
+                                        <td>C-003</td>
+                                        <td>Kalum</td>
+                                        <td>0786543213</td>
+                                        <td>disable</td>
+                                    </tr>
+                                   
+                                </tbody>
+
+
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="admin-section report" id="report-section" style="display: none;">
+            </section>
 
 
 

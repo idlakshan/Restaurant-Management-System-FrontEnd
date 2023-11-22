@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(updateTime, 1000);
     readyOrders();
     inPreparingOrders();
-  
 
 });
 

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../styles/admin/employee.css">
     <link rel="stylesheet" href="../styles/admin/dish.css">
     <link rel="stylesheet" href="../styles/admin/stock.css">
+    <link rel="stylesheet" href="../styles/admin/order.css">
 
 
 </head>
@@ -77,7 +78,6 @@
                 </li>
 
                 <li>
-
                     <div class="side-nav-link" id="btn-adminReport">
                         <img src="../icons/report.png" alt="admin-dashboard report" loading="eager">
                         Report
@@ -86,9 +86,6 @@
                 </li>
 
             </ul>
-
-
-
         </aside>
         <section class="container">
             <nav class="navbar">
@@ -332,7 +329,7 @@
             <section class="admin-section dish" id="dish-section" style="display: none;">
             </section>
 
-            <section class="admin-section stock" id="stock-section" style="display: block;">
+            <section class="admin-section stock" id="stock-section" style="display: none;">
                 <div class="stock-container">
                     <div class="stock-manage-wrap">
                         <div class="header-wrap-ingredientsManage">
@@ -468,6 +465,120 @@
                 </div>
             </section>
 
+            <section class="admin-section order" id="order-section" style="display: block;">
+                <div class="order-container">
+                    <div class="order-header-wrap">
+                        <h1 class="order-heading">Order Summary</h3>
+                    </div>
+                    <div class="order-noti-wrap">
+                        <div class="order-noti-box">
+                            <img src="../images/totalOrders.jpg" alt="" width="50%">
+                            <div>
+                                <p>Total Orders</p>
+                                <aside id="orderCount">+10</aside>
+                            </div>
+                        </div>
+                        <div class="order-noti-box">
+                            <img src="../images/card.jpg" alt="" width="50%">
+                            <div>
+                                <p>Card Total</p>
+                                <aside id="cardCount">00</aside>
+                            </div>
+                        </div>
+                        <div class="order-noti-box">
+                            <img src="../images/cash.png" alt="" width="50%">
+                            <div>
+                                <p>Cash Total</p>
+                                <aside id="cashCount">20</aside>
+                            </div>
+                        </div>
+                        <div class="order-noti-box">
+                            <img src="../images/cardncash.jpg" alt="" width="50%">
+                            <div>
+                                <p>Card & Cash Total</p>
+                                <aside>100</aside>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-table-wrap">
+                        <div class="order-table-filters">
+                            <div class="category-search">
+                                <div class="dropdown">
+                                    <input type="text" class="dropdown-input dropdown-input-oid"
+                                        placeholder="Select Order Id">
+                                    <i class="fas fa-chevron-down dropdown-icon dropdown-icon-oid"></i>
+                                    <div class="dropdown-menu dropdown-menu-oid">
+                                        <!-- Dropdown items will be added here -->
+                                    </div>
+                                </div>
+                                <div class="dropdown">
+                                    <input type="text" class="dropdown-input dropdown-input-tid"
+                                        placeholder="Select Table Id">
+                                    <i class="fas fa-chevron-down dropdown-icon dropdown-icon-tid"></i>
+                                    <div class="dropdown-menu dropdown-menu-tid">
+                                        <!-- Dropdown items will be added here -->
+                                    </div>
+                                </div>
+                                <div class="dropdown">
+                                    <input type="text" class="dropdown-input dropdown-input-eid"
+                                        placeholder="Select Emp Id">
+                                    <i class="fas fa-chevron-down dropdown-icon dropdown-icon-eid"></i>
+                                    <div class="dropdown-menu dropdown-menu-eid">
+                                        <!-- Dropdown items will be added here -->
+                                    </div>
+                                </div>
+                            </div>    
+                            <!-- <input type="date" id="od_date" name="od_date" class="date-picker"> -->
+                            <input type="date" id="date-picker">
+                        </div>
+                        <table id="order">
+                            <thead>
+                                <tr>
+                                    <th>#Order Id</th>
+                                    <th>Table Id</th>
+                                    <th>Waiter Id</th>
+                                    <th>Date & Time</th>
+                                    <th>Customer Id</th>
+                                </tr>
+                            </thead>
+                           <tbody>
+                            <tr>
+                                <td>OD-001</td>
+                                <td>TAB-01</td>
+                                <td>EMP-01</td>
+                                <td>2023-09-10</td>
+                                <td>CUS-001</td>
+                            </tr>
+                            <tr>
+                                <td>OD-002</td>
+                                <td>TAB-02</td>
+                                <td>EMP-02</td>
+                                <td>2023-09-11</td>
+                                <td>CUS-002</td>
+                            </tr>
+                            <tr>
+                                <td>OD-003</td>
+                                <td>TAB-003</td>
+                                <td>EMP-03</td>
+                                <td>2023-09-12</td>
+                                <td>CUS-003</td>
+                            </tr>
+                            <tr>
+                                <td>OD-004</td>
+                                <td>TAB-04</td>
+                                <td>EMP-04</td>
+                                <td>2023-09-12</td>
+                                <td>CUS-004</td>
+                            </tr>
+                           </tbody>
+                            
+                        </table>
+                    </div>
+
+
+                </div>
+
+            </section>
 
 
 
@@ -479,6 +590,7 @@
 
 
     </main>
+    <script src="../lib/jquery-3.6.1.min.js"></script>
     <script src="../scripts/admin/layout.js"></script>
 </body>
 

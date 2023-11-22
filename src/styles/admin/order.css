@@ -1,0 +1,128 @@
+.order-container{
+    width: 98%;
+    height: 98%;
+    /* border: 1px solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-header-wrap{
+    width: 100%;
+    height: 10%;
+    /* border: 1px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.order-heading{
+    margin-left: 4%;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 2%;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.order-noti-wrap {
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 30%;
+    /* border: 1px solid red; */
+    margin-bottom: 1%;
+}
+
+.order-noti-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    width: 22%;
+    height: 95%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.order-noti-box >div>p {
+    font-family: var(--primary-font-family);
+    font-weight: 600;
+    padding: 5px;
+}
+
+.order-noti-box >div>aside {
+    font-family: var(--primary-font-family);
+    font-weight: 800;
+    padding-left: 25px;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.order-table-wrap {
+    width: 100%;
+    height: 60%;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: 2%;
+}
+
+.order-table-filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
+    width: 98%;
+    height: 15%;
+}
+
+.category-search{
+    display: flex;
+    /* border: 1px solid green; */
+    width: 60%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown{
+    outline: none;
+    width: 40%;
+    height: 55%;
+    border-radius: 6px;
+    border: 1px solid var(--text-field-border);
+    padding-left: 2%;
+    margin-left: 2%;
+    display: flex;
+
+}
+.dropdown input{
+   outline: none;
+   border: none;
+}
+
+.dropdown i{
+   padding: 2%;
+}
+
+
+#date-picker{
+    padding: 7px;
+    border: 1px solid var(--text-field-border);
+    outline: none;
+    border-radius: 5px;
+}
+
+::-Webkit-calendar-picker-indicator{
+    background-color:var(--primary-color);
+    padding: 3px;
+    cursor: pointer;
+    border-radius: 4px;
+
+}

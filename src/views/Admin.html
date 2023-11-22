@@ -226,13 +226,13 @@
 
                                 <div class="input-container">
                                     <select id="userRoleOne" name="userRole">
-                                        <option>Admin</option>
-                                        <option>cashier</option>
+                                        <option id="option1" value="Admin">Admin</option>
+                                        <option >cashier</option>
                                         <option>waiter</option>
                                         <option>chef</option>
                                     </select>
                                     <select id="userRoleTwo" name="userRoleTwo">
-                                        <option>Empty</option>
+                                        <option id="option2">Empty</option>
                                         <option>chef</option>
                                         <option>Admin</option>
                                         <option>cashier</option>
@@ -515,28 +515,29 @@
                         <div class="order-table-filters">
                             <div class="category-search">
                                 <div class="dropdown">
-                                    <input type="text" class="dropdown-input dropdown-input-oid"
+                                    <input type="text" list="dropdown-menu-oid" class="dropdown-input dropdown-input-oid"
                                         placeholder="Select Order Id">
-                                    <i class="fas fa-chevron-down dropdown-icon dropdown-icon-oid"></i>
-                                    <div class="dropdown-menu dropdown-menu-oid">
-                                        <!-- Dropdown items will be added here -->
-                                    </div>
+                                    <!-- <i class="fas fa-chevron-down dropdown-icon dropdown-icon-oid"></i> -->
+                                    <!-- <div class="dropdown-menu dropdown-menu-oid">
+                                     
+                                    </div> -->
+                                    <datalist id="dropdown-menu-oid">
+
+                                    </datalist>
                                 </div>
                                 <div class="dropdown">
-                                    <input type="text" class="dropdown-input dropdown-input-tid"
+                                    <input type="text" list="dropdown-menu-tid" class="dropdown-input dropdown-input-tid"
                                         placeholder="Select Table Id">
-                                    <i class="fas fa-chevron-down dropdown-icon dropdown-icon-tid"></i>
-                                    <div class="dropdown-menu dropdown-menu-tid">
-                                        <!-- Dropdown items will be added here -->
-                                    </div>
+                                    <datalist id="dropdown-menu-tid">
+
+                                    </datalist>
                                 </div>
                                 <div class="dropdown">
-                                    <input type="text" class="dropdown-input dropdown-input-eid"
-                                        placeholder="Select Emp Id">
-                                    <i class="fas fa-chevron-down dropdown-icon dropdown-icon-eid"></i>
-                                    <div class="dropdown-menu dropdown-menu-eid">
-                                        <!-- Dropdown items will be added here -->
-                                    </div>
+                                    <input type="text" list="dropdown-menu-eid" class="dropdown-input dropdown-input-eid"
+                                        placeholder="Select Employee Id">
+                                    <datalist id="dropdown-menu-eid">
+
+                                    </datalist>
                                 </div>
                             </div>    
                             <!-- <input type="date" id="od_date" name="od_date" class="date-picker"> -->
@@ -555,30 +556,30 @@
                            <tbody>
                             <tr>
                                 <td>OD-001</td>
-                                <td>TAB-01</td>
-                                <td>EMP-01</td>
-                                <td>2023-09-10</td>
+                                <td>TAB-001</td>
+                                <td>EMP-001</td>
+                                <td>2023-11-21</td>
                                 <td>CUS-001</td>
                             </tr>
                             <tr>
                                 <td>OD-002</td>
-                                <td>TAB-02</td>
-                                <td>EMP-02</td>
-                                <td>2023-09-11</td>
+                                <td>TAB-002</td>
+                                <td>EMP-002</td>
+                                <td>2023-11-21</td>
                                 <td>CUS-002</td>
                             </tr>
                             <tr>
                                 <td>OD-003</td>
                                 <td>TAB-003</td>
-                                <td>EMP-03</td>
-                                <td>2023-09-12</td>
+                                <td>EMP-003</td>
+                                <td>2023-11-23</td>
                                 <td>CUS-003</td>
                             </tr>
                             <tr>
                                 <td>OD-004</td>
-                                <td>TAB-04</td>
-                                <td>EMP-04</td>
-                                <td>2023-09-12</td>
+                                <td>TAB-004</td>
+                                <td>EMP-004</td>
+                                <td>2023-11-22</td>
                                 <td>CUS-004</td>
                             </tr>
                            </tbody>

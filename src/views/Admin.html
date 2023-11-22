@@ -9,9 +9,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <link rel="stylesheet" href="../styles/common-styles.css">
     <link rel="stylesheet" href="../styles/admin/layout.css">
     <link rel="stylesheet" href="../styles/admin/dashboard.css">
-    <link rel="stylesheet" href="../styles/common-styles.css">
+    <link rel="stylesheet" href="../styles/admin/employee.css">
+   
 
 </head>
 
@@ -110,7 +112,7 @@
                 </div>
             </nav>
 
-            <section class="admin-section dashboard" id="dashboard-section">
+            <section class="admin-section dashboard" style="display: none;" id="dashboard-section">
                 <div class="dashboard-container">
                     <div class="dashboard-left">
                         <div class="dashboard-details">                
@@ -141,7 +143,7 @@
                          
                         </div>
                         <div class="dashboard-report">
-                             <!---------report ui eka sadaha wen kara atha---------------->
+                             <!---------report ui eka ---------------->
                         </div>
 
                     </div>
@@ -178,7 +180,7 @@
     
                                         <label class="switch">
                                             <input type="checkbox" checked id="check">
-                                            <span class="slider round"><span
+                                            <span style="padding: 8px;" class="slider round"><span
                                                     style="color:var(--bg-color);">Indoor</span>Outdor</span>
                                         </label>
                                     </div>
@@ -194,13 +196,124 @@
     
                     </div>
                 </div>
-               
-
-
-
             </section>
 
-            <section class="admin-section" style="display: none;">
+            <section class="admin-section employee" id="employee-section">
+                <div class="employee-container">
+                    <div class="employee-container-top">
+
+                        <div class="employee-wrap-left">
+                            <div class="header-wrap">
+                                <h1 class="heading-employee">Employee Manage</h3>
+                            </div>
+                            <img src="../icons/login_icon.png" alt="employer profile" width="18%">
+                            <form action="" class="employee-form" id="userForm">
+                                <div class="input-container" id="emp-input-container">
+                                    <input class="input-field" type="text" id="userId" placeholder="Employee Id"
+                                        name="userId">
+                                </div>
+                                <div class="input-container" id="emp-input-container">
+                                    <input class="input-field" type="text" id="userName" placeholder="Employee Name"
+                                        name="userName">
+                                </div>
+                                <!-- <div class="input-container">
+                                    <input class="input-field" type="text" id="userPassword" placeholder="Employee Password"
+                                        name="userPassword">
+                                </div> -->
+                                <div class="input-container" id="emp-input-container">
+                                    <input class="input-field" type="text" id="userContact" placeholder="Employee Contact"
+                                        name="userContact">
+                                </div>
+                                
+                                <div class="input-container">
+                                    <select id="userRoleOne" name="userRole">
+                                        <option >Admin</option>
+                                        <option >cashier</option>
+                                        <option >waiter</option>
+                                        <option >chef</option>
+                                    </select>
+                                    <select id="userRoleTwo" name="userRoleTwo">
+                                        <option >Empty</option>
+                                        <option >chef</option>
+                                        <option >Admin</option>
+                                        <option >cashier</option>
+                                        <option >waiter</option>
+                                    </select>
+                                </div>
+                                <div class="input-container" id="emp-input-container">
+                                    <input class="input-field" type="text" id="userAddress" placeholder="Employee Address"
+                                        name="userAddress">
+                                </div>
+                                <div class="input-container employee-btnArea" id="emp-input-container">
+                                    <button class="btn-submit" id="saveEmployee" type="button">Save</button>
+                                    <button class="btn-submit" id="updateEmployee" type="button">Update</button>
+                                    <button class="btn-submit" id="deleteEmployee" type="button">Delete</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="employee-wrap-right">
+                            <div class="header-wrap-allEmployee">
+                                <h1 class="heading-AllEmployee">All Employees</h3> 
+                                    <div class="header-wrap-buttonArea">
+                                        <button class="btnDownlod"> <img src="../icons/excel.png" width="25px" alt=""> Download</button>
+                                        <button class="btnDownlod"> <img src="../icons/csv.png" width="25px" alt=""> Download</button>
+                                    </div>
+                               
+                            </div>
+                            <table id="employees">
+                                <thead>
+                                    <tr>
+                                        <th>#Id</th>
+                                        <th>Name</th>
+                                        <th>Contact</th>
+                                        <th>Roles</th>
+                                        <th>Address</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="employeerTable">
+                                          
+                           
+                                </tbody>
+                                
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="employee-container-bottom">
+                        <div class="noti-wrap">
+                            <div class="noti-box-inside">
+                                <img src="../images/admin.jpg" style="width: 150px; height: 120px;" alt="employer">
+                                <p>Manager</p>
+                                <aside>+<p id="adminCount"></p></aside>
+                            </div>
+                        </div>
+                        <div class="noti-wrap">
+                            <div class="noti-box-inside">
+                                <img src="../images/cashier.jpg" style="width: 150px; height: 120px;" alt="employer">
+                                <p>Cashier</p>
+                                <aside>+<p id="cashierCount"></p></aside>
+                            </div>
+                        </div>
+                        <div class="noti-wrap">
+                            <div class="noti-box-inside">
+                                <img src="../images/waiter.jpg" style="width: 150px; height: 120px;" alt="employer">
+                                <p>Waiter</p>
+                                <aside>+<p id="waiterCount"></p></aside>
+                            </div>
+                        </div>
+                        <div class="noti-wrap">
+                            <div class="noti-box-inside">
+                                <img src="../images/chef.jpg" style="width: 150px; height: 120px;" alt="employer">
+                                <p>Chef</p>
+                                <aside>+<p id="chefCount"></p></aside>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </section>
 

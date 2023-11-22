@@ -56,6 +56,7 @@ table {
     padding: 5px;
     overflow-x: scroll;
     margin: 5px;
+  
    
 }
 
@@ -79,7 +80,36 @@ td {
     padding: 5px;
 }
 
-
 .active {
     background: var(--selected-color);
+}
+
+
+.btn-submit {
+    width: 85px;
+    height: 35px;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    color: #FFFFFF;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.btn-submit:hover {
+    font-weight: 600;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.btnDownlod{
+    border-radius: 5px;
+    border: var(--primary-color);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    margin-left: 10px;
+    outline: none;
+    width: auto;
+    width: 50%;
+    padding: 1px;
+ 
 }

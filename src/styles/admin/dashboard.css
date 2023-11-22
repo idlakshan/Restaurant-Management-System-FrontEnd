@@ -203,17 +203,8 @@
 
 }
 
-input:checked + .checkButton{
-    background-color: #EA6D27;
-}
 
-input:checked + .checkButton::after{
-    transform: translateX(60px);
-}
 
-#check{
-    display: none;
-} 
 
 .card-section{
     border: 1px solid green;
